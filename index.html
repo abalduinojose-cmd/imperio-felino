@@ -88,8 +88,17 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .tagline{margin:0 auto;max-width:24ch;font-family:var(--display);font-size:clamp(18px,3.2vw,22px);font-weight:500;line-height:1.3;letter-spacing:-.01em;color:var(--ink-2);text-wrap:balance}
 .tagline .hl{position:relative;color:var(--orange-deep);font-weight:700;white-space:nowrap}
 .tagline .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:-6px;height:9px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M2 7 C 20 2, 40 2, 55 5 S 85 9, 98 3' fill='none' stroke='%23ee4d2d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%}
-.shop-pill{display:inline-flex;align-items:center;gap:8px;margin-top:4px;height:32px;padding:0 12px 0 8px;border-radius:var(--r-pill);background:var(--orange-soft);color:var(--orange-deep);font-size:12.5px;font-weight:800}
-.shop-pill img{height:16px;width:auto}
+.shops{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:6px}
+.shops-label{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.shops-row{display:flex;flex-wrap:nowrap;justify-content:center;gap:6px;max-width:100%}
+.shop-pill{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border-radius:var(--r-pill);flex:0 1 auto;min-width:0;transition:transform .16s var(--ease-out)}
+.shop-pill img{height:17px;width:auto;max-width:100%;object-fit:contain}
+.shop-pill.shopee{background:var(--orange-soft)}
+.shop-pill.amazon{background:#fff3df}
+.shop-pill.amazon img{height:16px;margin-top:3px}
+.shop-pill.ml{background:#fff8c4}
+.shop-pill.ml img{height:21px}
+@media (min-width:720px){.shop-pill{height:40px;padding:0 18px}.shop-pill img{height:19px}.shop-pill.amazon img{height:18px}.shop-pill.ml img{height:24px}}
 
 /* ===== Painel do grupo ===== */
 .offers{margin-top:12px;position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(160deg,#e9f8ef 0%,#f7fdf9 45%,#fff3ee 100%);border:1px solid #dff0e6;border-radius:28px;padding:26px 18px 20px;display:grid;gap:18px;animation:rise .6s var(--ease-out) both}
@@ -246,7 +255,14 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
       </div>
       <h1>Império Felino</h1>
       <p class="tagline">Achadinhos escolhidos com <span class="hl">carinho</span> para quem vive com gatos</p>
-      <span class="shop-pill"><img src="img/logo-shopee.webp" alt="Shopee">Achados selecionados</span>
+      <div class="shops">
+        <span class="shops-label">Achados selecionados</span>
+        <div class="shops-row">
+          <span class="shop-pill shopee"><img src="img/logo-shopee.webp" alt="Shopee"></span>
+          <span class="shop-pill amazon"><img src="img/logo-amazon.png" alt="Amazon"></span>
+          <span class="shop-pill ml"><img src="img/logo-mercadolivre.png" alt="Mercado Livre"></span>
+        </div>
+      </div>
     </div>
   </header>
 
