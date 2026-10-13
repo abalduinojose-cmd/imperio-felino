@@ -572,12 +572,12 @@ var PRODUTOS = [
     return h;
   }
   function mini(p, rank) {
-    return '<a class="mini" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
+    return '<a class="mini" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
       '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>' + badges(p) + '</div>' +
       '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
   }
   function card(p) {
-    return '<a class="card" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored">' +
+    return '<a class="card" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" target="_blank" rel="noopener sponsored">' +
       '<div class="pic"><img src="' + esc(p.img) + '" alt="" loading="lazy">' + badges(p) + '</div>' +
       '<div class="body"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
   }
@@ -597,6 +597,27 @@ var PRODUTOS = [
       '<div class="shelf">' + itens.map(card).join("") + '</div></section>';
   });
   nav.innerHTML = navHtml; wrap.innerHTML = secHtml;
+
+  // ===== Abrir no app no celular =====
+  // Computador: o link abre em outra aba e o site continua aberto na aba dele.
+  // Android: abre direto o app da loja; se o app não estiver instalado, abre o site da loja.
+  // iPhone: abre na mesma aba, o que permite ao iPhone passar o link para o app da loja.
+  var UA = navigator.userAgent;
+  var IS_ANDROID = /Android/i.test(UA);
+  var IS_IOS = /iPhone|iPad|iPod/i.test(UA) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var APP = { shopee: "com.shopee.br", ml: "com.mercadolibre" };
+  function appLink(url, loja) {
+    var u = new URL(url);
+    return "intent://" + u.host + u.pathname + u.search + "#Intent;scheme=https;package=" + (APP[loja] || APP.shopee) +
+      ";S.browser_fallback_url=" + encodeURIComponent(url) + ";end";
+  }
+  window.__appLink = appLink;
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[data-loja]");
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    if (IS_ANDROID) { e.preventDefault(); location.href = appLink(a.href, a.dataset.loja); }
+    else if (IS_IOS) { e.preventDefault(); location.href = a.href; }
+  });
 
   var links = nav.querySelectorAll("a");
   if ("IntersectionObserver" in window) {
