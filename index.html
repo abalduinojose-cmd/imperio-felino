@@ -118,9 +118,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .wa-badge{position:relative;width:58px;height:58px;border-radius:18px;background:#fff;color:#1fb35f;display:grid;place-items:center;box-shadow:0 12px 24px -12px rgba(0,0,0,.45);transform:rotate(-6deg)}
 .wa-badge svg{width:32px;height:32px}
 .wa-badge i{position:absolute;top:-4px;right:-4px;width:14px;height:14px;border-radius:50%;background:#ff4d4d;border:3px solid #12904f}
-.offers h2{font-size:clamp(28px,5vw,46px);font-weight:800;line-height:1.02;letter-spacing:-.035em;max-width:15ch;color:#fff}
-.offers h2 em{font-style:normal;color:#c9ffdc;position:relative;white-space:nowrap}
-.offers .lead{font-size:16px;max-width:34ch;color:rgba(255,255,255,.88)}
+.offers h2{font-size:clamp(34px,7vw,56px);font-weight:800;line-height:.98;letter-spacing:-.04em;max-width:13ch;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.18)}
+.offers h2 em{font-style:normal;color:#0b3d24;position:relative;white-space:nowrap;padding:0 .14em;margin:0 -.04em;border-radius:.18em;background:linear-gradient(100deg,#fff36b,#ffe14d);box-shadow:0 8px 18px -10px rgba(0,0,0,.45);display:inline-block;transform:rotate(-2deg);text-shadow:none}
+.offers .lead{font-size:clamp(17px,2.4vw,20px);font-weight:600;line-height:1.4;max-width:28ch;color:#fff}
+.offers .lead b{color:#fff36b;font-weight:800}
 .peek-thumbs{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2)}
 .peek-thumbs img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-10px;background:#fff}
 .peek-thumbs img:first-child{margin-left:0}
@@ -404,10 +405,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
     <div class="offers-copy">
       <span class="wa-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg><i></i></span>
       <h2 id="grupo-titulo">As ofertas de gato chegam <em>primeiro</em> no grupo</h2>
-      <p class="lead">Quedas de preço e achadinhos novos, direto no seu WhatsApp.</p>
+      <p class="lead">Quedas de preço e achadinhos novos, direto no seu <b>WhatsApp</b>.</p>
       <div class="peek-thumbs" aria-hidden="true">
         <img src="img/p06.jpg" alt=""><img src="img/p22.jpg" alt=""><img src="img/p03.jpg" alt=""><img src="img/p23.jpg" alt="">
-        <span>Ofertas novas toda semana</span>
+        <span>Ofertas novas todos os dias</span>
       </div>
       <div class="actions">
         <a class="btn btn-cta attn" id="btn-grupo" href="#grupo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>Entrar no grupo de ofertas<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
