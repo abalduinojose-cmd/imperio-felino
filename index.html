@@ -181,6 +181,20 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .mini h3{font-family:var(--body);font-size:13px;line-height:1.3;font-weight:700;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
 @media (min-width:600px){.mini h3{font-size:14px}.mini .mb{padding:12px 14px 14px}}
 .mini .go{height:36px;font-size:13px}
+/* Preço, desconto, frete */
+.price{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px;row-gap:0;line-height:1.15;margin-top:-2px}
+.price .from{flex-basis:100%;font-size:11px;font-weight:700;color:var(--muted)}
+.price .now{font-family:var(--display);font-size:19px;font-weight:800;color:var(--orange-deep);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price .was{font-size:12px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.price .note{flex-basis:100%;font-size:11px;font-weight:700;color:var(--muted)}
+.ship{display:inline-flex;align-items:center;gap:5px;align-self:flex-start;font-size:11px;font-weight:800;color:var(--green-deep);background:var(--green-soft);border-radius:6px;padding:3px 7px}
+.ship svg{width:13px;height:13px;flex:none}
+.ship.free{background:var(--green);color:#fff}
+.off{position:absolute;top:8px;right:8px;background:var(--orange);color:#fff;font-family:var(--display);font-weight:800;font-size:12.5px;padding:3px 8px;border-radius:8px;box-shadow:0 4px 10px -4px rgba(238,77,45,.6);font-variant-numeric:tabular-nums}
+.flash{position:absolute;left:8px;bottom:8px;display:inline-flex;align-items:center;gap:3px;background:#ffe14d;color:#5a3d00;font-size:11px;font-weight:800;padding:3px 8px 3px 6px;border-radius:999px;box-shadow:var(--shadow-sm)}
+.flash svg{width:12px;height:12px}
+.checked{margin:4px 0 0;font-size:12px;font-weight:600;color:var(--muted)}
+@media (min-width:600px){.price .now{font-size:21px}}
 .mini:hover .go{background:var(--orange);color:var(--orange-ink)}
 .mini:hover .go svg{transform:translateX(2px)}
 .rank{display:inline-flex;align-items:center;border-radius:var(--r-pill);background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border:1px solid var(--line);font-family:var(--display);font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
@@ -211,7 +225,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .pic img{width:100%;height:100%;object-fit:cover;transition:transform .35s var(--ease-out)}
 .card:hover .pic img{transform:scale(1.03)}
 .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
-.card h3{font-family:var(--body);font-size:14.5px;line-height:1.35;font-weight:700;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card h3{min-height:2.7em;font-family:var(--body);font-size:14.5px;line-height:1.35;font-weight:700;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .go{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:var(--r-pill);background:var(--orange-soft);color:var(--orange-deep);font-weight:800;font-size:13.5px;transition:background-color .2s var(--ease-out),color .2s var(--ease-out)}
 .go svg{width:15px;height:15px;transition:transform .2s var(--ease-out)}
 .card:hover .go{background:var(--orange);color:var(--orange-ink)}
@@ -316,6 +330,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
     <div class="section-head">
       <h2 id="top-titulo">Mais procurados do mês</h2>
       <p class="lead">Os produtos que mais levam gente para a Shopee.</p>
+      <p class="checked">Preços conferidos em <span id="precos-em">13/10/2026</span>. Podem mudar na Shopee.</p>
     </div>
     <div class="top-grid" id="top-grid"></div>
   </section>
@@ -365,29 +380,36 @@ var SECOES = {
 
 // ===== Produtos =====
 // Ordem = ordem de cliques (os 6 primeiros viram "Mais procurados do mês").
-// Para adicionar: salve a foto em img/ e acrescente uma linha { img, nome, cat, link }.
-// Todos os links abaixo redirecionam para a Shopee com utm_source=an_18332531179 (seu ID de afiliado).
+// Todos os links redirecionam para a Shopee com utm_source=an_18332531179 (seu ID de afiliado).
+//
+// Campos de preço (todos opcionais):
+//   preco: preço atual            de: preço antigo (riscado)     desc: % de desconto
+//   aPartir: true quando o produto tem variações com preços diferentes
+//   nota: texto curto ao lado do preço, ex. "no Pix com cupom"
+//   frete: "gratis" (frete grátis) ou "cupom" (frete grátis com cupom)
+//   relampago: true para oferta relâmpago
+var PRECOS_EM = "13/10/2026";
 var PRODUTOS = [
-  { img:"img/p01.jpg", nome:"Conjunto de enfeites natalinos em acrílico em forma de gatinhos", cat:"natal",       link:"https://s.shopee.com.br/AKazSeLJYM" },
-  { img:"img/p02.jpg", nome:"Reprodutor de vídeo Crystal",                                     cat:"fofura",      link:"https://s.shopee.com.br/3g4AT6cPAe" },
-  { img:"img/p03.jpg", nome:"Lagarto robô escalador de parede com controle remoto",            cat:"brinquedos",  link:"https://s.shopee.com.br/4LJHu3OqCU" },
-  { img:"img/p04.jpg", nome:"Brinquedo suspenso de pendurar na porta",                         cat:"brinquedos",  link:"https://s.shopee.com.br/6VO7HDvE75" },
-  { img:"img/p05.jpg", nome:"Relógio criativo Jokercat gato e rato, minimalista unissex",      cat:"fofura",      link:"https://s.shopee.com.br/9pePx7nQX8" },
-  { img:"img/p06.jpg", nome:"Fonte automática para gatos",                                     cat:"alimentacao", link:"https://s.shopee.com.br/9KhYlVvrPM" },
-  { img:"img/p07.jpg", nome:"Luvas umedecidas descartáveis para higiene a seco",               cat:"higiene",     link:"https://s.shopee.com.br/6AkhfmvD0o" },
-  { img:"img/p08.jpg", nome:"Fantasia de gato esqueleto de dinossauro",                        cat:"fofura",      link:"https://s.shopee.com.br/4AziytB2zy" },
-  { img:"img/p09.jpg", nome:"Ração Fórmula Natural Fresh Meat para gatos, 10 kg",              cat:"alimentacao", link:"https://s.shopee.com.br/1gIYPP1ptI" },
-  { img:"img/p10.jpg", nome:"Cápsula de armazenamento de pelos de gato",                       cat:"higiene",     link:"https://s.shopee.com.br/2BEVwopCaM" },
-  { img:"img/p11.jpg", nome:"Areia higiênica Katbom granulado capim-limão, 6 kg",              cat:"higiene",     link:"https://s.shopee.com.br/5VVGyHMl8w" },
-  { img:"img/p12.jpg", nome:"Dispensador de água automático para gatos",                       cat:"alimentacao", link:"https://s.shopee.com.br/5foOQ6Ipn4" },
-  { img:"img/p13.jpg", nome:"Arranhador adesivo design gato em carpete premium",               cat:"casa",        link:"https://s.shopee.com.br/9V12L28byo" },
-  { img:"img/p14.jpg", nome:"Túnel dobrável em T com 3 saídas e janela",                       cat:"brinquedos",  link:"https://s.shopee.com.br/8AVbPdITZ5" },
-  { img:"img/p15.jpg", nome:"Túnel mola interativo dobrável e flexível",                       cat:"brinquedos",  link:"https://s.shopee.com.br/2VrEf305gV" },
-  { img:"img/p16.jpg", nome:"Comedouro pote elevado alto para gato",                           cat:"alimentacao", link:"https://s.shopee.com.br/9KhYmiVgor" },
-  { img:"img/p17.jpg", nome:"Comedouro elevado duplo 230 ml, ergonômico e antiderrapante",     cat:"alimentacao", link:"https://s.shopee.com.br/7pskzhUnik" },
-  { img:"img/p18.jpg", nome:"Playground para gatos, 8 peças em MDF",                           cat:"casa",        link:"https://s.shopee.com.br/5LBQ0e7hTG" },
-  { img:"img/p19.jpg", nome:"Casinha de gato em MDF com arranhador e rampa, 47x30 cm",         cat:"casa",        link:"https://s.shopee.com.br/5VUqCpRtdB" },
-  { img:"img/p20.jpg", nome:"Arranhador para gato com pena e rampa",                           cat:"casa",        link:"https://s.shopee.com.br/7KwUO3SsqC" }
+  { img:"img/p01.jpg", nome:"Conjunto de enfeites natalinos em acrílico em forma de gatinhos", cat:"natal",       link:"https://s.shopee.com.br/AKazSeLJYM", preco:68.42,  de:122.17, desc:44, frete:"cupom" },
+  { img:"img/p02.jpg", nome:"Reprodutor de vídeo Crystal",                                     cat:"fofura",      link:"https://s.shopee.com.br/3g4AT6cPAe", preco:218.75, nota:"no Pix com cupom", frete:"gratis" },
+  { img:"img/p03.jpg", nome:"Lagarto robô escalador de parede com controle remoto",            cat:"brinquedos",  link:"https://s.shopee.com.br/4LJHu3OqCU", preco:79.99,  de:151.98, desc:47, frete:"cupom" },
+  { img:"img/p04.jpg", nome:"Brinquedo suspenso de pendurar na porta",                         cat:"brinquedos",  link:"https://s.shopee.com.br/6VO7HDvE75", preco:94.01,  nota:"no Pix", frete:"cupom" },
+  { img:"img/p05.jpg", nome:"Relógio criativo Jokercat gato e rato, minimalista unissex",      cat:"fofura",      link:"https://s.shopee.com.br/9pePx7nQX8", preco:354.10, nota:"no Pix com cupom", frete:"gratis" },
+  { img:"img/p06.jpg", nome:"Fonte automática para gatos",                                     cat:"alimentacao", link:"https://s.shopee.com.br/9KhYlVvrPM", preco:49.90,  de:100.00, desc:50, frete:"cupom" },
+  { img:"img/p07.jpg", nome:"Luvas umedecidas descartáveis para higiene a seco",               cat:"higiene",     link:"https://s.shopee.com.br/6AkhfmvD0o", preco:14.10,  de:59.90,  desc:76, aPartir:true, frete:"cupom" },
+  { img:"img/p08.jpg", nome:"Fantasia de gato esqueleto de dinossauro",                        cat:"fofura",      link:"https://s.shopee.com.br/4AziytB2zy", preco:73.42,  de:147.96, desc:50, aPartir:true, frete:"cupom" },
+  { img:"img/p09.jpg", nome:"Ração Fórmula Natural Fresh Meat para gatos, 10 kg",              cat:"alimentacao", link:"https://s.shopee.com.br/1gIYPP1ptI", preco:322.20, nota:"no Pix com cupom", frete:"cupom" },
+  { img:"img/p10.jpg", nome:"Cápsula de armazenamento de pelos de gato",                       cat:"higiene",     link:"https://s.shopee.com.br/2BEVwopCaM", preco:4.00,   de:8.10,   desc:51, relampago:true, frete:"cupom" },
+  { img:"img/p11.jpg", nome:"Areia higiênica Katbom granulado capim-limão, 6 kg",              cat:"higiene",     link:"https://s.shopee.com.br/5VVGyHMl8w", preco:62.90,  de:81.90,  desc:23, frete:"cupom" },
+  { img:"img/p12.jpg", nome:"Dispensador de água automático para gatos",                       cat:"alimentacao", link:"https://s.shopee.com.br/5foOQ6Ipn4", preco:34.69,  de:50.86,  desc:32, aPartir:true, frete:"cupom" },
+  { img:"img/p13.jpg", nome:"Arranhador adesivo design gato em carpete premium",               cat:"casa",        link:"https://s.shopee.com.br/9V12L28byo", preco:12.90,  de:49.99,  desc:74, aPartir:true, frete:"cupom" },
+  { img:"img/p14.jpg", nome:"Túnel dobrável em T com 3 saídas e janela",                       cat:"brinquedos",  link:"https://s.shopee.com.br/8AVbPdITZ5", preco:30.41,  de:33.80,  desc:10, aPartir:true, frete:"cupom" },
+  { img:"img/p15.jpg", nome:"Túnel mola interativo dobrável e flexível",                       cat:"brinquedos",  link:"https://s.shopee.com.br/2VrEf305gV", preco:22.99,  frete:"cupom" },
+  { img:"img/p16.jpg", nome:"Comedouro pote elevado alto para gato",                           cat:"alimentacao", link:"https://s.shopee.com.br/9KhYmiVgor", preco:59.90,  aPartir:true, frete:"cupom" },
+  { img:"img/p17.jpg", nome:"Comedouro elevado duplo 230 ml, ergonômico e antiderrapante",     cat:"alimentacao", link:"https://s.shopee.com.br/7pskzhUnik", preco:78.98,  de:100.00, desc:21, frete:"cupom" },
+  { img:"img/p18.jpg", nome:"Playground para gatos, 8 peças em MDF",                           cat:"casa",        link:"https://s.shopee.com.br/5LBQ0e7hTG", preco:78.90,  de:135.99, desc:42, frete:"cupom" },
+  { img:"img/p19.jpg", nome:"Casinha de gato em MDF com arranhador e rampa, 47x30 cm",         cat:"casa",        link:"https://s.shopee.com.br/5VUqCpRtdB", preco:29.85,  de:49.90,  desc:40, relampago:true, frete:"cupom" },
+  { img:"img/p20.jpg", nome:"Arranhador para gato com pena e rampa",                           cat:"casa",        link:"https://s.shopee.com.br/7KwUO3SsqC", preco:39.89,  de:63.89,  desc:38, frete:"cupom" }
 ];
 
 (function () {
@@ -410,16 +432,35 @@ var PRODUTOS = [
   var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   var TREE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l4 6h-2.2l3.2 5h-2.4l3.4 5.5H14v3.5h-4V18.5H6L9.4 13H7l3.2-5H8z"/></svg>';
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  var BOLT = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>';
+  var TRUCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>';
+  function brl(v) { return "R$ " + v.toFixed(2).replace(".", ","); }
+  function badges(p) {
+    return (p.desc ? '<span class="off">-' + p.desc + '%</span>' : '') +
+      (p.relampago ? '<span class="flash">' + BOLT + 'Relâmpago</span>' : '');
+  }
+  function price(p) {
+    if (!p.preco) return '';
+    var h = '<div class="price">';
+    if (p.aPartir) h += '<span class="from">a partir de</span>';
+    h += '<span class="now">' + brl(p.preco) + '</span>';
+    if (p.de) h += '<s class="was">' + brl(p.de) + '</s>';
+    if (p.nota) h += '<span class="note">' + esc(p.nota) + '</span>';
+    h += '</div>';
+    if (p.frete) h += '<span class="ship' + (p.frete === "gratis" ? ' free' : '') + '">' + TRUCK + (p.frete === "gratis" ? 'Frete grátis' : 'Frete grátis c/ cupom') + '</span>';
+    return h;
+  }
   function mini(p, rank) {
     return '<a class="mini" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
-      '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span></div>' +
-      '<div class="mb"><h3>' + esc(p.nome) + '</h3><span class="go">Ver na Shopee ' + ARROW + '</span></div></a>';
+      '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>' + badges(p) + '</div>' +
+      '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + price(p) + '<span class="go">Ver na Shopee ' + ARROW + '</span></div></a>';
   }
   function card(p) {
     return '<a class="card" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored">' +
-      '<div class="pic"><img src="' + esc(p.img) + '" alt="" loading="lazy"></div>' +
-      '<div class="body"><h3>' + esc(p.nome) + '</h3><span class="go">Ver na Shopee ' + ARROW + '</span></div></a>';
+      '<div class="pic"><img src="' + esc(p.img) + '" alt="" loading="lazy">' + badges(p) + '</div>' +
+      '<div class="body"><h3>' + esc(p.nome) + '</h3>' + price(p) + '<span class="go">Ver na Shopee ' + ARROW + '</span></div></a>';
   }
+  var pe = document.getElementById("precos-em"); if (pe) pe.textContent = PRECOS_EM;
   document.getElementById("top-grid").innerHTML = PRODUTOS.slice(0, 6).map(function (p, i) { return mini(p, i + 1); }).join("");
 
   var nav = document.getElementById("catnav"), wrap = document.getElementById("secoes");
