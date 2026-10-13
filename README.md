@@ -35,7 +35,7 @@ Enquanto estiverem vazias, os botões mostram a etiqueta "em breve". O botão fl
 2. Acrescente a linha com o seu link de afiliado.
 3. `cat` precisa ser uma das chaves de `SECOES`: `natal`, `brinquedos`, `alimentacao`, `casa`, `higiene`, `fofura`. A seção `natal` é sazonal: apague a linha dela em `SECOES` quando a temporada acabar. Para criar uma seção nova, adicione uma chave em `SECOES`; a barra de navegação e a seção aparecem sozinhas.
 
-**Preços** — cada produto aceita campos opcionais: `preco`, `de` (preço antigo riscado), `desc` (% de desconto), `aPartir: true` (produto com variações), `nota` (ex.: "no Pix com cupom"), `frete: "gratis"` ou `frete: "cupom"`, e `relampago: true`. Atualize também `PRECOS_EM` com a data da conferência. Os preços da Shopee mudam com frequência; confira antes de divulgar.
+**Preços** — cada produto aceita campos opcionais: `preco`, `de` (preço antigo riscado), `desc` (% de desconto), `aPartir: true` (produto com variações), `nota` (ex.: "no Pix com cupom"), `frete: "gratis"` ou `frete: "cupom"`, `freteMin: 80` (frete grátis acima de um valor), `relampago: true`, `estrelas`, `avaliacoes`, `vendidos` e `parcelas: { n: 12, valor: 7.36 }`. Atualize também `PRECOS_EM` com a data da conferência. Os preços da Shopee mudam com frequência; confira antes de divulgar.
 
 **Mais procurados do mês** — são sempre os 6 primeiros da lista. Reordene a lista para mudar o ranking.
 
