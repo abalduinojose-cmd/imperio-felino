@@ -54,7 +54,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-html,body{background:var(--bg)}
+html,body{background:var(--bg);overflow-x:clip;max-width:100%}
 body{margin:0;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -72,27 +72,23 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .lead{color:var(--ink-2);margin:0;max-width:56ch;text-wrap:pretty}
 
 /* ===== Hero ===== */
-.hero{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding-block:30px 10px}
-.hero::before{content:"";position:absolute;top:-30px;left:50%;width:min(640px,130%);height:300px;transform:translateX(-50%);z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,227,214,.9) 0%,rgba(232,247,238,.7) 50%,transparent 74%);filter:blur(14px)}
-.avatar-wrap{position:relative;width:124px;height:124px;display:grid;place-items:center}
-.avatar-wrap::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 210deg,var(--orange),#ffb199,var(--green),var(--orange));animation:spin 14s linear infinite}
-.avatar{position:relative;width:112px;height:112px;border-radius:50%;object-fit:cover;background:#fff;border:4px solid #fff;box-shadow:var(--shadow-md)}
-@keyframes spin{to{transform:rotate(1turn)}}
-.paw{position:absolute;right:-2px;bottom:0;width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px #fff,var(--shadow-sm);transform:rotate(-12deg)}
-.paw svg{width:21px;height:21px}
-.hero h1{font-size:clamp(34px,5.6vw,50px);font-weight:800;line-height:1;letter-spacing:-.03em}
-.hero .lead{margin:0 auto;font-size:17px;font-weight:500;max-width:34ch}
-.socials{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
-.social{display:inline-flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;border:1px solid var(--line);border-radius:var(--r-pill);background:#fff;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm);transition:transform .16s var(--ease-out),box-shadow .18s var(--ease-out),border-color .18s var(--ease-out)}
-.social:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
-.social:active{transform:scale(.97)}
-.social .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;flex:none}
-.social .ic svg{width:17px;height:17px}
-.social.ig .ic{background:linear-gradient(45deg,#f9a03f 0%,#e4405f 50%,#8a3ab9 100%)}
-.social.fb .ic{background:#1877f2}
-.social .lab{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;text-align:left}
-.social .lab b{font-size:13.5px;font-weight:800}
-.social .lab span{font-size:11.5px;color:var(--muted);font-weight:600}
+.hero{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:36px 16px 34px;border-radius:32px;background:
+  radial-gradient(120% 90% at 50% 0%,#fff1ea 0%,rgba(255,241,234,0) 62%),
+  radial-gradient(circle at 1px 1px,rgba(238,77,45,.10) 1px,transparent 1.4px) 0 0/18px 18px,
+  #fffaf7;border:1px solid #f6e7df;overflow:hidden}
+@media (min-width:720px){.hero{padding:52px 32px 48px}}
+.avatar-wrap{position:relative;width:108px;height:108px}
+.avatar{width:108px;height:108px;border-radius:50%;object-fit:cover;background:#fff;border:4px solid #fff;box-shadow:0 14px 30px -14px rgba(201,58,29,.45),0 2px 6px rgba(27,25,23,.08)}
+.paw{position:absolute;right:-6px;bottom:2px;width:38px;height:38px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;border:3px solid #fff;box-shadow:var(--shadow-sm);transform:rotate(-12deg)}
+.paw svg{width:19px;height:19px}
+.hero h1{font-size:clamp(36px,7vw,56px);font-weight:800;line-height:.98;letter-spacing:-.035em}
+.tagline{margin:0 auto;max-width:22ch;font-family:var(--display);font-size:clamp(19px,3.4vw,24px);font-weight:500;line-height:1.3;letter-spacing:-.01em;color:var(--ink-2);text-wrap:balance}
+.tagline .hl{position:relative;color:var(--orange-deep);font-weight:700;white-space:nowrap}
+.tagline .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:-6px;height:9px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M2 7 C 20 2, 40 2, 55 5 S 85 9, 98 3' fill='none' stroke='%23ee4d2d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:4px 0 0;padding:0;list-style:none}
+.stats li{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 13px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--line);font-size:13px;font-weight:700;color:var(--ink-2);box-shadow:var(--shadow-sm);font-variant-numeric:tabular-nums}
+.stats svg{width:15px;height:15px;color:var(--orange)}
+.stats b{color:var(--ink);font-weight:800}
 
 /* ===== Painel do grupo ===== */
 .offers{margin-top:40px;position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(160deg,#e9f8ef 0%,#f7fdf9 45%,#fff3ee 100%);border:1px solid #dff0e6;border-radius:32px;padding:32px 20px 28px;display:grid;gap:26px;animation:rise .6s var(--ease-out) both}
@@ -109,6 +105,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 @media (min-width:600px){.actions{flex-direction:row;flex-wrap:wrap;max-width:none;width:auto}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:var(--r-pill);font:inherit;font-weight:800;font-size:16px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .16s var(--ease-out),box-shadow .2s var(--ease-out),background-color .2s var(--ease-out),border-color .2s var(--ease-out)}
 .btn svg{width:20px;height:20px;flex:none}
+@media (max-width:420px){.btn{font-size:15px;padding:15px 18px;gap:8px;white-space:nowrap}}
 .btn .arrow{width:16px;height:16px;margin-left:-2px;transition:transform .2s var(--ease-out)}
 .btn:hover .arrow{transform:translateX(3px)}
 .btn:active{transform:scale(.97)}
@@ -160,20 +157,22 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .section.natal .shelf{margin-inline:-20px;padding-inline:20px}
 @media (min-width:720px){.section.natal .shelf{margin-inline:0;padding-inline:0}}
 
-/* Mais procurados: grade de quadrados compactos */
-.top-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media (min-width:600px){.top-grid{gap:14px}}
-@media (min-width:860px){.top-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
-.mini{display:flex;flex-direction:column;gap:8px;min-width:0;text-decoration:none;color:var(--ink);transition:transform .2s var(--ease-out)}
-.mini:hover{transform:translateY(-3px)}
-.mini:active{transform:scale(.97)}
-.mini .sq{position:relative;aspect-ratio:1/1;max-width:100%;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:box-shadow .2s var(--ease-out),border-color .2s var(--ease-out)}
-.mini:hover .sq{box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+/* Mais procurados: 2 por linha no celular, 3 no desktop */
+.top-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:720px){.top-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}
+.mini{display:flex;flex-direction:column;min-width:0;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out),border-color .2s var(--ease-out)}
+.mini:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+.mini:active{transform:scale(.98)}
+.mini .sq{position:relative;aspect-ratio:1/1;max-width:100%;overflow:hidden;background:#fff}
 .mini .sq img{width:100%;height:100%;object-fit:cover;transition:transform .35s var(--ease-out)}
 .mini:hover .sq img{transform:scale(1.04)}
-.mini .rank{position:absolute;top:7px;left:7px;height:22px;padding:0 8px;font-size:12px}
-.mini h3{font-family:var(--body);font-size:12.5px;line-height:1.3;font-weight:700;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;padding-inline:2px}
-@media (min-width:600px){.mini h3{font-size:13.5px}}
+.mini .rank{position:absolute;top:8px;left:8px;height:24px;padding:0 9px;font-size:12.5px}
+.mini .mb{display:flex;flex-direction:column;gap:10px;padding:10px 10px 12px;flex:1}
+.mini h3{font-family:var(--body);font-size:13px;line-height:1.3;font-weight:700;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
+@media (min-width:600px){.mini h3{font-size:14px}.mini .mb{padding:12px 14px 14px}}
+.mini .go{height:36px;font-size:13px}
+.mini:hover .go{background:var(--orange);color:var(--orange-ink)}
+.mini:hover .go svg{transform:translateX(2px)}
 .rank{display:inline-flex;align-items:center;border-radius:var(--r-pill);background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border:1px solid var(--line);font-family:var(--display);font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
 .rank.first{background:var(--orange);color:var(--orange-ink);border-color:var(--orange)}
 
@@ -209,14 +208,18 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .card:hover .go svg{transform:translateX(2px)}
 
 /* ===== Rodapé ===== */
-.foot{margin-top:72px;border-top:1px solid var(--line);padding-block:40px calc(84px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
-.foot .tag-line{font-family:var(--display);font-size:clamp(20px,3vw,26px);font-weight:700;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;margin:0}
-.foot .tag-line svg{width:22px;height:22px;color:var(--orange)}
+.foot{margin-top:72px;border-top:1px solid var(--line);padding-block:40px calc(88px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
+.foot .tag-line{font-family:var(--display);font-size:clamp(20px,3vw,26px);font-weight:700;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.foot .tag-line svg{width:20px;height:20px;color:var(--orange);display:inline-block;vertical-align:-2px;margin-right:6px}
 .foot .where{color:var(--muted);font-size:13px;font-weight:600;margin:0}
-.brands{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 28px}
-.brands img{height:28px;width:auto;object-fit:contain;opacity:.9;transition:opacity .2s var(--ease-out),transform .2s var(--ease-out)}
-.brands img.ml{height:32px}
-.brands img:hover{opacity:1;transform:translateY(-1px)}
+.brands{display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:clamp(14px,5vw,36px);max-width:100%}
+.brands img{height:clamp(20px,5.6vw,30px);width:auto;max-width:30%;object-fit:contain;flex:0 1 auto;min-width:0}
+.brands img.ml{height:clamp(24px,6.6vw,34px)}
+.foot-social{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.foot-social a{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 12px;border-radius:var(--r-pill);border:1px solid var(--line);color:var(--ink-2);font-size:13.5px;font-weight:700;text-decoration:none;transition:border-color .18s var(--ease-out),color .18s var(--ease-out),transform .16s var(--ease-out)}
+.foot-social a:hover{border-color:var(--ink);color:var(--ink)}
+.foot-social a:active{transform:scale(.97)}
+.foot-social svg{width:17px;height:17px}
 
 /* Botão flutuante do grupo */
 .fab{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translate(-50%,0);z-index:20;display:inline-flex;align-items:center;gap:10px;padding:13px 20px 13px 16px;border-radius:var(--r-pill);background:var(--ink);color:#fff;text-decoration:none;font-weight:800;font-size:15px;box-shadow:0 12px 28px -10px rgba(27,25,23,.5);transition:transform .25s var(--ease-out),opacity .25s var(--ease-out);white-space:nowrap}
@@ -233,21 +236,16 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 
   <header class="hero">
     <div class="avatar-wrap">
-      <img class="avatar" src="img/avatar.jpg" alt="Logo Império Felino" width="112" height="112">
+      <img class="avatar" src="img/avatar.jpg" alt="Logo Império Felino" width="108" height="108">
       <span class="paw" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="9.5" r="2.2"/><circle cx="18" cy="9.5" r="2.2"/><circle cx="9.3" cy="5.4" r="2.2"/><circle cx="14.7" cy="5.4" r="2.2"/><path d="M12 10.5c-3.2 0-6 2.7-6 5.5 0 1.9 1.4 3 3.1 3 1.1 0 1.8-.5 2.9-.5s1.8.5 2.9.5c1.7 0 3.1-1.1 3.1-3 0-2.8-2.8-5.5-6-5.5z"/></svg></span>
     </div>
     <h1>Império Felino</h1>
-    <p class="lead">Achadinhos escolhidos com carinho para quem vive com gatos.</p>
-    <nav class="socials" aria-label="Redes sociais">
-      <a class="social ig" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg></span>
-        <span class="lab"><b>Instagram</b><span>@imperiofelino_miau</span></span>
-      </a>
-      <a class="social fb" href="https://www.facebook.com/loja.imperiofelino" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></span>
-        <span class="lab"><b>Facebook</b><span>loja.imperiofelino</span></span>
-      </a>
-    </nav>
+    <p class="tagline">Achadinhos escolhidos com <span class="hl">carinho</span> para quem vive com gatos</p>
+    <ul class="stats">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span><b id="stat-produtos">20</b> achadinhos</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg><span><b id="stat-secoes">6</b> seções</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg><span>Escolhidos a dedo</span></li>
+    </ul>
   </header>
 
   <section class="offers" id="grupo" aria-labelledby="grupo-titulo">
@@ -309,16 +307,17 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
   <div id="secoes"></div>
 
   <footer class="foot">
-    <p class="tag-line">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2 0 3.4 1.1 4.1 2.2h3C14.2 6.1 15.6 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
-      Achadinhos separados com muito carinho
-    </p>
+    <p class="tag-line"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2 0 3.4 1.1 4.1 2.2h3C14.2 6.1 15.6 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>Achadinhos separados com muito carinho</p>
     <p class="where">Onde você encontra os achadinhos</p>
     <div class="brands">
-      <img src="img/logo-shopee.webp" alt="Shopee" height="28">
-      <img src="img/logo-amazon.png" alt="Amazon" height="28">
-      <img class="ml" src="img/logo-mercadolivre.png" alt="Mercado Livre" height="32">
+      <img src="img/logo-shopee.webp" alt="Shopee">
+      <img src="img/logo-amazon.png" alt="Amazon">
+      <img class="ml" src="img/logo-mercadolivre.png" alt="Mercado Livre">
     </div>
+    <nav class="foot-social" aria-label="Redes sociais">
+      <a href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://www.facebook.com/loja.imperiofelino" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg>Facebook</a>
+    </nav>
   </footer>
 
 </div>
@@ -396,7 +395,7 @@ var PRODUTOS = [
   function mini(p, rank) {
     return '<a class="mini" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
       '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span></div>' +
-      '<h3>' + esc(p.nome) + '</h3></a>';
+      '<div class="mb"><h3>' + esc(p.nome) + '</h3><span class="go">Ver na Shopee ' + ARROW + '</span></div></a>';
   }
   function card(p) {
     return '<a class="card" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored">' +
@@ -418,6 +417,8 @@ var PRODUTOS = [
       '<div class="shelf">' + itens.map(card).join("") + '</div></section>';
   });
   nav.innerHTML = navHtml; wrap.innerHTML = secHtml;
+  document.getElementById("stat-produtos").textContent = PRODUTOS.length;
+  document.getElementById("stat-secoes").textContent = nav.querySelectorAll("a").length;
 
   var links = nav.querySelectorAll("a");
   if ("IntersectionObserver" in window) {
