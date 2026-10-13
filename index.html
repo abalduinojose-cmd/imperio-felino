@@ -236,6 +236,32 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .stars .dot{width:3px;height:3px;border-radius:50%;background:var(--line-strong)}
 .inst{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:-4px;font-variant-numeric:tabular-nums}
 .inst b{font-weight:800;color:var(--ink)}
+/* ===== Cupons ===== */
+.coupons{margin-top:10px;scroll-margin-top:16px;padding:22px 12px 16px;border-radius:26px;background:linear-gradient(180deg,#fff1ec,#fff 70%);border:1px solid #fbe0d6;display:flex;flex-direction:column;gap:14px}
+@media (min-width:720px){.coupons{padding:28px 28px 22px}}
+.coupons-head{text-align:center;display:flex;flex-direction:column;gap:4px;align-items:center}
+.coupons-head h2{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.coupons-head p{margin:0;font-size:13.5px;color:var(--muted);font-weight:600;max-width:46ch;text-wrap:pretty}
+.coupon-list{display:grid;gap:10px}
+@media (min-width:720px){.coupon-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+.coupon{position:relative;display:grid;grid-template-columns:104px minmax(0,1fr);min-height:96px;border-radius:16px;background:#fff;text-decoration:none;color:var(--ink);box-shadow:0 1px 2px rgba(27,25,23,.06),0 10px 22px -16px rgba(27,25,23,.35);transition:transform .18s var(--ease-out),box-shadow .2s var(--ease-out)}
+.coupon:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(27,25,23,.06),0 16px 28px -16px rgba(27,25,23,.4)}
+.coupon:active{transform:scale(.985)}
+.coupon .stub{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px 8px;border-radius:16px 0 0 16px;background:linear-gradient(160deg,#ff7a4d,#ee4d2d 55%,#d63a1c);color:#fff}
+.coupon .stub b{font-family:var(--display);font-size:22px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.coupon .stub small{font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.9;margin-top:4px}
+.coupon .stub::after{content:"";position:absolute;right:-1px;top:8px;bottom:8px;width:2px;background:radial-gradient(circle,#fff 1.5px,transparent 2px) 0 0/2px 8px repeat-y}
+.coupon::before,.coupon::after{content:"";position:absolute;left:96px;width:16px;height:16px;border-radius:50%;background:#fff6f2}
+.coupon::before{top:-8px}.coupon::after{bottom:-8px}
+.coupon .info{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:10px 58px 10px 16px;min-width:0}
+.coupon .rule{font-size:14px;font-weight:800;line-height:1.25}
+.coupon .where{font-size:12px;font-weight:700;color:var(--muted)}
+.coupon .when{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:800;color:var(--orange-deep)}
+.coupon .when svg{width:13px;height:13px}
+.coupon .grab{position:absolute;right:10px;top:10px;font-size:11px;font-weight:800;color:var(--orange-deep);background:var(--orange-soft);padding:3px 8px;border-radius:999px}
+.coupon-empty{text-align:center;font-size:14px;font-weight:600;color:var(--ink-2);padding:18px 12px;border-radius:16px;background:#fff;border:1px dashed #f3c9b9}
+.coupons-all{align-self:center;background:var(--ink);color:#fff;box-shadow:0 12px 24px -14px rgba(27,25,23,.6);font-size:15px;padding:14px 22px}
+.coupons-all:hover{transform:translateY(-1px)}
 .how{margin-top:10px;position:relative;isolation:isolate;overflow:hidden;padding:20px 12px 14px;border-radius:26px;background:linear-gradient(135deg,#fff4ee 0%,#fffaf7 48%,#effaf3 100%);border:1px solid #f6e5dc}
 @media (min-width:720px){.how{padding:28px 28px 20px}}
 @media (min-width:980px){.how{display:grid;grid-template-columns:280px minmax(0,1fr);grid-template-areas:"head steps" "guar steps";column-gap:32px;row-gap:10px;align-items:center;padding:28px 32px}.how-head{grid-area:head;align-items:flex-start;text-align:left;margin:0;align-self:end}.steps{grid-area:steps}.guarantee{grid-area:guar;justify-content:flex-start;margin:0;align-self:start;text-align:left}}
@@ -368,7 +394,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
       <p class="lead">Quedas de preço, cupons e achadinhos novos, direto no seu WhatsApp.</p>
       <div class="actions">
         <a class="btn btn-green attn" id="btn-grupo" href="#grupo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>Entrar no grupo de ofertas<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" id="btn-cupons" href="#grupo">
+        <a class="btn btn-ghost" id="btn-cupons" href="#cupons">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2.5 2.5 0 0 0 0 5v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2.5 2.5 0 0 0 0-5z"/><path d="M9 9h.01M15 15h.01M15 9l-6 6"/></svg>
           Cupons de desconto
         </a>
@@ -381,6 +407,15 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
     </div>
   </section>
   </div>
+
+  <section class="coupons" id="cupons" aria-labelledby="cupons-titulo">
+    <div class="coupons-head">
+      <h2 id="cupons-titulo">Cupons da Shopee</h2>
+      <p>Pegue o cupom na Shopee antes de comprar. Eles são limitados e podem acabar antes do prazo.</p>
+    </div>
+    <div class="coupon-list" id="coupon-list"></div>
+    <a class="btn coupons-all" id="btn-cupons-todos" href="#cupons">Ver todos os cupons na Shopee<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </section>
 
   <aside class="how" aria-label="Como funciona">
     <div class="how-head">
@@ -469,7 +504,17 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 // Cole aqui o convite do WhatsApp (https://chat.whatsapp.com/...) ou Telegram (https://t.me/...).
 var GRUPO_URL = "https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK";
 // Cole aqui o link da página de cupons (ex.: sua página de cupons da Shopee com o seu código de afiliado).
-var CUPONS_URL = "";
+var CUPONS_URL = "https://shopee.com.br/m/cupom-de-desconto";
+// TROQUE pelo seu link de afiliado da página de cupons (painel de afiliados > Link personalizado),
+// senão os cliques nos cupons não contam para você.
+
+// ===== Cupons =====
+// Os cupons da Shopee mudam todo dia. "ate" é o fim da validade; depois disso o cupom some sozinho do site.
+var CUPONS = [
+  { valor:"R$ 30 OFF",  regra:"Em compras acima de R$ 299",          onde:"Todas as lojas",      ate:"2026-10-13T23:59:00-03:00" },
+  { valor:"R$ 90 OFF",  regra:"Em compras acima de R$ 899",          onde:"Todas as lojas",      ate:"2026-10-13T23:59:00-03:00" },
+  { valor:"10% de volta", regra:"Em moedas Shopee, até R$ 10 por compra", onde:"Lojas indicadas", ate:"2026-10-31T23:59:00-03:00" }
+];
 
 // ===== Seções =====
 // A ordem aqui é a ordem na página. "natal" é sazonal: apague a linha quando a temporada acabar.
@@ -540,7 +585,6 @@ var PRODUTOS = [
     else { el.classList.add("soon"); el.title = "Link em breve"; }
   }
   wire("btn-grupo", GRUPO_URL);
-  wire("btn-cupons", CUPONS_URL);
   wire("btn-grupo-2", GRUPO_URL);
   var fab = document.getElementById("fab");
   if (GRUPO_URL) { fab.href = GRUPO_URL; fab.target = "_blank"; fab.rel = "noopener"; }
@@ -603,6 +647,36 @@ var PRODUTOS = [
       '<div class="pic"><img src="' + esc(p.img) + '" alt="" loading="lazy">' + badges(p) + '</div>' +
       '<div class="body"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
   }
+  // Cupons: mostra só os que ainda valem
+  (function () {
+    var list = document.getElementById("coupon-list"); if (!list) return;
+    var agora = Date.now();
+    var CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+    function prazo(fim) {
+      var d = new Date(fim), hoje = new Date();
+      var mesmoDia = d.toDateString() === hoje.toDateString();
+      var hh = String(d.getHours()).padStart(2, "0") + "h" + String(d.getMinutes()).padStart(2, "0");
+      return mesmoDia ? "Válido só hoje, até " + hh : "Válido até " + String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0");
+    }
+    var ativos = CUPONS.filter(function (c) { return new Date(c.ate).getTime() > agora; });
+    if (!ativos.length) {
+      list.innerHTML = '<div class="coupon-empty">Os cupons de hoje acabaram. A Shopee libera cupons novos todo dia.</div>';
+      list.style.display = "block";
+    } else {
+      list.innerHTML = ativos.map(function (c) {
+        var partes = c.valor.split(" ");
+        var grande = partes.slice(0, 2).join(" "), pequeno = partes.slice(2).join(" ") || "cupom";
+        if (/%/.test(c.valor)) { grande = partes[0]; pequeno = partes.slice(1).join(" "); }
+        return '<a class="coupon" href="' + esc(CUPONS_URL) + '" target="_blank" rel="noopener sponsored">' +
+          '<span class="stub"><b>' + esc(grande) + '</b><small>' + esc(pequeno) + '</small></span>' +
+          '<span class="info"><span class="rule">' + esc(c.regra) + '</span><span class="where">' + esc(c.onde) + '</span>' +
+          '<span class="when">' + CLOCK + prazo(c.ate) + '</span></span><span class="grab">Pegar</span></a>';
+      }).join("");
+    }
+    var todos = document.getElementById("btn-cupons-todos");
+    if (todos) { todos.href = CUPONS_URL; todos.target = "_blank"; todos.rel = "noopener sponsored"; }
+  })();
+
   var pe = document.getElementById("precos-em"); if (pe) pe.textContent = PRECOS_EM;
   var MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
   var mesN = parseInt(String(PRECOS_EM).split("/")[1], 10);
