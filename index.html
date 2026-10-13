@@ -180,7 +180,8 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .mini .mb{display:flex;flex-direction:column;gap:10px;padding:10px 10px 12px;flex:1}
 .mini h3{font-family:var(--body);font-size:13px;line-height:1.3;font-weight:700;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
 @media (min-width:600px){.mini h3{font-size:14px}.mini .mb{padding:12px 14px 14px}}
-.mini .go{height:36px;font-size:13px}
+.mini .go{height:40px;font-size:13px;gap:6px}
+@media (max-width:380px){.mini .go .bag{display:none}}
 /* Preço, desconto, frete */
 .price{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px;row-gap:0;line-height:1.15;margin-top:-2px}
 .price .from{flex-basis:100%;font-size:11px;font-weight:700;color:var(--muted)}
@@ -193,10 +194,20 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .off{position:absolute;top:8px;right:8px;background:var(--orange);color:#fff;font-family:var(--display);font-weight:800;font-size:12.5px;padding:3px 8px;border-radius:8px;box-shadow:0 4px 10px -4px rgba(238,77,45,.6);font-variant-numeric:tabular-nums}
 .flash{position:absolute;left:8px;bottom:8px;display:inline-flex;align-items:center;gap:3px;background:#ffe14d;color:#5a3d00;font-size:11px;font-weight:800;padding:3px 8px 3px 6px;border-radius:999px;box-shadow:var(--shadow-sm)}
 .flash svg{width:12px;height:12px}
+.stars{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:11.5px;font-weight:700;color:var(--muted);margin-top:-2px;font-variant-numeric:tabular-nums}
+.stars svg{width:13px;height:13px;color:#f5a623}
+.stars b{color:var(--ink);font-weight:800}
+.stars .dot{width:3px;height:3px;border-radius:50%;background:var(--line-strong)}
+.inst{font-size:11.5px;font-weight:700;color:var(--ink-2);margin-top:-4px;font-variant-numeric:tabular-nums}
+.inst b{font-weight:800;color:var(--ink)}
+.how{margin-top:12px;display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:20px;background:#fff8f5;border:1px solid #fbe3da}
+.how .ic{flex:none;width:36px;height:36px;border-radius:12px;background:var(--orange);color:#fff;display:grid;place-items:center}
+.how .ic svg{width:19px;height:19px}
+.how p{margin:0;font-size:13.5px;line-height:1.45;color:var(--ink-2);text-wrap:pretty}
+.how b{color:var(--ink)}
+@media (min-width:720px){.how{align-items:center;padding:16px 22px}.how p{font-size:14.5px}}
 .checked{margin:4px 0 0;font-size:12px;font-weight:600;color:var(--muted)}
 @media (min-width:600px){.price .now{font-size:21px}}
-.mini:hover .go{background:var(--orange);color:var(--orange-ink)}
-.mini:hover .go svg{transform:translateX(2px)}
 .rank{display:inline-flex;align-items:center;border-radius:var(--r-pill);background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border:1px solid var(--line);font-family:var(--display);font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
 .rank.first{background:var(--orange);color:var(--orange-ink);border-color:var(--orange)}
 
@@ -226,10 +237,13 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .card:hover .pic img{transform:scale(1.03)}
 .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
 .card h3{min-height:2.7em;font-family:var(--body);font-size:14.5px;line-height:1.35;font-weight:700;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.go{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:var(--r-pill);background:var(--orange-soft);color:var(--orange-deep);font-weight:800;font-size:13.5px;transition:background-color .2s var(--ease-out),color .2s var(--ease-out)}
-.go svg{width:15px;height:15px;transition:transform .2s var(--ease-out)}
-.card:hover .go{background:var(--orange);color:var(--orange-ink)}
-.card:hover .go svg{transform:translateX(2px)}
+.go{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;height:42px;border-radius:12px;background:linear-gradient(180deg,#f45a3a,#e03d1f);color:#fff;font-weight:800;font-size:14px;letter-spacing:-.005em;box-shadow:0 8px 16px -10px rgba(224,61,31,.8),inset 0 1px 0 rgba(255,255,255,.22);transition:transform .16s var(--ease-out),box-shadow .2s var(--ease-out),filter .2s var(--ease-out)}
+.go svg{width:16px;height:16px;flex:none;transition:transform .2s var(--ease-out)}
+.go .bag{width:17px;height:17px}
+.go{white-space:nowrap}
+@media (max-width:719px){.shelf .go{font-size:13.5px;gap:6px}.shelf .go .bag{display:none}}
+.card:hover .go,.mini:hover .go{filter:brightness(1.06);box-shadow:0 12px 20px -10px rgba(224,61,31,.85)}
+.card:hover .go .ext,.mini:hover .go .ext{transform:translate(1px,-1px)}
 
 /* ===== Rodapé ===== */
 .foot{margin-top:36px;border-top:1px solid var(--line);padding-block:26px calc(80px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
@@ -326,6 +340,11 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
     </div>
   </section>
 
+  <aside class="how" aria-label="Como funciona">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg></span>
+    <p><b>Aqui você não compra de mim.</b> Eu separo os achadinhos, e cada botão leva você direto para a loja. Compra, pagamento e entrega são feitos pela Shopee, com a garantia dela.</p>
+  </aside>
+
   <section class="section featured" id="mais-procurados" aria-labelledby="top-titulo">
     <div class="section-head">
       <h2 id="top-titulo">Mais procurados do mês</h2>
@@ -388,6 +407,8 @@ var SECOES = {
 //   nota: texto curto ao lado do preço, ex. "no Pix com cupom"
 //   frete: "gratis" (frete grátis) ou "cupom" (frete grátis com cupom)
 //   relampago: true para oferta relâmpago
+//   estrelas: nota de 0 a 5   avaliacoes: ex. "3,5 mil"   vendidos: ex. "10 mil"
+//   parcelas: { n: 6, valor: 8.32, semJuros: true }
 var PRECOS_EM = "13/10/2026";
 var PRODUTOS = [
   { img:"img/p01.jpg", nome:"Conjunto de enfeites natalinos em acrílico em forma de gatinhos", cat:"natal",       link:"https://s.shopee.com.br/AKazSeLJYM", preco:68.42,  de:122.17, desc:44, frete:"cupom" },
@@ -395,7 +416,7 @@ var PRODUTOS = [
   { img:"img/p03.jpg", nome:"Lagarto robô escalador de parede com controle remoto",            cat:"brinquedos",  link:"https://s.shopee.com.br/4LJHu3OqCU", preco:79.99,  de:151.98, desc:47, frete:"cupom" },
   { img:"img/p04.jpg", nome:"Brinquedo suspenso de pendurar na porta",                         cat:"brinquedos",  link:"https://s.shopee.com.br/6VO7HDvE75", preco:94.01,  nota:"no Pix", frete:"cupom" },
   { img:"img/p05.jpg", nome:"Relógio criativo Jokercat gato e rato, minimalista unissex",      cat:"fofura",      link:"https://s.shopee.com.br/9pePx7nQX8", preco:354.10, nota:"no Pix com cupom", frete:"gratis" },
-  { img:"img/p06.jpg", nome:"Fonte automática para gatos",                                     cat:"alimentacao", link:"https://s.shopee.com.br/9KhYlVvrPM", preco:49.90,  de:100.00, desc:50, frete:"cupom" },
+  { img:"img/p06.jpg", nome:"Fonte automática para gatos",                                     cat:"alimentacao", link:"https://s.shopee.com.br/9KhYlVvrPM", preco:49.90,  de:100.00, desc:50, frete:"cupom", estrelas:4.9, avaliacoes:"3,5 mil" },
   { img:"img/p07.jpg", nome:"Luvas umedecidas descartáveis para higiene a seco",               cat:"higiene",     link:"https://s.shopee.com.br/6AkhfmvD0o", preco:14.10,  de:59.90,  desc:76, aPartir:true, frete:"cupom" },
   { img:"img/p08.jpg", nome:"Fantasia de gato esqueleto de dinossauro",                        cat:"fofura",      link:"https://s.shopee.com.br/4AziytB2zy", preco:73.42,  de:147.96, desc:50, aPartir:true, frete:"cupom" },
   { img:"img/p09.jpg", nome:"Ração Fórmula Natural Fresh Meat para gatos, 10 kg",              cat:"alimentacao", link:"https://s.shopee.com.br/1gIYPP1ptI", preco:322.20, nota:"no Pix com cupom", frete:"cupom" },
@@ -434,7 +455,21 @@ var PRODUTOS = [
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   var BOLT = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>';
   var TRUCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>';
+  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg>';
+  var BAG = '<svg class="bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>';
+  var EXT = '<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+  var BUY = '<span class="go">' + BAG + 'Comprar na Shopee' + EXT + '</span>';
   function brl(v) { return "R$ " + v.toFixed(2).replace(".", ","); }
+  function stars(p) {
+    var parts = [];
+    if (p.estrelas) parts.push(STAR + '<b>' + p.estrelas.toFixed(1).replace(".", ",") + '</b>' + (p.avaliacoes ? '<span>(' + esc(p.avaliacoes) + ')</span>' : ''));
+    if (p.vendidos) parts.push('<span>' + esc(p.vendidos) + ' vendidos</span>');
+    return parts.length ? '<div class="stars">' + parts.join('<i class="dot"></i>') + '</div>' : '';
+  }
+  function inst(p) {
+    if (!p.parcelas) return '';
+    return '<div class="inst">ou <b>' + p.parcelas.n + 'x de ' + brl(p.parcelas.valor) + '</b>' + (p.parcelas.semJuros ? ' sem juros' : '') + '</div>';
+  }
   function badges(p) {
     return (p.desc ? '<span class="off">-' + p.desc + '%</span>' : '') +
       (p.relampago ? '<span class="flash">' + BOLT + 'Relâmpago</span>' : '');
@@ -446,19 +481,19 @@ var PRODUTOS = [
     h += '<span class="now">' + brl(p.preco) + '</span>';
     if (p.de) h += '<s class="was">' + brl(p.de) + '</s>';
     if (p.nota) h += '<span class="note">' + esc(p.nota) + '</span>';
-    h += '</div>';
+    h += '</div>' + inst(p);
     if (p.frete) h += '<span class="ship' + (p.frete === "gratis" ? ' free' : '') + '">' + TRUCK + (p.frete === "gratis" ? 'Frete grátis' : 'Frete grátis c/ cupom') + '</span>';
     return h;
   }
   function mini(p, rank) {
     return '<a class="mini" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
       '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>' + badges(p) + '</div>' +
-      '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + price(p) + '<span class="go">Ver na Shopee ' + ARROW + '</span></div></a>';
+      '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + BUY + '</div></a>';
   }
   function card(p) {
     return '<a class="card" href="' + esc(p.link) + '" target="_blank" rel="noopener sponsored">' +
       '<div class="pic"><img src="' + esc(p.img) + '" alt="" loading="lazy">' + badges(p) + '</div>' +
-      '<div class="body"><h3>' + esc(p.nome) + '</h3>' + price(p) + '<span class="go">Ver na Shopee ' + ARROW + '</span></div></a>';
+      '<div class="body"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + BUY + '</div></a>';
   }
   var pe = document.getElementById("precos-em"); if (pe) pe.textContent = PRECOS_EM;
   document.getElementById("top-grid").innerHTML = PRODUTOS.slice(0, 6).map(function (p, i) { return mini(p, i + 1); }).join("");
