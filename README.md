@@ -4,7 +4,7 @@ Site estático (um único `index.html` + pasta `img/`). Não precisa de build ne
 
 ## No ar
 
-- Site: https://imperiofelino.com.br/
+- Site: https://www.imperiofelino.com.br/
 - Endereço antigo (redireciona para o domínio): https://abalduinojose-cmd.github.io/imperio-felino/
 - Repositório: https://github.com/abalduinojose-cmd/imperio-felino
 
