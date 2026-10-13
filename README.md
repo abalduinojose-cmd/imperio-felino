@@ -2,6 +2,13 @@
 
 Site estático (um único `index.html` + pasta `img/`). Não precisa de build nem de servidor especial: qualquer hospedagem de arquivos estáticos serve.
 
+## No ar
+
+- Site: https://abalduinojose-cmd.github.io/imperio-felino/
+- Repositório: https://github.com/abalduinojose-cmd/imperio-felino
+
+Todo `git push` na branch `main` atualiza o site em cerca de 1 minuto.
+
 ## Estrutura
 
 - `index.html` — a página inteira (estilo, produtos e script).
