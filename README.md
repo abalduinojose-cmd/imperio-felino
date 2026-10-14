@@ -26,6 +26,8 @@ var CUPONS_URL = "";  // página de cupons
 
 Enquanto estiverem vazias, os botões mostram a etiqueta "em breve". O botão flutuante "Grupo de ofertas", que aparece ao rolar a página, usa o mesmo `GRUPO_URL`.
 
+**Estatísticas** — no fim de `index.html`, preencha `GA_ID` com o ID de medição do Google Analytics 4 (formato `G-XXXXXXXXXX`). O site registra os eventos `entrar_grupo` (com o local do botão), `clique_produto` (produto, loja e local), `clique_cupom` e `clique_rede_social`. Vazio, nenhum contador é carregado.
+
 **Cupons** — no fim de `index.html`, a lista `CUPONS` tem um cupom por linha: `valor`, `regra`, `onde` e `ate` (fim da validade). Cupom vencido some sozinho do site; se todos vencerem, aparece um aviso de que a Shopee libera cupons novos todo dia. `CUPONS_URL` é o link de todos os cartões de cupom e do botão "Ver todos os cupons" — use o seu link de afiliado da página https://shopee.com.br/m/cupom-de-desconto.
 
 **Produtos** — a lista fica no fim de `index.html`, na constante `PRODUTOS`, uma linha por produto:

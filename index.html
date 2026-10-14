@@ -523,6 +523,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 <script>
 // ===== Links do grupo e dos cupons =====
 // Cole aqui o convite do WhatsApp (https://chat.whatsapp.com/...) ou Telegram (https://t.me/...).
+// ===== Estatísticas (Google Analytics 4) =====
+// Cole aqui o ID de medição, no formato G-XXXXXXXXXX. Vazio = o site não carrega nenhum contador.
+var GA_ID = "";
+
 var GRUPO_URL = "https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK";
 // Cole aqui o link da página de cupons (ex.: sua página de cupons da Shopee com o seu código de afiliado).
 var CUPONS_URL = "https://shopee.com.br/m/cupom-de-desconto";
@@ -659,12 +663,12 @@ var PRODUTOS = [
     return h;
   }
   function mini(p, rank) {
-    return '<a class="mini" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
+    return '<a class="mini" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="mais-procurados-' + rank + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
       '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>' + badges(p) + '</div>' +
       '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
   }
   function card(p) {
-    return '<a class="card" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" target="_blank" rel="noopener sponsored">' +
+    return '<a class="card" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="secao-' + p.cat + '" target="_blank" rel="noopener sponsored">' +
       '<div class="pic"><img src="' + esc(p.img) + '" alt="" loading="lazy">' + badges(p) + '</div>' +
       '<div class="body"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
   }
@@ -715,6 +719,34 @@ var PRODUTOS = [
       '<div class="shelf">' + itens.map(card).join("") + '</div></section>';
   });
   nav.innerHTML = navHtml; wrap.innerHTML = secHtml;
+
+  // ===== Estatísticas =====
+  if (GA_ID) {
+    var ga = document.createElement("script"); ga.async = true;
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID);
+  }
+  function track(nome, dados) {
+    if (window.gtag) window.gtag("event", nome, Object.assign({ transport_type: "beacon" }, dados || {}));
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a");
+    if (!a) return;
+    if (a.id === "btn-grupo" || a.id === "btn-grupo-2" || a.id === "fab") {
+      track("entrar_grupo", { local: a.id === "btn-grupo" ? "topo" : a.id === "fab" ? "botao_flutuante" : "antes_do_rodape" });
+    } else if (a.dataset.loja) {
+      track("clique_produto", { produto: a.dataset.nome || "", loja: a.dataset.loja, local: a.dataset.lugar || "" });
+    } else if (a.classList.contains("coupon") || a.hasAttribute("data-coupons-all")) {
+      var st = a.querySelector(".stub");
+      track("clique_cupom", { cupom: st ? [].map.call(st.children, function (x) { return x.textContent; }).join(" ") : "ver_todos" });
+    } else if (a.closest(".foot-social")) {
+      track("clique_rede_social", { rede: a.textContent.trim() });
+    }
+  }, true);
 
   // ===== Abrir no app no celular =====
   // Computador: o link abre em outra aba e o site continua aberto na aba dele.
