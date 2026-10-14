@@ -45,7 +45,7 @@
   --mint:#d7f3e3;
 
   --xmas:#c8102e; --xmas-soft:#fdeeef;   /* seção de Natal */
-  --amazon:#ff9900; --ml:#ffe600; --ml-ink:#2d3277;
+  --ml:#ffe600; --ml-ink:#2d3277;
 
   --shadow-sm:0 1px 2px rgba(27,25,23,.05),0 3px 10px -3px rgba(27,25,23,.08);
   --shadow-md:0 8px 24px -10px rgba(27,25,23,.2),0 2px 6px -2px rgba(27,25,23,.06);
@@ -106,11 +106,9 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .shop-pill{display:inline-flex;align-items:center;justify-content:center;height:30px;padding:0 12px;border-radius:var(--r-pill);flex:0 1 auto;min-width:0;transition:transform .16s var(--ease-out)}
 .shop-pill img{height:15px;width:auto;max-width:100%;object-fit:contain}
 .shop-pill.shopee{background:var(--orange-soft)}
-.shop-pill.amazon{background:#fff3df}
-.shop-pill.amazon img{height:14px;margin-top:3px}
 .shop-pill.ml{background:#fff8c4}
 .shop-pill.ml img{height:18px}
-@media (min-width:720px){.shop-pill{height:40px;padding:0 18px}.shop-pill img{height:19px}.shop-pill.amazon img{height:18px}.shop-pill.ml img{height:24px}}
+@media (min-width:720px){.shop-pill{height:40px;padding:0 18px}.shop-pill img{height:19px}.shop-pill.ml img{height:24px}}
 
 /* ===== Painel do grupo ===== */
 .offers{margin-top:0;position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(155deg,#0b6b40 0%,#12904f 45%,#1fb35f 100%);color:#fff;border-radius:28px;padding:24px 16px 20px;display:grid;justify-items:center;box-shadow:0 24px 48px -28px rgba(15,122,74,.9);animation:rise .6s var(--ease-out) both}
@@ -410,7 +408,6 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
         <span class="shops-label">Achados selecionados</span>
         <div class="shops-row">
           <span class="shop-pill shopee"><img src="img/logo-shopee.webp" alt="Shopee"></span>
-          <span class="shop-pill amazon"><img src="img/logo-amazon.png" alt="Amazon"></span>
           <span class="shop-pill ml"><img src="img/logo-mercadolivre.png" alt="Mercado Livre"></span>
         </div>
       </div>
@@ -507,7 +504,6 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
     <p class="where">Onde você encontra os achadinhos</p>
     <div class="brands">
       <img src="img/logo-shopee.webp" alt="Shopee">
-      <img src="img/logo-amazon.png" alt="Amazon">
       <img class="ml" src="img/logo-mercadolivre.png" alt="Mercado Livre">
     </div>
     <nav class="foot-social" aria-label="Redes sociais">
