@@ -38,7 +38,9 @@ Enquanto estiverem vazias, os botões mostram a etiqueta "em breve". O botão fl
 
 1. Salve a foto em `img/` (quadrada, ~450px).
 2. Acrescente a linha com o seu link de afiliado.
-3. `cat` precisa ser uma das chaves de `SECOES`: `natal`, `brinquedos`, `alimentacao`, `casa`, `higiene`, `fofura`. A seção `natal` é sazonal: apague a linha dela em `SECOES` quando a temporada acabar. Para criar uma seção nova, adicione uma chave em `SECOES`; a barra de navegação e a seção aparecem sozinhas.
+3. `cat` precisa ser uma das chaves de `SECOES`: `natal`, `saude` (Medicamentos), `brinquedos`, `alimentacao`, `casa`, `higiene`, `fofura`. A seção `natal` é sazonal: apague a linha dela em `SECOES` quando a temporada acabar. Para criar uma seção nova, adicione uma chave em `SECOES`; a barra de navegação e a seção aparecem sozinhas. `SECOES_NOTA` mostra um aviso curto embaixo do título de uma seção (hoje usado em Medicamentos).
+
+**Você viu no Instagram** — fica logo depois dos mais procurados. A lista `NO_INSTAGRAM` tem os links dos produtos que apareceram nos vídeos, na ordem de exibição; o produto precisa estar também em `PRODUTOS`. Lista vazia esconde a seção.
 
 **Preços** — cada produto aceita campos opcionais: `preco`, `de` (preço antigo riscado), `desc` (% de desconto), `aPartir: true` (produto com variações), `nota` (ex.: "no Pix com cupom"), `frete: "gratis"` ou `frete: "cupom"`, `freteMin: 80` (frete grátis acima de um valor), `relampago: true`, `estrelas`, `avaliacoes`, `vendidos` e `parcelas: { n: 12, valor: 7.36 }`. Atualize também `PRECOS_EM` com a data da conferência. Os preços da Shopee mudam com frequência; confira antes de divulgar.
 
