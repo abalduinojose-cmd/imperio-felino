@@ -17,9 +17,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Fontes servidas pelo próprio site. "block" espera a fonte chegar (já vem pré-carregada)
+   em vez de mostrar outra fonte e trocar depois, o que fazia o texto pular na abertura. */
+@font-face{font-family:"Outfit";font-style:normal;font-weight:100 900;font-display:block;src:url(fonts/outfit-latin.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:block;src:url(fonts/figtree-latin.woff2) format("woff2")}
+</style>
 <style>
 /* Layout: coluna única centralizada (max 1040px). Hero com avatar → painel do grupo (peça principal, com prévia de mensagem) → "Mais procurados do mês" em grade compacta → seções por categoria (Natal primeiro) → rodapé com marcas. Tema claro único. */
 :root{
@@ -221,22 +226,28 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .insta-copy h2{font-size:clamp(22px,3.4vw,30px);font-weight:800;line-height:1.1}
 .ig-handle{align-self:flex-start;font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none}
 .ig-handle:hover{color:#d62976}
+.reels-nav{display:none;margin-left:auto;gap:8px}
+@media (min-width:720px){.reels-nav{display:flex}}
+.reels-nav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .18s var(--ease-out),transform .16s var(--ease-out),opacity .18s}
+.reels-nav button:hover{border-color:var(--line-strong)}
+.reels-nav button:active{transform:scale(.94)}
+.reels-nav button:disabled{opacity:.35;cursor:default}
+.reels-nav svg{width:18px;height:18px}
 .reels-row{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-8px;padding:0 8px 4px;scroll-padding-inline:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .reels-row::-webkit-scrollbar{display:none}
-.reel{position:relative;isolation:isolate;flex:0 0 44%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;scroll-snap-align:start;text-decoration:none;color:#fff;background:#f2efec;transition:transform .2s var(--ease-out)}
-@media (min-width:480px){.reel{flex-basis:34%}}
-@media (min-width:720px){.reels-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;overflow:visible;margin-inline:0;padding:0}.reel{flex:auto}}
+.reel{position:relative;isolation:isolate;flex:0 0 51%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;scroll-snap-align:start;text-decoration:none;color:#fff;background:#f2efec;transition:transform .2s var(--ease-out)}
+@media (min-width:480px){.reel{flex-basis:39%}}
+@media (min-width:720px){.reels-row{gap:14px}.reel{flex-basis:calc((100% - 42px) / 3.45)}}
+@media (min-width:1100px){.reels-row{margin-inline:0;padding-inline:0}.reel{flex-basis:calc((100% - 56px) / 4.35)}}
 .reel:hover{transform:translateY(-3px)}
 .reel:active{transform:scale(.98)}
 .reel>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease-out)}
 .reel:hover>img{transform:scale(1.05)}
 .reel::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 38%,rgba(0,0,0,.8) 100%)}
-.reel-play{position:absolute;top:10px;left:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.reel-play svg{width:13px;height:13px;margin-left:2px}
 .reel .off{top:10px;right:10px}
 .reel-info{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:3px;padding:12px}
-.reel-info b{font-size:13px;line-height:1.25;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.reel-price{font-family:var(--display);font-size:18px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.reel-info b{font-size:14px;line-height:1.25;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.reel-price{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .reel-price small{font-family:var(--body);font-size:11px;font-weight:700;opacity:.85;margin-right:3px}
 .reel .go{margin-top:7px;height:40px;padding-left:12px;font-size:13.5px;border-radius:12px;box-shadow:0 8px 16px -10px rgba(0,0,0,.6)}
 .reel .go .chip{height:30px;padding:0 8px}
@@ -483,6 +494,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
         <h2 id="insta-titulo">Você viu no Instagram</h2>
         <a class="ig-handle" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener">@imperiofelino_miau</a>
       </div>
+      <div class="reels-nav">
+        <button type="button" data-reels="-1" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" data-reels="1" aria-label="Avançar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
     <div class="reels-row" id="insta-shelf"></div>
   </section>
@@ -722,10 +737,9 @@ var PRODUTOS = [
       '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>' + badges(p) + '</div>' +
       '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
   }
-  var PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>';
   function reel(p) {
     return '<a class="reel' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="instagram" target="_blank" rel="noopener sponsored">' +
-      '<img src="' + esc(p.img) + '" alt="" loading="lazy">' + (p.esgotado ? badges(p) : '<span class="reel-play" aria-hidden="true">' + PLAY + '</span>' + (p.desc ? '<span class="off">-' + p.desc + '%</span>' : '')) +
+      '<img src="' + esc(p.img) + '" alt="" loading="lazy">' + (p.esgotado ? badges(p) : (p.desc ? '<span class="off">-' + p.desc + '%</span>' : '')) +
       '<span class="reel-info"><b>' + esc(p.nome) + '</b>' +
       (p.preco ? '<span class="reel-price">' + (p.aPartir ? '<small>a partir de</small>' : '') + brl(p.preco) + '</span>' : '') +
       buy(p) + '</span></a>';
@@ -774,6 +788,17 @@ var PRODUTOS = [
   var instaSec = document.getElementById("viu-no-instagram");
   if (instaItens.length) document.getElementById("insta-shelf").innerHTML = instaItens.map(reel).join("");
   else if (instaSec) instaSec.hidden = true;
+  (function () {
+    var row = document.getElementById("insta-shelf"), bts = document.querySelectorAll("[data-reels]");
+    function upd() {
+      bts[0].disabled = row.scrollLeft <= 4;
+      bts[1].disabled = row.scrollLeft + row.clientWidth >= row.scrollWidth - 4;
+    }
+    bts.forEach(function (b) {
+      b.addEventListener("click", function () { row.scrollBy({ left: Number(b.dataset.reels) * row.clientWidth * 0.8, behavior: "smooth" }); });
+    });
+    row.addEventListener("scroll", upd, { passive: true }); window.addEventListener("resize", upd); upd();
+  })();
 
   var INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>';
   var nav = document.getElementById("catnav"), wrap = document.getElementById("secoes");
