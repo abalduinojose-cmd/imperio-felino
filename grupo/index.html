@@ -14,24 +14,53 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://www.imperiofelino.com.br/img/avatar.jpg">
 <link rel="icon" href="../img/favicon.ico" sizes="any">
-<!-- Página de passagem dos anúncios: a Meta não aceita chat.whatsapp.com como "site",
-     então o anúncio aponta para cá e a pessoa segue direto para o grupo. -->
-<meta http-equiv="refresh" content="0; url=https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK">
-<script>location.replace("https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK");</script>
+<link rel="preload" href="../fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Página de entrada dos anúncios do grupo (a Meta não aceita chat.whatsapp.com como "site").
+     Mesma página para todos: a pessoa toca no botão e entra no grupo. -->
 <style>
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(160deg,#0e7a45,#17a257);color:#fff;font:600 16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center;padding:24px;box-sizing:border-box}
-img{width:84px;height:84px;border-radius:50%;border:3px solid #fff;margin-bottom:14px}
-h1{font-size:22px;margin:0 0 6px}
-p{margin:0 0 20px;opacity:.9}
-a{display:inline-block;background:#fff;color:#0b3d24;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:999px}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/outfit-latin.woff2) format("woff2")}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:24px 16px;background:linear-gradient(160deg,#0e7a45 0%,#17a257 100%);color:#fff;font:500 16px/1.45 "Outfit",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center}
+main{width:100%;max-width:400px;display:grid;justify-items:center}
+.avatar{width:92px;height:92px;border-radius:50%;border:3px solid #fff;box-shadow:0 14px 30px -12px rgba(0,0,0,.45);background:#fff}
+.live{margin:16px 0 10px;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;letter-spacing:.02em;background:rgba(255,255,255,.16);padding:6px 12px;border-radius:999px}
+.live i{width:8px;height:8px;border-radius:50%;background:#7dffb0;box-shadow:0 0 0 0 rgba(125,255,176,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(125,255,176,0)}100%{box-shadow:0 0 0 0 rgba(125,255,176,0)}}
+h1{margin:0 0 8px;font-size:30px;line-height:1.08;font-weight:800;letter-spacing:-.02em}
+h1 em{font-style:normal;color:#ffe066}
+p.sub{margin:0 0 22px;font-size:16.5px;opacity:.92}
+.btn{width:100%;height:64px;display:flex;align-items:center;gap:12px;padding:0 10px;background:#fff;color:#0b3d24;text-decoration:none;border-radius:999px;font-size:18px;font-weight:800;letter-spacing:-.01em;box-shadow:0 14px 28px -14px rgba(0,0,0,.6);animation:float 3.2s ease-in-out infinite}
+.btn:active{transform:scale(.98)}
+.btn .ic{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#25d366}
+.btn .ic svg{width:26px;height:26px;fill:#fff}
+.btn .tx{flex:1;text-align:left}
+.btn .go{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#0e7a45;color:#fff}
+.btn .go svg{width:20px;height:20px}
+@keyframes float{50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.btn,.live i{animation:none}}
+ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+li{font-size:13.5px;font-weight:700;background:rgba(255,255,255,.14);padding:6px 11px;border-radius:999px}
+.site{margin-top:26px;font-size:13.5px;color:rgba(255,255,255,.85)}
+.site a{color:#fff;font-weight:700}
 </style>
 </head>
 <body>
 <main>
-  <img src="../img/avatar.jpg" alt="Império Felino">
-  <h1>Abrindo o grupo de ofertas…</h1>
-  <p>Achadinhos para o seu gatinho, grátis no WhatsApp.</p>
-  <a href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK">Entrar no grupo</a>
+  <img class="avatar" src="../img/avatar.jpg" alt="Império Felino" width="92" height="92">
+  <span class="live"><i></i>Grupo de ofertas no WhatsApp</span>
+  <h1>Ofertas para quem <em>ama gatos</em></h1>
+  <p class="sub">Achadinhos da Shopee e do Mercado Livre para o seu gatinho, direto no seu WhatsApp.</p>
+  <a class="btn" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></span>
+    <span class="tx">Entrar no grupo</span>
+    <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+  <ul>
+    <li>Grátis</li>
+    <li>Só ofertas, sem spam</li>
+    <li>Sai quando quiser</li>
+  </ul>
+  <p class="site">Veja também os achadinhos em <a href="https://www.imperiofelino.com.br/">imperiofelino.com.br</a></p>
 </main>
 </body>
 </html>
