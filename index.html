@@ -187,12 +187,18 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .chat-head span::before{content:"";width:7px;height:7px;border-radius:50%;background:#25d366}
 .chat-head .wa{margin-left:auto;width:30px;height:30px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center}
 .chat-head .wa svg{width:17px;height:17px}
-.chat-body{padding:14px 12px;display:flex;flex-direction:column;gap:10px;background:radial-gradient(circle at 1px 1px,rgba(15,122,74,.08) 1px,transparent 1.4px) 0 0/14px 14px,#eef4f0}
+.chat-body{position:relative;height:392px;overflow:hidden;justify-content:flex-end;padding:14px 12px;display:flex;flex-direction:column;gap:10px;background:radial-gradient(circle at 1px 1px,rgba(15,122,74,.08) 1px,transparent 1.4px) 0 0/14px 14px,#eef4f0}
 .msg-card{align-self:flex-start;width:min(92%,330px);background:#fff;border-radius:18px 18px 18px 6px;padding:8px;box-shadow:0 2px 6px -2px rgba(0,0,0,.12);color:var(--ink)}
 .msg-card.alt{align-self:flex-end;border-radius:18px 18px 6px 18px;background:#e7fbe6}
-.chat-body .msg-card{opacity:0;transform:translateY(10px) scale(.97);transform-origin:left bottom;transition:opacity .35s var(--ease-out),transform .35s var(--ease-out)}
-.chat-body .msg-card.in{opacity:1;transform:none}
-.chat-body.reset .msg-card{transition:opacity .4s ease}
+.chat-body .msg-card{flex:none;animation:msgIn .45s var(--ease-out) both;transform-origin:left bottom}
+.chat-body .msg-card.out{animation:msgOut .4s var(--ease-out) forwards}
+@keyframes msgIn{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes msgOut{to{opacity:0;transform:translateY(-12px) scale(.96)}}
+.chat-body .typing{flex:none;display:inline-flex;gap:4px;padding:10px 14px;background:#fff;border-radius:16px 16px 16px 6px;width:max-content;box-shadow:0 2px 6px -2px rgba(0,0,0,.12);animation:msgIn .3s var(--ease-out) both}
+.chat-body .typing i{width:6px;height:6px;border-radius:50%;background:#b9b1a9;animation:dots 1.2s infinite}
+.chat-body .typing i:nth-child(2){animation-delay:.15s}.chat-body .typing i:nth-child(3){animation-delay:.3s}
+@keyframes dots{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.msg-new{display:inline-block;margin-left:6px;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#25d366;border-radius:4px;padding:1px 5px;vertical-align:1px}
 .msg-preview{display:flex;gap:10px;align-items:center;background:rgba(0,0,0,.035);border-radius:12px;padding:6px}
 .msg-preview img{width:46px;height:46px;border-radius:10px;object-fit:cover;flex:none}
 .msg-preview .t{font-size:12.5px;font-weight:800;line-height:1.25}
@@ -589,12 +595,8 @@ var CUPONS_URL = "https://s.shopee.com.br/4VdYgRkqAr";
 // ===== Cupons =====
 // Os cupons da Shopee mudam todo dia. "ate" é o fim da validade; depois disso o cupom some sozinho do site.
 var CUPONS = [
-  { valor:"R$ 20 OFF",  regra:"Compras acima de R$ 189", onde:"Todas as lojas",        ate:"2026-10-14T23:59:00-03:00" },
-  { valor:"R$ 30 OFF",  regra:"Compras acima de R$ 279", onde:"Todas as lojas",        ate:"2026-10-14T23:59:00-03:00" },
-  { valor:"R$ 40 OFF",  regra:"Compras acima de R$ 329", onde:"Todas as lojas",        ate:"2026-10-14T23:59:00-03:00" },
-  { valor:"R$ 50 OFF",  regra:"Compras acima de R$ 409", onde:"Todas as lojas",        ate:"2026-10-14T23:59:00-03:00" },
-  { valor:"R$ 100 OFF", regra:"Compras acima de R$ 799", onde:"Todas as lojas",        ate:"2026-10-14T23:59:00-03:00" },
-  { valor:"R$ 25 OFF",  regra:"Compras acima de R$ 100", onde:"Produtos Shopee Full",  ate:"2026-10-14T23:59:00-03:00" }
+  { valor:"R$ 30 OFF",  regra:"Compras acima de R$ 299", onde:"Todas as lojas",        ate:"2026-10-15T23:59:00-03:00" },
+  { valor:"R$ 90 OFF",  regra:"Compras acima de R$ 899", onde:"Todas as lojas",        ate:"2026-10-15T23:59:00-03:00" }
 ];
 
 // ===== Seções =====
@@ -614,11 +616,14 @@ var SECOES_NOTA = {
 };
 
 // ===== Prévia do grupo de ofertas =====
-// As 3 ofertas que aparecem chegando na prévia do WhatsApp (links que estão na lista de produtos).
+// Ofertas que vão chegando, uma por vez, na prévia do WhatsApp (links que estão na lista de produtos).
 var NO_GRUPO = [
   "https://s.shopee.com.br/9KhYlVvrPM",  // fonte automática
   "https://s.shopee.com.br/7faY4QJkAl",  // difusor de feromônio
-  "https://s.shopee.com.br/7pu2CAOo78"   // lagarto robô
+  "https://s.shopee.com.br/7pu2CAOo78",  // lagarto robô
+  "https://s.shopee.com.br/9KiobfFxkr",  // toca 6 funções
+  "https://s.shopee.com.br/AAHwyXVVIk",  // brinquedo giratório de porta
+  "https://s.shopee.com.br/AAHvzX68Hu"   // antipulgas Frontline
 ];
 
 // ===== Você viu no Instagram =====
@@ -646,7 +651,7 @@ var NO_INSTAGRAM = [
 //   esgotado: true quando a loja estiver sem estoque (o card fica marcado como esgotado)
 //   estrelas: nota de 0 a 5   avaliacoes: ex. "3,5 mil"   vendidos: ex. "10 mil"
 //   parcelas: { n: 12, valor: 7.36 }  (máximo de parcelas no cartão, como a Shopee mostra)
-var PRECOS_EM = "14/10/2026";
+var PRECOS_EM = "15/10/2026";
 var PRODUTOS = [
   // ----- Mais procurados do mês (6 primeiros) -----
   { img:"img/p01.jpg", nome:"Conjunto de enfeites natalinos em acrílico em forma de gatinhos", cat:"natal",       link:"https://s.shopee.com.br/AKazSeLJYM", preco:68.42,  de:122.17, desc:44, frete:"cupom", estrelas:4.3, avaliacoes:"4",       vendidos:"63",      parcelas:{n:12, valor:6.64} },
@@ -654,7 +659,7 @@ var PRODUTOS = [
   { img:"img/p02.jpg", nome:"Reprodutor de vídeo Crystal",                                     cat:"fofura",      link:"https://s.shopee.com.br/3g4AT6cPAe", preco:219.36, nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"26", parcelas:{n:12, valor:22.40} },
   { img:"img/p03.jpg", nome:"Lagarto robô escalador de parede com controle remoto",            cat:"brinquedos",  link:"https://s.shopee.com.br/7pu2CAOo78", preco:79.68,  de:111.50, desc:29, frete:"cupom", estrelas:5.0, avaliacoes:"30",      vendidos:"123",     parcelas:{n:12, valor:7.73} },
   { img:"img/p04.jpg", nome:"Brinquedo suspenso de pendurar na porta",                         cat:"brinquedos",  link:"https://s.shopee.com.br/6VO7HDvE75", preco:93.06,  nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"24", vendidos:"98", parcelas:{n:12, valor:9.50} },
-  { img:"img/p23.jpg", nome:"Petisco Temptations anti bola de pelo, kit com 2 de 80 g",        cat:"alimentacao", link:"https://s.shopee.com.br/qkDjQRDpR",  preco:38.60,  nota:"com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"808", vendidos:"1 mil+", parcelas:{n:7, valor:6.19}, esgotado:true },
+  { img:"img/p23.jpg", nome:"Petisco Temptations anti bola de pelo, caixa com 12 de 40 g",     cat:"alimentacao", link:"https://s.shopee.com.br/6fi4sBhgZF", preco:94.90,  desc:32, frete:"cupom", vendidos:"902" },
   // ----- Demais produtos -----
   { img:"img/p05.jpg", nome:"Relógio criativo Jokercat gato e rato, minimalista unissex",      cat:"fofura",      link:"https://s.shopee.com.br/9pePx7nQX8", preco:355.09, nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"12", parcelas:{n:12, valor:36.27} },
   { img:"img/p06.jpg", nome:"Fonte automática para gatos",                                     cat:"alimentacao", link:"https://s.shopee.com.br/9KhYlVvrPM", preco:49.90,  de:100.00, desc:50, frete:"cupom", estrelas:4.9, avaliacoes:"3,5 mil", vendidos:"8 mil+",  parcelas:{n:9,  valor:6.31} },
@@ -677,6 +682,10 @@ var PRODUTOS = [
   { img:"img/p25.jpg", nome:"Porta-retrato com patinha em massa de modelar",                   cat:"fofura",      link:"https://s.shopee.com.br/70Kgth4jyY", preco:74.68,  nota:"com cupom", frete:"cupom", estrelas:4.6, avaliacoes:"27", vendidos:"116", parcelas:{n:12, valor:7.25} },
   { img:"img/p26.jpg", nome:"Assento-ninho de carro para passeio com pets",                    cat:"casa",        link:"https://s.shopee.com.br/1VzoJnW9la", preco:230.97, nota:"no Pix com cupom", frete:"cupom", parcelas:{n:12, valor:23.59} },
   { img:"img/p37.jpg", nome:"Toca de feltro túnel donut 6 funções",                            cat:"casa",        link:"https://s.shopee.com.br/9KiobfFxkr", preco:79.90,  de:175.00, desc:54, frete:"cupom", estrelas:4.9, avaliacoes:"298",     vendidos:"737",     parcelas:{n:12, valor:7.75} },
+  { img:"img/p38.jpg", nome:"Brinquedo giratório elétrico de corda elástica para pendurar na porta", cat:"brinquedos", link:"https://s.shopee.com.br/AAHwyXVVIk", preco:29.99,  de:79.99,  desc:63, frete:"cupom", estrelas:4.9, avaliacoes:"1 mil",   vendidos:"3 mil+",  parcelas:{n:5,  valor:6.66} },
+  { img:"img/p39.jpg", nome:"Arranhador com bolinha anti-estresse",                            cat:"brinquedos",  link:"https://s.shopee.com.br/1qcp3Fiox3", preco:7.99,   de:18.90,  desc:58, aPartir:true, frete:"cupom", estrelas:4.2, avaliacoes:"62", vendidos:"323" },
+  { img:"img/p40.jpg", nome:"Torre arranhador natalina 90 cm com casinha",                     cat:"natal",       link:"https://s.shopee.com.br/9APPml2l9B", preco:305.95, nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"4", vendidos:"19", parcelas:{n:12, valor:31.25} },
+  { img:"img/p41.jpg", nome:"Árvore de Natal interativa com catnip, bolinhas e sinos",         cat:"natal",       link:"https://s.shopee.com.br/gQrf9d2tK",  preco:38.89,  frete:"cupom", parcelas:{n:7,  valor:6.23} },
   // ----- Medicamentos -----
   { img:"img/p31.jpg", nome:"Antipulgas Frontline Top Spot para gatos, 1 pipeta",              cat:"saude",       link:"https://s.shopee.com.br/AAHvzX68Hu", preco:29.42,  de:42.94,  desc:31, frete:"cupom", estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"7 mil+",  parcelas:{n:5,  valor:6.53} },
   { img:"img/p32.jpg", nome:"Antipulgas Credeli para gatos de 2,1 a 8 kg, 1 comprimido",       cat:"saude",       link:"https://s.shopee.com.br/5q8wpaM5UH", preco:60.90,  de:79.90,  desc:24, frete:"cupom", estrelas:5.0, avaliacoes:"479",     vendidos:"1 mil+",  parcelas:{n:12, valor:5.91} },
@@ -821,31 +830,47 @@ var PRODUTOS = [
     row.addEventListener("scroll", upd, { passive: true }); window.addEventListener("resize", upd); upd();
   })();
 
-  // Prévia do grupo: 3 ofertas chegando uma de cada vez (preços puxados da lista de produtos)
+  // Prévia do grupo: ofertas chegando como num chat de verdade (digitando… e a mensagem aparece)
   (function () {
     var body = document.getElementById("chat-body"); if (!body) return;
-    var horas = ["09:12", "12:40", "18:05"];
-    var itens = NO_GRUPO.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean).slice(0, 3);
-    body.innerHTML = itens.map(function (p, i) {
+    var itens = NO_GRUPO.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
+    if (!itens.length) return;
+    var MAX = 3, i = 0, timer = null, minutos = 9 * 60 + 12;
+    function hora() { minutos = (minutos + 37 + Math.floor(Math.random() * 50)) % (24 * 60); return String(Math.floor(minutos / 60)).padStart(2, "0") + ":" + String(minutos % 60).padStart(2, "0"); }
+    function msg(p, nova) {
+      var d = document.createElement("div"); d.className = "msg-card";
       var loja = p.loja === "ml" ? "mercadolivre.com.br" : "shopee.com.br";
-      return '<div class="msg-card"><div class="msg-preview"><img src="' + esc(p.img) + '" alt=""><div><div class="t">' + esc(p.nome) + '</div><div class="d">' + loja + '</div></div></div>' +
+      d.innerHTML = '<div class="msg-preview"><img src="' + esc(p.img) + '" alt=""><div><div class="t">' + esc(p.nome) + '</div><div class="d">' + loja + '</div></div></div>' +
         '<p class="msg-text">' + (p.desc ? '<span class="tag">-' + p.desc + '%</span>' : '') + (p.de ? 'Caiu pra ' : 'Por ') + '<b>' + brl(p.preco) + '</b>' + (p.de ? ' <s>' + brl(p.de) + '</s>' : '') + '</p>' +
-        '<div class="msg-meta">' + horas[i] + '</div></div>';
-    }).join("");
-    var cards = body.querySelectorAll(".msg-card");
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { cards.forEach(function (c) { c.classList.add("in"); }); return; }
-    var i = 0, timer = null, visivel = false;
-    function passo() {
-      if (i < cards.length) { cards[i].classList.add("in"); i++; timer = setTimeout(passo, i < cards.length ? 1100 : 3200); }
-      else { body.classList.add("reset"); cards.forEach(function (c) { c.classList.remove("in"); }); i = 0; timer = setTimeout(function () { body.classList.remove("reset"); passo(); }, 700); }
+        '<div class="msg-meta">' + (nova ? '<span class="msg-new">nova</span>' : '') + hora() + '</div>';
+      return d;
     }
-    // só anima quando a prévia aparece na tela
-    new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting && !visivel) { visivel = true; timer = setTimeout(passo, 300); }
-        else if (!e.isIntersecting && visivel) { visivel = false; clearTimeout(timer); }
-      });
-    }, { threshold: 0.35 }).observe(body);
+    function tirarVelhas() {
+      var cards = body.querySelectorAll(".msg-card:not(.out)");
+      for (var k = 0; k < cards.length - MAX; k++) {
+        (function (c) { c.classList.add("out"); setTimeout(function () { if (c.parentNode) c.parentNode.removeChild(c); }, 400); })(cards[k]);
+      }
+      body.querySelectorAll(".msg-new").forEach(function (n, idx, all) { if (idx < all.length - 1) n.remove(); });
+    }
+    function naTela() {
+      var r = body.getBoundingClientRect();
+      return document.visibilityState === "visible" && r.bottom > 0 && r.top < window.innerHeight;
+    }
+    function proxima() {
+      if (!naTela()) { timer = setTimeout(proxima, 800); return; }
+      var t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>";
+      body.appendChild(t);
+      timer = setTimeout(function () {
+        t.remove();
+        body.appendChild(msg(itens[i % itens.length], true)); i++;
+        tirarVelhas();
+        timer = setTimeout(proxima, 2400);
+      }, 1100);
+    }
+    // começa já com 2 mensagens na tela
+    for (var k = 0; k < Math.min(2, itens.length); k++) { body.appendChild(msg(itens[i % itens.length], false)); i++; }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { body.appendChild(msg(itens[i % itens.length], false)); return; }
+    timer = setTimeout(proxima, 600);
   })();
 
   var INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>';
