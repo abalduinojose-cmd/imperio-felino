@@ -2,13 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Grupo de ofertas Império Felino</title>
+<title>Achadinhos de Gateiro · Grupo de ofertas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Grupo de ofertas no WhatsApp com achadinhos da Shopee e do Mercado Livre para gatos. Grátis, sem spam, sai quando quiser.">
 <meta name="theme-color" content="#04170f">
 <link rel="canonical" href="https://www.imperiofelino.com.br/grupo/">
-<meta property="og:title" content="Grupo de ofertas Império Felino">
-<meta property="og:description" content="As ofertas para gato chegam primeiro no grupo. Grátis no WhatsApp.">
+<meta property="og:title" content="Achadinhos de Gateiro · Grupo de ofertas no WhatsApp">
+<meta property="og:description" content="Gateiro de verdade não perde achadinhos! Ofertas e cupons para você e seu gato, grátis no WhatsApp.">
 <meta property="og:url" content="https://www.imperiofelino.com.br/grupo/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -52,36 +52,44 @@ a{color:inherit}
 .avatar img{width:100%;height:100%;border-radius:50%;background:#fff;position:relative;z-index:1;box-shadow:0 0 0 4px rgba(255,255,255,.95)}
 .avatar::before{content:"";position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(from 0deg,var(--wa),var(--mint),var(--yellow),var(--wa));filter:blur(18px);opacity:.55;animation:spin 8s linear infinite}
 .avatar .dot{position:absolute;z-index:2;right:4px;bottom:6px;width:24px;height:24px;border-radius:50%;background:var(--wa);border:4px solid var(--bg-2);display:grid;place-items:center}
-.avatar .dot::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 .live{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--mint);background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);padding:7px 14px;border-radius:999px;margin-bottom:18px}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:pulse 1.8s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(125,255,176,.7)}70%{box-shadow:0 0 0 9px rgba(125,255,176,0)}100%{box-shadow:0 0 0 0 rgba(125,255,176,0)}}
 
-h1{margin:0 0 16px;font:800 clamp(38px,10vw,64px)/1 var(--display);letter-spacing:-.04em;text-wrap:balance}
+h1{margin:0 0 14px;font:800 clamp(36px,9.4vw,60px)/1.02 var(--display);letter-spacing:-.04em;text-wrap:balance}
+.hook{margin:0 auto 12px;max-width:22em;font:700 clamp(18px,4.4vw,22px)/1.3 var(--display);letter-spacing:-.01em;color:var(--text);text-wrap:balance}
 h1 em{font-style:normal;background:linear-gradient(90deg,var(--yellow),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{margin:0 auto 28px;max-width:30em;font-size:clamp(16.5px,2.6vw,19px);line-height:1.5;color:var(--muted);text-wrap:balance}
 .sub b{color:var(--text)}
 
-/* Botão principal */
-.cta{position:relative;display:flex;align-items:center;gap:12px;width:100%;max-width:420px;height:68px;margin:0 auto;padding:0 10px;color:#04170f;text-decoration:none;border-radius:999px;
-  background:linear-gradient(180deg,#45e886 0%,var(--wa) 55%,var(--wa-2) 100%);font:800 19px/1 var(--display);letter-spacing:-.015em;
-  box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 18px 40px -12px rgba(37,211,102,.65),0 0 60px -10px rgba(37,211,102,.5);transition:transform .2s var(--ease),box-shadow .2s var(--ease);overflow:hidden}
-.cta:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,255,255,.3) inset,0 22px 46px -12px rgba(37,211,102,.75),0 0 70px -8px rgba(37,211,102,.6)}
+/* Botão principal: cartão arredondado com anel pulsando, ícone em vidro e texto em duas linhas */
+.cta{position:relative;isolation:isolate;display:flex;align-items:center;gap:14px;width:100%;max-width:440px;min-height:76px;margin:0 auto;padding:10px 10px 10px 12px;color:#fff;text-decoration:none;text-align:left;border-radius:26px;
+  background:linear-gradient(135deg,#34e47d 0%,#1fbf5f 50%,#0f9a4b 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -3px 0 rgba(0,0,0,.14) inset,0 22px 46px -18px rgba(37,211,102,.9),0 0 70px -18px rgba(37,211,102,.7);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.cta:hover{transform:translateY(-3px);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -3px 0 rgba(0,0,0,.14) inset,0 28px 54px -18px rgba(37,211,102,1),0 0 80px -14px rgba(37,211,102,.8)}
 .cta:active{transform:scale(.98)}
-.cta::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));animation:shine 3.4s ease-in-out 1s infinite;pointer-events:none}
+.cta::after{content:"";position:absolute;inset:-7px;border-radius:32px;border:2px solid rgba(37,211,102,.55);z-index:-1;animation:ring 2.4s var(--ease) infinite;pointer-events:none}
+@keyframes ring{0%{opacity:.9;transform:scale(.97)}80%,100%{opacity:0;transform:scale(1.06)}}
+.cta .shine{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none}
+.cta .shine::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.4),rgba(255,255,255,0));animation:shine 3.6s ease-in-out 1s infinite}
 @keyframes shine{0%{left:-60%}35%,100%{left:130%}}
-.cta .ic{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#fff}
-.cta .ic svg{width:27px;height:27px;fill:var(--wa-2)}
-.cta .tx{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cta .go{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#04170f;color:#fff;transition:transform .2s var(--ease)}
-.cta:hover .go{transform:translateX(3px)}
-.cta .go svg{width:20px;height:20px}
+.cta .ic{flex:none;width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);box-shadow:0 6px 14px -6px rgba(0,0,0,.3)}
+.cta .ic svg{width:28px;height:28px;fill:#fff}
+.cta .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.cta .tx b{font:800 19.5px/1.05 var(--display);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 0 rgba(0,0,0,.12)}
+.cta .tx small{font:700 12.5px/1 var(--body);color:rgba(255,255,255,.88);white-space:nowrap}
+.cta .go{flex:none;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#fff;color:#0f9a4b;box-shadow:0 8px 16px -8px rgba(0,0,0,.4)}
+.cta .go svg{width:21px;height:21px;animation:nudge 1.8s var(--ease) infinite}
+@keyframes nudge{0%,60%,100%{transform:none}30%{transform:translateX(4px)}}
 
-.perks{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.perks li{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;background:var(--glass);border:1px solid var(--glass-line);padding:7px 12px;border-radius:999px}
-.perks svg{width:15px;height:15px;color:var(--mint)}
+.perks{list-style:none;margin:22px auto 0;padding:6px;width:100%;max-width:440px;display:grid;grid-template-columns:repeat(3,1fr);border-radius:22px;background:var(--glass);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.perks li{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;padding:11px 4px 10px;font:700 13px/1.2 var(--display)}
+.perks li+li::before{content:"";position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--glass-line)}
+.perks i{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(125,255,176,.13);border:1px solid rgba(125,255,176,.25);color:var(--mint)}
+.perks svg{width:18px;height:18px}
 .stores{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:22px;font-size:13.5px;color:var(--muted);font-weight:600}
 .stores .pill{display:inline-flex;align-items:center;height:32px;padding:0 11px;border-radius:10px;background:#fff}
 .stores img{height:18px;width:auto}
@@ -130,13 +138,25 @@ h2{margin:0 0 10px;font:800 clamp(28px,6vw,40px)/1.06 var(--display);letter-spac
 
 .glass{background:var(--glass);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 
-/* Como funciona */
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-@media (min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}}
-.steps li{border-radius:22px;padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:10px}
-.steps .n{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;font:800 20px/1 var(--display);color:#04170f;background:linear-gradient(160deg,var(--mint),var(--wa));box-shadow:0 10px 24px -10px rgba(37,211,102,.8)}
-.steps b{display:block;font:800 18px/1.2 var(--display)}
-.steps span{color:var(--muted);font-size:14.5px;line-height:1.45}
+/* Economia + como funciona */
+.hl{background:linear-gradient(90deg,var(--yellow),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
+.eco{display:grid;grid-template-columns:repeat(3,1fr);max-width:520px;margin:0 auto;padding:6px;border-radius:24px}
+.eco div{position:relative;padding:18px 6px 16px}
+.eco div+div::before{content:"";position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--glass-line)}
+.eco strong{display:block;margin-bottom:7px;font:800 clamp(24px,6.6vw,34px)/1 var(--display);letter-spacing:-.03em;background:linear-gradient(90deg,var(--yellow),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
+.eco span{display:block;font-size:12.5px;line-height:1.3;color:var(--muted)}
+.steps{list-style:none;margin:34px auto 0;padding:0;max-width:460px;text-align:left}
+.steps li{position:relative;display:flex;gap:16px;padding-bottom:26px}
+.steps li:last-child{padding-bottom:0}
+.steps li:not(:last-child)::before{content:"";position:absolute;left:25px;top:58px;bottom:6px;width:2px;border-radius:2px;background:linear-gradient(rgba(37,211,102,.7),rgba(37,211,102,.1))}
+.steps .n{flex:none;width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:rgba(37,211,102,.13);border:1px solid rgba(37,211,102,.35);color:var(--mint)}
+.steps .n svg{width:24px;height:24px}
+.steps li.win .n{background:linear-gradient(160deg,var(--mint),var(--wa));border-color:transparent;color:#04170f;box-shadow:0 12px 28px -10px rgba(37,211,102,.9)}
+.steps li > div{padding-top:4px}
+.steps b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:800 18.5px/1.2 var(--display);margin-bottom:4px}
+.steps b em{font:800 11px/1 var(--body);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:#04170f;background:var(--yellow);padding:4px 7px;border-radius:6px}
+.steps span{color:var(--muted);font-size:15px;line-height:1.45}
+.fine{margin:18px auto 0;font-size:12px;color:rgba(226,255,238,.45)}
 
 /* Perguntas */
 .faq{display:grid;gap:10px;text-align:left}
@@ -159,7 +179,7 @@ footer a{font-weight:700;color:var(--mint)}
 /* Botão fixo no celular */
 .sticky{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:20;transform:translateY(150%);transition:transform .35s var(--ease)}
 .sticky.on{transform:none}
-.sticky .cta{height:60px;font-size:17.5px}
+.sticky .cta{min-height:66px;padding:8px 8px 8px 10px}.sticky .cta::after{display:none}.sticky .cta .ic{width:46px;height:46px}.sticky .cta .go{width:44px;height:44px}
 
 /* Aparece ao rolar */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -176,19 +196,20 @@ footer a{font-weight:700;color:var(--mint)}
   <header class="hero">
     <div class="avatar"><img src="../img/avatar.jpg" alt="Império Felino" width="104" height="104"><span class="dot" aria-hidden="true"></span></div>
     <span class="live"><i aria-hidden="true"></i>Grupo de ofertas no WhatsApp</span>
-    <h1>As ofertas para gato chegam <em>primeiro</em> no grupo</h1>
-    <p class="sub">Brinquedos, arranhadores, caminhas, fontes e petiscos com <b>desconto e cupom</b> da Shopee e do Mercado Livre, direto no seu WhatsApp.</p>
+    <h1>Gateiro de verdade não perde <em>achadinhos!</em></h1>
+    <p class="hook">Entre no grupo e receba as melhores ofertas para você e seu gato!</p>
+    <p class="sub">Brinquedos, arranhadores, caminhas, fontes e petiscos para seu gato com <b>ofertas e cupons</b> da Shopee e do Mercado Livre, direto no seu WhatsApp!</p>
 
     <a class="cta js-grupo" id="cta-top" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></span>
-      <span class="tx">Entrar no grupo agora</span>
+      <span class="shine" aria-hidden="true"></span><span class="tx"><b>Entrar no grupo agora</b><small>Grátis · direto no WhatsApp</small></span>
       <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
 
     <ul class="perks">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Grátis</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Só ofertas, sem spam</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Sai quando quiser</li>
+      <li><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></i>100% grátis</li>
+      <li><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></i>Zero spam</li>
+      <li><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></i>Sai quando quiser</li>
     </ul>
     <div class="stores">Ofertas de <span class="pill"><img src="../img/logo-shopee.webp" alt="Shopee"></span><span class="pill"><img src="../img/logo-mercadolivre.png" alt="Mercado Livre"></span></div>
 
@@ -197,22 +218,28 @@ footer a{font-weight:700;color:var(--mint)}
       <div class="float f2" aria-hidden="true"><span>🏷️</span>Saiu cupom!</div>
       <div class="phone">
         <div class="screen">
-          <div class="wa-head"><img src="../img/avatar.jpg" alt=""><div><b>Ofertas Império Felino 🐱</b><small>grupo · ofertas todos os dias</small></div></div>
+          <div class="wa-head"><img src="../img/avatar.jpg" alt=""><div><b>Achadinhos de Gateiro 🐱</b><small>grupo · ofertas todos os dias</small></div></div>
           <div class="chat" id="chat" aria-live="off"></div>
         </div>
       </div>
     </div>
   </header>
 
-  <section class="reveal" aria-labelledby="t-como">
-    <span class="kick">Como funciona</span>
-    <h2 id="t-como">Em 3 passos, sem complicação</h2>
-    <p class="lead">Você não precisa fazer cadastro nem pagar nada.</p>
+  <section class="reveal" aria-labelledby="t-eco">
+    <span class="kick">Economia de verdade</span>
+    <h2 id="t-eco">Quem está no grupo <span class="hl">economiza</span></h2>
+    <p class="lead">Você recebe o aviso na hora em que o preço cai ou sai cupom, e compra pagando menos.</p>
+    <div class="eco glass">
+      <div><strong>até 63%</strong><span>de desconto nas ofertas do grupo</span></div>
+      <div><strong>R$ 95</strong><span>a menos numa só caminha donut</span></div>
+      <div><strong>+ cupons</strong><span>da Shopee e do Mercado Livre</span></div>
+    </div>
     <ol class="steps">
-      <li class="glass"><span class="n">1</span><b>Entre no grupo</b><span>Um toque no botão e pronto.</span></li>
-      <li class="glass"><span class="n">2</span><b>Receba as ofertas</b><span>Preço caiu ou saiu cupom? Você fica sabendo primeiro.</span></li>
-      <li class="glass"><span class="n">3</span><b>Compre na loja</b><span>Direto na Shopee ou no Mercado Livre, com a garantia da loja.</span></li>
+      <li><span class="n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span><div><b>Entre no grupo</b><span>Um toque no botão. Grátis e sem cadastro.</span></div></li>
+      <li><span class="n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><div><b>Receba o alerta</b><span>Preço caiu ou saiu cupom? Você fica sabendo primeiro.</span></div></li>
+      <li class="win"><span class="n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg></span><div><b>Compre mais barato <em>economia</em></b><span>Direto na Shopee ou no Mercado Livre, com a garantia da loja.</span></div></li>
     </ol>
+    <p class="fine">Exemplos com preços vistos no site em 15/10/2026; na loja o preço pode mudar.</p>
   </section>
 
   <section class="reveal" aria-labelledby="t-faq">
@@ -232,7 +259,7 @@ footer a{font-weight:700;color:var(--mint)}
     <p>Entre agora e veja as próximas ofertas antes de todo mundo.</p>
     <a class="cta js-grupo" id="cta-final" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></span>
-      <span class="tx">Entrar no grupo</span>
+      <span class="shine" aria-hidden="true"></span><span class="tx"><b>Quero economizar</b><small>Entrar no grupo grátis</small></span>
       <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
   </div>
@@ -246,7 +273,7 @@ footer a{font-weight:700;color:var(--mint)}
 <div class="sticky" id="sticky" aria-hidden="true">
   <a class="cta js-grupo" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener" tabindex="-1">
     <span class="ic"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></span>
-    <span class="tx">Entrar no grupo de ofertas</span>
+    <span class="shine"></span><span class="tx"><b>Entrar no grupo</b><small>Grátis · direto no WhatsApp</small></span>
     <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
   </a>
 </div>
