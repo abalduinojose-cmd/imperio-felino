@@ -93,6 +93,24 @@ h1 em svg{position:absolute;left:-1%;bottom:-.22em;width:102%;height:.34em;color
 .cta .free{position:absolute;top:-11px;right:18px;display:inline-flex;align-items:center;gap:4px;font:800 11px/1 var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--orange);background:#fff;border:2px solid var(--peach);padding:4px 8px;border-radius:999px;transform:rotate(3deg)}
 .cta .free .ico{width:12px;height:12px;fill:currentColor;stroke:none}
 
+/* No celular o botão do topo é a peça principal: maior, mais alto e "respirando" */
+@media (max-width:560px){
+  .hero-body{padding:0 12px}
+  #cta-top{max-width:none;min-height:90px;gap:12px;padding:12px 12px 12px 12px;border-radius:28px;
+    box-shadow:0 1px 0 rgba(255,255,255,.45) inset,0 -5px 0 rgba(0,0,0,.14) inset,0 0 0 6px rgba(31,168,90,.14),0 24px 40px -14px rgba(22,132,72,.9);
+    animation:breathe 2.4s ease-in-out infinite}
+  #cta-top::after{inset:-12px;border-radius:38px}
+  #cta-top .ic{width:58px;height:58px;border-radius:19px}
+  #cta-top .ic svg{width:36px;height:36px}
+  #cta-top .tx{gap:6px}
+  #cta-top .tx b{font-size:clamp(19px,5.6vw,24px)}
+  #cta-top .tx small{font-size:13.5px}
+  #cta-top .go{width:50px;height:50px;border-radius:17px;background:#fff;color:var(--green-deep);border:0}
+  #cta-top .go .ico{width:24px;height:24px}
+  #cta-top .free{top:-13px;right:20px;font-size:12px;padding:5px 10px}
+}
+@keyframes breathe{50%{transform:scale(1.03)}}
+
 /* ---------- Vantagens ---------- */
 .perks{list-style:none;margin:18px auto 0;padding:0;width:100%;max-width:400px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .perks li{display:flex;flex-direction:column;align-items:center;gap:7px;padding:12px 4px 11px;border-radius:18px;background:var(--bg);font:700 12.5px/1.2 var(--display);color:var(--ink-2)}
@@ -241,7 +259,7 @@ footer a{font-weight:700;color:var(--orange)}
       <a class="cta js-grupo" id="cta-top" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
         <span class="free"><svg class="ico"><use href="#i-paw"/></svg>grátis</span>
         <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-        <span class="tx"><b>Entrar no grupo</b><small>Um toque e você já está dentro</small></span>
+        <span class="tx"><b>Entrar no grupo</b><small>É só tocar e pronto</small></span>
         <span class="go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
       </a>
 
