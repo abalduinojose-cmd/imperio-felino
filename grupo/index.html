@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <title>Achadinhos de Gateiro · Grupo de ofertas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Grupo de ofertas no WhatsApp para tutores de gato: brinquedos, caminhas, fontes, ração e petiscos com ofertas e cupons da Shopee e do Mercado Livre. Grátis.">
+<meta name="description" content="Grupo de ofertas no WhatsApp para tutores de gato: achadinhos e cupons da Shopee e do Mercado Livre e sorteio de brindes todo mês para os membros. Grátis.">
 <meta name="theme-color" content="#faf8f6">
 <link rel="canonical" href="https://www.imperiofelino.com.br/grupo/">
 <meta property="og:title" content="Achadinhos de Gateiro · Grupo de ofertas no WhatsApp">
-<meta property="og:description" content="Gateiro de verdade não perde achadinhos! Ofertas e cupons para você e seu gato, grátis no WhatsApp.">
+<meta property="og:description" content="Gateiro de verdade não perde achadinhos! Ofertas, cupons e sorteio de brindes todo mês, grátis no WhatsApp.">
 <meta property="og:url" content="https://www.imperiofelino.com.br/grupo/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -122,6 +122,31 @@ h1 em svg{position:absolute;left:-1%;bottom:-.22em;width:102%;height:.34em;color
 .scarce .why{flex-basis:100%;color:#a0533f;font-weight:600}
 @keyframes flick{50%{transform:scale(1.1) rotate(-6deg)}}
 
+/* Faixa do sorteio no topo */
+.raffle{display:flex;align-items:center;gap:11px;width:100%;max-width:400px;margin:0 auto 16px;padding:10px 12px;border-radius:18px;text-align:left;background:linear-gradient(135deg,#fff4cc 0%,#ffe3d6 100%);border:1.5px solid #ffd59a}
+.raffle .gbox{flex:none;width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--orange);color:#fff;box-shadow:0 8px 14px -8px rgba(238,77,45,.8);animation:wob 3s ease-in-out infinite}
+.raffle .gbox .ico{width:22px;height:22px}
+.raffle b{display:block;font:800 16px/1.15 var(--display);color:#8a2c14}
+.raffle small{display:block;margin-top:2px;font-size:12.5px;font-weight:600;color:#a0533f}
+@keyframes wob{0%,70%,100%{transform:none}76%{transform:rotate(-10deg)}82%{transform:rotate(8deg)}88%{transform:rotate(-4deg)}}
+
+/* Seção do sorteio: cartão em forma de cupom */
+.prize{position:relative;overflow:hidden;border-radius:30px;padding:28px 16px 22px;background:linear-gradient(170deg,#fff7e0 0%,#ffeadf 100%);border:1px solid #ffd9b8;box-shadow:var(--clay)}
+.prize::before,.prize::after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:var(--bg);top:50%;margin-top:-13px}
+.prize::before{left:-13px}.prize::after{right:-13px}
+.hl{color:var(--orange)}
+.gifts{display:flex;justify-content:center;margin:4px 0 6px}
+.gifts img{width:96px;height:96px;object-fit:cover;border-radius:22px;border:4px solid #fff;box-shadow:0 12px 20px -14px rgba(120,60,30,.6)}
+.gifts img:nth-child(1){transform:rotate(-8deg) translateY(6px)}
+.gifts img:nth-child(2){position:relative;z-index:1;transform:scale(1.12);margin:0 -10px}
+.gifts img:nth-child(3){transform:rotate(8deg) translateY(6px)}
+.ilus{margin:12px 0 18px;font-size:12px;color:#a0533f}
+.how{list-style:none;margin:0 auto 20px;padding:0;max-width:400px;display:grid;gap:8px;text-align:left}
+.how li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.75)}
+.how .n{flex:none;width:32px;height:32px;border-radius:11px;display:grid;place-items:center;font:800 15px/1 var(--display);color:#fff;background:var(--orange)}
+.how b{display:block;font:800 15px/1.2 var(--display)}
+.how span{font-size:13.5px;color:var(--muted)}
+
 /* ---------- Vantagens ---------- */
 .perks{list-style:none;margin:18px auto 0;padding:0;width:100%;max-width:400px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .perks li{display:flex;flex-direction:column;align-items:center;gap:7px;padding:12px 4px 11px;border-radius:18px;background:var(--bg);font:700 12.5px/1.2 var(--display);color:var(--ink-2)}
@@ -144,7 +169,7 @@ h2{margin:0 0 8px;font:800 clamp(25px,6.2vw,34px)/1.1 var(--display);letter-spac
 .pick:nth-child(2){background:var(--peach)}
 .pick:nth-child(3){background:var(--sky)}
 .pick:nth-child(4){background:var(--butter)}
-.pick figure{margin:0 0 10px;aspect-ratio:1;border-radius:18px;overflow:hidden;background:#fff;border:3px solid #fff}
+.pick figure{margin:0 0 10px;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#fff;border:3px solid #fff}
 .pick figure img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
 .pick:hover figure img{transform:scale(1.05)}
 .pick .row{display:flex;align-items:center;gap:8px;padding:0 4px}
@@ -266,10 +291,11 @@ footer a{font-weight:700;color:var(--orange)}
       <span class="group-tag"><i aria-hidden="true"></i>Achadinhos de Gateiro · grupo no WhatsApp</span>
       <h1>Gateiro de verdade não perde <em>achadinhos!<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9c40-6 90-7 194-4" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></em></h1>
       <p class="hook">Entre no grupo e receba as melhores ofertas para você e seu gato!</p>
+      <div class="raffle"><span class="gbox" aria-hidden="true"><svg class="ico"><use href="#i-gift"/></svg></span><span><b>Sorteio de brindes todo mês</b><small>só para quem está no grupo</small></span></div>
       <a class="cta js-grupo" id="cta-top" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
         <span class="free"><svg class="ico"><use href="#i-paw"/></svg>grátis</span>
         <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-        <span class="tx"><b>Entrar no grupo</b><small>É só tocar e pronto</small></span>
+        <span class="tx"><b>Entrar no grupo</b><small>e concorrer aos brindes</small></span>
         <span class="go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
       </a>
       <p class="scarce"><span class="flame" aria-hidden="true"><svg class="ico"><use href="#i-flame"/></svg></span><b>Últimas vagas no grupo</b><span class="why">os grupos do WhatsApp têm limite de participantes</span></p>
@@ -283,10 +309,34 @@ footer a{font-weight:700;color:var(--orange)}
     </div>
   </header>
 
+  <section class="reveal" aria-labelledby="t-sorteio">
+    <div class="prize">
+      <span class="kick"><svg class="ico"><use href="#i-paw"/></svg>Só para membros do grupo</span>
+      <h2 id="t-sorteio">Todo mês tem <span class="hl">sorteio de brindes</span> pro seu gato</h2>
+      <p class="lead">Quem está no Achadinhos de Gateiro concorre a mimos para o gatinho, como brinquedos e petiscos.</p>
+      <div class="gifts" aria-hidden="true">
+        <img src="../img/p39.jpg" alt="" loading="lazy" width="600" height="600">
+        <img src="../img/p41.jpg" alt="" loading="lazy" width="600" height="600">
+        <img src="../img/p23.jpg" alt="" loading="lazy" width="600" height="600">
+      </div>
+      <p class="ilus">Imagens ilustrativas: os brindes mudam a cada mês.</p>
+      <ol class="how">
+        <li><span class="n">1</span><div><b>Entre no grupo</b><span>Um toque no botão verde, grátis.</span></div></li>
+        <li><span class="n">2</span><div><b>Fique de olho no aviso</b><span>Data, brindes e regras saem no grupo.</span></div></li>
+        <li><span class="n">3</span><div><b>Ganhou? A gente te chama</b><span>Combinamos o envio com você no privado.</span></div></li>
+      </ol>
+      <a class="cta js-grupo" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
+        <span class="tx"><b>Quero participar</b><small>Entrar no grupo grátis</small></span>
+        <span class="go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </section>
+
   <section class="reveal" aria-labelledby="t-picks">
     <span class="kick"><svg class="ico"><use href="#i-paw"/></svg>Feito pra quem tem gato em casa</span>
     <h2 id="t-picks">Tudo que seu gato ama, num grupo só</h2>
-    <p class="lead">A gente garimpa os achadinhos na Shopee e no Mercado Livre e manda no grupo. Você só escolhe o que seu gatinho merece.</p>
+    <p class="lead">A gente garimpa os achadinhos na Shopee e no Mercado Livre e manda no grupo.</p>
     <div class="picks">
       <article class="pick"><figure><img src="../img/p38.jpg" alt="Gato brincando com brinquedo de corda" loading="lazy" width="600" height="600"></figure><div class="row"><span aria-hidden="true"><svg class="ico"><use href="#i-sparkle"/></svg></span><b>Brinquedos</b></div><p>pra gastar energia e brincar junto</p></article>
       <article class="pick"><figure><img src="../img/p37.jpg" alt="Gatos na toca de feltro" loading="lazy" width="600" height="600"></figure><div class="row"><span aria-hidden="true"><svg class="ico"><use href="#i-moon"/></svg></span><b>Caminhas e tocas</b></div><p>cantinhos fofos pra cochilar</p></article>
@@ -311,23 +361,13 @@ footer a{font-weight:700;color:var(--orange)}
     </div>
   </section>
 
-  <section class="reveal" aria-labelledby="t-como">
-    <span class="kick"><svg class="ico"><use href="#i-paw"/></svg>Como funciona</span>
-    <h2 id="t-como">Simples como um ronronar</h2>
-    <p class="lead">Sem cadastro e sem pagar nada.</p>
-    <ol class="steps">
-      <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-tap"/></svg><em>1</em></span><div><b>Entre no grupo</b><span>Um toque no botão verde.</span></div></li>
-      <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-bell"/></svg><em>2</em></span><div><b>Receba os achadinhos</b><span>Saiu oferta ou cupom? Você vê primeiro.</span></div></li>
-      <li><span class="n" aria-hidden="true"><svg class="ico"><use href="#i-bag"/></svg><em>3</em></span><div><b>Compre na loja</b><span>Na Shopee ou no Mercado Livre, com a garantia deles.</span></div></li>
-    </ol>
-  </section>
-
   <section class="reveal" aria-labelledby="t-faq">
     <span class="kick"><svg class="ico"><use href="#i-paw"/></svg>Dúvidas</span>
     <h2 id="t-faq">Perguntas rápidas</h2>
     <div class="faq">
       <details><summary>É grátis mesmo?<span class="plus" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Sim. Entrar e ficar no grupo é 100% grátis.</p></details>
       <details><summary>Vou receber spam?<span class="plus" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Não. No grupo só entram ofertas e cupons para gatos, sem correntes e sem conversa paralela.</p></details>
+      <details><summary>Como funciona o sorteio?<span class="plus" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Todo mês sorteamos brindes entre os membros do grupo. A data, os brindes e as regras são anunciados no próprio grupo, e quem ganhar é chamado no privado.</p></details>
       <details><summary>Quem vende e entrega?<span class="plus" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>A Shopee ou o Mercado Livre. A gente só indica os achadinhos; a compra, a entrega e a garantia são da loja.</p></details>
       <details><summary>Posso sair quando quiser?<span class="plus" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Pode. É só sair do grupo no WhatsApp, a qualquer momento.</p></details>
     </div>
@@ -336,10 +376,10 @@ footer a{font-weight:700;color:var(--orange)}
   <div class="final reveal">
     <div class="pics" aria-hidden="true"><img src="../img/p13.jpg" alt="" loading="lazy"><img src="../img/p06.jpg" alt="" loading="lazy"><img src="../img/p21.jpg" alt="" loading="lazy"></div>
     <h2>Seu gato merece mimos</h2>
-    <p>Entre agora no Achadinhos de Gateiro e receba as próximas ofertas antes de todo mundo.</p>
+    <p>Entre agora no Achadinhos de Gateiro: ofertas antes de todo mundo e sorteio de brindes todo mês.</p>
     <a class="cta js-grupo" id="cta-final" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-      <span class="tx"><b>Quero entrar no grupo</b><small>Grátis · direto no WhatsApp</small></span>
+      <span class="tx"><b>Quero entrar no grupo</b><small>Grátis · concorra aos brindes</small></span>
       <span class="go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
     </a>
   </div>
@@ -353,7 +393,7 @@ footer a{font-weight:700;color:var(--orange)}
 <div class="sticky" id="sticky" aria-hidden="true">
   <a class="cta js-grupo" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener" tabindex="-1">
     <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-    <span class="tx"><b>Entrar no grupo</b><small>Grátis · direto no WhatsApp</small></span>
+    <span class="tx"><b>Entrar no grupo</b><small>Grátis · sorteio todo mês</small></span>
     <span class="go"><svg class="ico"><use href="#i-arrow"/></svg></span>
   </a>
 </div>
@@ -405,11 +445,12 @@ var FRASES = ["Achadinho pro seu gato", "Olha que fofura", "Seu gato vai amar", 
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(function (e) { io.observe(e); });
 
-  // Botão fixo: aparece depois que o botão do topo sai da tela e some quando o botão final está visível
-  var sticky = document.getElementById("sticky"), passouTopo = false, vendoFim = false;
-  function atualiza() { sticky.classList.toggle("on", passouTopo && !vendoFim); }
+  // Botão fixo: aparece depois que o botão do topo sai da tela e some sempre que outro botão do grupo está visível
+  var sticky = document.getElementById("sticky"), passouTopo = false, visiveis = new Set();
+  function atualiza() { sticky.classList.toggle("on", passouTopo && visiveis.size === 0); }
   new IntersectionObserver(function (es) { passouTopo = !es[0].isIntersecting && es[0].boundingClientRect.top < 0; atualiza(); }).observe(document.getElementById("cta-top"));
-  new IntersectionObserver(function (es) { vendoFim = es[0].isIntersecting; atualiza(); }).observe(document.getElementById("cta-final"));
+  var vigia = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) visiveis.add(e.target); else visiveis.delete(e.target); }); atualiza(); });
+  document.querySelectorAll(".wrap a.cta:not(#cta-top)").forEach(function (a) { vigia.observe(a); });
 })();
 </script>
 </body>
