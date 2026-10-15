@@ -146,22 +146,6 @@ section{padding:52px 0 0}
 h2{margin:0 0 8px;font:800 clamp(25px,6.2vw,34px)/1.1 var(--display);letter-spacing:-.03em;text-wrap:balance}
 .lead{margin:0 auto 22px;max-width:27em;color:var(--muted);font-size:15.5px}
 
-/* O que chega no grupo: fotos reais */
-.picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.pick{border-radius:24px;padding:8px 8px 12px;text-align:left;box-shadow:var(--clay);border:1px solid rgba(27,25,23,.04)}
-.pick:nth-child(1){background:var(--rose)}
-.pick:nth-child(2){background:var(--peach)}
-.pick:nth-child(3){background:var(--sky)}
-.pick:nth-child(4){background:var(--butter)}
-.pick figure{margin:0 0 10px;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#fff;border:3px solid #fff}
-.pick figure img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
-.pick:hover figure img{transform:scale(1.05)}
-.pick .row{display:flex;align-items:center;gap:8px;padding:0 4px}
-.pick .row span{flex:none;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#fff;color:var(--orange);box-shadow:var(--clay-sm)}
-.pick .row .ico{width:16px;height:16px}
-.pick b{font:800 15.5px/1.15 var(--display)}
-.pick p{margin:4px 4px 0;font-size:13px;line-height:1.35;color:var(--ink-2)}
-
 /* Celular com o grupo */
 .stage{position:relative;margin:0 auto;width:100%;max-width:330px}
 .phone{position:relative;background:#fff;border-radius:38px;padding:8px;border:1px solid var(--line);box-shadow:var(--clay)}
@@ -223,6 +207,7 @@ details p{margin:0 0 16px;color:var(--muted);font-size:15px}
 .final p{margin:0 auto 20px;max-width:24em;color:var(--muted)}
 footer{padding:24px 18px 128px;font-size:13px;color:var(--muted)}
 footer a{font-weight:700;color:var(--orange)}
+.rights{margin:12px 0 0;font-size:12.5px;font-weight:600;color:var(--ink-2)}
 
 /* Botão fixo no celular */
 .sticky{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:20;transform:translateY(150%);transition:transform .3s var(--ease)}
@@ -286,18 +271,6 @@ footer a{font-weight:700;color:var(--orange)}
     </div>
   </header>
 
-  <section class="reveal" aria-labelledby="t-picks">
-    <span class="kick"><svg class="ico"><use href="#i-paw"/></svg>Feito pra quem tem gato em casa</span>
-    <h2 id="t-picks">Tudo que seu gato ama, num grupo só</h2>
-    <p class="lead">A gente garimpa os achadinhos na Shopee e no Mercado Livre e manda no grupo.</p>
-    <div class="picks">
-      <article class="pick"><figure><img src="../img/p38.jpg" alt="Gato brincando com brinquedo de corda" loading="lazy" width="600" height="600"></figure><div class="row"><span aria-hidden="true"><svg class="ico"><use href="#i-sparkle"/></svg></span><b>Brinquedos</b></div><p>pra gastar energia e brincar junto</p></article>
-      <article class="pick"><figure><img src="../img/p37.jpg" alt="Gatos na toca de feltro" loading="lazy" width="600" height="600"></figure><div class="row"><span aria-hidden="true"><svg class="ico"><use href="#i-moon"/></svg></span><b>Caminhas e tocas</b></div><p>cantinhos fofos pra cochilar</p></article>
-      <article class="pick"><figure><img src="../img/p06.jpg" alt="Gato bebendo água na fonte" loading="lazy" width="431" height="431"></figure><div class="row"><span aria-hidden="true"><svg class="ico"><use href="#i-drop"/></svg></span><b>Fontes e potes</b></div><p>água fresquinha o dia todo</p></article>
-      <article class="pick"><figure><img src="../img/p09.jpg" alt="Pacotes de ração para gatos" loading="lazy" width="450" height="450"></figure><div class="row"><span aria-hidden="true"><svg class="ico"><use href="#i-fish"/></svg></span><b>Ração e petiscos</b></div><p>comidinha boa com preço melhor</p></article>
-    </div>
-  </section>
-
   <section class="reveal" aria-labelledby="t-chat">
     <span class="kick"><svg class="ico"><use href="#i-paw"/></svg>Direto no seu WhatsApp</span>
     <h2 id="t-chat">É assim que os achadinhos chegam</h2>
@@ -351,6 +324,7 @@ footer a{font-weight:700;color:var(--orange)}
 <footer>
   O Império Felino indica produtos; as vendas e entregas são feitas pela Shopee e pelo Mercado Livre.<br>
   Veja todos os achadinhos em <a href="https://www.imperiofelino.com.br/">imperiofelino.com.br</a>
+  <p class="rights">© <span id="ano">2026</span> Império Felino. Todos os direitos reservados.</p>
 </footer>
 
 <div class="sticky" id="sticky" aria-hidden="true">
@@ -380,6 +354,7 @@ var FRASES = ["Achadinho pro seu gato", "Olha que fofura", "Seu gato vai amar", 
   var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   document.querySelectorAll(".js-grupo").forEach(function (a) { a.href = GRUPO; });
+  document.getElementById("ano").textContent = new Date().getFullYear();
 
   // Chat animado: os achadinhos vão chegando como no grupo
   var chat = document.getElementById("chat"), i = 0, MAX = 3, min = 9 * 60 + 5;
