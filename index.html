@@ -507,7 +507,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
           <p class="lead">Os achadinhos mais clicados por aqui.</p>
         </div>
       </div>
-      <p class="checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Preços de <b id="precos-em">13/10/2026</b> · podem mudar nas lojas</p>
+      <p class="checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Preços de <b id="precos-em">16/10/2026</b> · podem mudar nas lojas</p>
     </div>
     <div class="top-grid" id="top-grid"></div>
   </section>
@@ -651,21 +651,21 @@ var NO_INSTAGRAM = [
 //   esgotado: true quando a loja estiver sem estoque (o card fica marcado como esgotado)
 //   estrelas: nota de 0 a 5   avaliacoes: ex. "3,5 mil"   vendidos: ex. "10 mil"
 //   parcelas: { n: 12, valor: 7.36 }  (máximo de parcelas no cartão, como a Shopee mostra)
-var PRECOS_EM = "15/10/2026";
+var PRECOS_EM = "16/10/2026";
 var PRODUTOS = [
   // ----- Mais procurados do mês (6 primeiros) -----
   { img:"img/p01.jpg", nome:"Conjunto de enfeites natalinos em acrílico em forma de gatinhos", cat:"natal",       link:"https://s.shopee.com.br/AKazSeLJYM", preco:68.42,  de:122.17, desc:44, frete:"cupom", estrelas:4.3, avaliacoes:"4",       vendidos:"63",      parcelas:{n:12, valor:6.64} },
   { img:"img/p22.jpg", nome:"Difusor de feromônio calmante para gatos",                        cat:"higiene",     link:"https://s.shopee.com.br/7faY4QJkAl", preco:42.99,  de:72.70,  desc:41, frete:"cupom", estrelas:4.7, avaliacoes:"65",      vendidos:"157",     parcelas:{n:8,  valor:6.07} },
-  { img:"img/p02.jpg", nome:"Reprodutor de vídeo Crystal",                                     cat:"fofura",      link:"https://s.shopee.com.br/3g4AT6cPAe", preco:219.36, nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"26", parcelas:{n:12, valor:22.40} },
+  { img:"img/p02.jpg", nome:"Reprodutor de vídeo Crystal",                                     cat:"fofura",      de:405.10, desc:40, link:"https://s.shopee.com.br/3g4AT6cPAe", preco:243.06, frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"26" },
   { img:"img/p03.jpg", nome:"Lagarto robô escalador de parede com controle remoto",            cat:"brinquedos",  link:"https://s.shopee.com.br/7pu2CAOo78", preco:79.68,  de:111.50, desc:29, frete:"cupom", estrelas:5.0, avaliacoes:"30",      vendidos:"123",     parcelas:{n:12, valor:7.73} },
-  { img:"img/p04.jpg", nome:"Brinquedo suspenso de pendurar na porta",                         cat:"brinquedos",  link:"https://s.shopee.com.br/6VO7HDvE75", preco:93.06,  nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"24", vendidos:"98", parcelas:{n:12, valor:9.50} },
+  { img:"img/p04.jpg", nome:"Brinquedo suspenso de pendurar na porta",                         cat:"brinquedos",  de:219.90, desc:55, link:"https://s.shopee.com.br/6VO7HDvE75", preco:98.95, frete:"cupom", estrelas:5.0, avaliacoes:"24", vendidos:"98" },
   { img:"img/p23.jpg", nome:"Petisco Optimum anti bola de pelo, kit com 3 de 80 g",          cat:"alimentacao", link:"https://s.shopee.com.br/3qNtVt0mlN", preco:27.60,  de:32.00,  desc:14, frete:"cupom", estrelas:5.0, avaliacoes:"4", vendidos:"11", parcelas:{n:5, valor:6.13} },
   // ----- Demais produtos -----
-  { img:"img/p05.jpg", nome:"Relógio criativo Jokercat gato e rato, minimalista unissex",      cat:"fofura",      link:"https://s.shopee.com.br/9pePx7nQX8", preco:355.09, nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"12", parcelas:{n:12, valor:36.27} },
+  { img:"img/p05.jpg", nome:"Relógio criativo Jokercat gato e rato, minimalista unissex",      cat:"fofura",      de:1481.91, desc:73, link:"https://s.shopee.com.br/9pePx7nQX8", preco:393.45, frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"12" },
   { img:"img/p06.jpg", nome:"Fonte automática para gatos",                                     cat:"alimentacao", link:"https://s.shopee.com.br/9KhYlVvrPM", preco:49.90,  de:100.00, desc:50, frete:"cupom", estrelas:4.9, avaliacoes:"3,5 mil", vendidos:"8 mil+",  parcelas:{n:9,  valor:6.31} },
   { img:"img/p07.jpg", nome:"Luvas umedecidas descartáveis para higiene a seco",               cat:"higiene",     link:"https://s.shopee.com.br/6AkhfmvD0o", preco:14.10,  de:59.90,  desc:76, aPartir:true, frete:"cupom", estrelas:4.9, avaliacoes:"126", vendidos:"403" },
-  { img:"img/p08.jpg", nome:"Fantasia de gato esqueleto de dinossauro",                        cat:"fofura",      link:"https://s.shopee.com.br/4AziytB2zy", preco:76.52,  de:147.96, desc:48, aPartir:true, frete:"cupom", vendidos:"3", parcelas:{n:12, valor:7.12} },
-  { img:"img/p09.jpg", nome:"Ração Fórmula Natural Fresh Meat para gatos, 10 kg",              cat:"alimentacao", link:"https://s.shopee.com.br/1gIYPP1ptI", preco:323.09, nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"217", vendidos:"514", parcelas:{n:12, valor:33.00} },
+  { img:"img/p08.jpg", nome:"Fantasia de gato esqueleto de dinossauro",                        cat:"fofura",      link:"https://s.shopee.com.br/4AziytB2zy", preco:72.17,  de:147.96, desc:51, aPartir:true, frete:"cupom", vendidos:"3" },
+  { img:"img/p09.jpg", nome:"Ração Fórmula Natural Fresh Meat para gatos, 10 kg",              cat:"alimentacao", link:"https://s.shopee.com.br/1gIYPP1ptI", preco:357.99, frete:"cupom", estrelas:5.0, avaliacoes:"217", vendidos:"514" },
   { img:"img/p10.jpg", nome:"Cápsula de armazenamento de pelos de gato",                       cat:"higiene",     link:"https://s.shopee.com.br/2BEVwopCaM", preco:4.00,   de:8.10,   desc:51, relampago:true, freteMin:10, estrelas:4.9, avaliacoes:"1,9 mil", vendidos:"10 mil+" },
   { img:"img/p11.jpg", nome:"Areia higiênica Katbom granulado capim-limão, 6 kg",              cat:"higiene",     link:"https://s.shopee.com.br/5VVGyHMl8w", preco:62.90,  de:81.90,  desc:23, freteMin:80, estrelas:5.0, avaliacoes:"2,7 mil", vendidos:"6 mil+", parcelas:{n:12, valor:6.10}, esgotado:true },
   { img:"img/p12.jpg", nome:"Dispensador de água automático para gatos",                       cat:"alimentacao", link:"https://s.shopee.com.br/5foOQ6Ipn4", preco:34.69,  de:50.86,  desc:32, aPartir:true, frete:"cupom", estrelas:4.4, avaliacoes:"14", vendidos:"141", parcelas:{n:6, valor:6.47} },
@@ -678,13 +678,13 @@ var PRODUTOS = [
   { img:"img/p19.jpg", nome:"Casinha de gato em MDF com arranhador e rampa, 47x30 cm",         cat:"casa",        link:"https://s.shopee.com.br/5VUqCpRtdB", preco:29.85,  de:49.90,  desc:40, relampago:true, frete:"cupom", estrelas:4.6, avaliacoes:"2,4 mil", vendidos:"4 mil+", parcelas:{n:5, valor:6.63} },
   { img:"img/p20.jpg", nome:"Arranhador para gato com pena e rampa",                           cat:"casa",        link:"https://s.shopee.com.br/7KwUO3SsqC", preco:39.89,  de:63.89,  desc:38, freteMin:80, estrelas:4.9, avaliacoes:"4,8 mil", vendidos:"9 mil+", parcelas:{n:7, valor:6.39} },
   { img:"img/p21.jpg", nome:"Cama toca rosquinha de feltro para gatos, 60x60 cm",              cat:"casa",        link:"https://s.shopee.com.br/3qNqNbDqeh", preco:75.90,  de:249.90, desc:70, freteMin:200, estrelas:4.9, avaliacoes:"65", vendidos:"140", parcelas:{n:12, valor:7.36} },
-  { img:"img/p24.jpg", nome:"Cama de mesa giratória 360° PAWZ Road para gatos",               cat:"casa",        link:"https://s.shopee.com.br/AAHpjwGPr7", preco:471.81, nota:"no Pix com cupom", frete:"cupom", parcelas:{n:12, valor:48.19} },
-  { img:"img/p25.jpg", nome:"Porta-retrato com patinha em massa de modelar",                   cat:"fofura",      link:"https://s.shopee.com.br/70Kgth4jyY", preco:74.68,  nota:"com cupom", frete:"cupom", estrelas:4.6, avaliacoes:"27", vendidos:"116", parcelas:{n:12, valor:7.25} },
-  { img:"img/p26.jpg", nome:"Assento-ninho de carro para passeio com pets",                    cat:"casa",        link:"https://s.shopee.com.br/1VzoJnW9la", preco:230.97, nota:"no Pix com cupom", frete:"cupom", parcelas:{n:12, valor:23.59} },
+  { img:"img/p24.jpg", nome:"Cama de mesa giratória 360° PAWZ Road para gatos",               cat:"casa",        esgotado:true, link:"https://s.shopee.com.br/AAHpjwGPr7", preco:471.81, nota:"no Pix com cupom", frete:"cupom", parcelas:{n:12, valor:48.19} },
+  { img:"img/p25.jpg", nome:"Porta-retrato com patinha em massa de modelar",                   cat:"fofura",      de:79.90, desc:4, link:"https://s.shopee.com.br/70Kgth4jyY", preco:76.99, frete:"cupom", estrelas:4.6, avaliacoes:"27", vendidos:"116" },
+  { img:"img/p26.jpg", nome:"Assento-ninho de carro para passeio com pets",                    cat:"casa",        link:"https://s.shopee.com.br/1VzoJnW9la", preco:255.92, frete:"cupom" },
   { img:"img/p37.jpg", nome:"Toca de feltro túnel donut 6 funções",                            cat:"casa",        link:"https://s.shopee.com.br/9KiobfFxkr", preco:79.90,  de:175.00, desc:54, frete:"cupom", estrelas:4.9, avaliacoes:"298",     vendidos:"737",     parcelas:{n:12, valor:7.75} },
   { img:"img/p38.jpg", nome:"Brinquedo giratório elétrico de corda elástica para pendurar na porta", cat:"brinquedos", link:"https://s.shopee.com.br/AAHwyXVVIk", preco:29.99,  de:79.99,  desc:63, frete:"cupom", estrelas:4.9, avaliacoes:"1 mil",   vendidos:"3 mil+",  parcelas:{n:5,  valor:6.66} },
   { img:"img/p39.jpg", nome:"Arranhador com bolinha anti-estresse",                            cat:"brinquedos",  link:"https://s.shopee.com.br/1qcp3Fiox3", preco:7.99,   de:18.90,  desc:58, aPartir:true, frete:"cupom", estrelas:4.2, avaliacoes:"62", vendidos:"323" },
-  { img:"img/p40.jpg", nome:"Torre arranhador natalina 90 cm com casinha",                     cat:"natal",       link:"https://s.shopee.com.br/9APPml2l9B", preco:305.95, nota:"no Pix com cupom", frete:"cupom", estrelas:5.0, avaliacoes:"4", vendidos:"19", parcelas:{n:12, valor:31.25} },
+  { img:"img/p40.jpg", nome:"Torre arranhador natalina 90 cm com casinha",                     cat:"natal",       de:699.00, desc:52, link:"https://s.shopee.com.br/9APPml2l9B", preco:339.00, frete:"cupom", estrelas:5.0, avaliacoes:"4", vendidos:"19" },
   { img:"img/p41.jpg", nome:"Árvore de Natal interativa com catnip, bolinhas e sinos",         cat:"natal",       link:"https://s.shopee.com.br/gQrf9d2tK",  preco:38.89,  frete:"cupom", parcelas:{n:7,  valor:6.23} },
   // ----- Medicamentos -----
   { img:"img/p31.jpg", nome:"Antipulgas Frontline Top Spot para gatos, 1 pipeta",              cat:"saude",       link:"https://s.shopee.com.br/AAHvzX68Hu", preco:29.42,  de:42.94,  desc:31, frete:"cupom", estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"7 mil+",  parcelas:{n:5,  valor:6.53} },

@@ -5,7 +5,7 @@
 <title>Achadinhos de Gateira · Grupo de ofertas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Grupo de ofertas no WhatsApp para tutores de gato: achadinhos e cupons da Shopee e do Mercado Livre antes de todo mundo. Grátis.">
-<meta name="theme-color" content="#faf8f6">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://www.imperiofelino.com.br/grupo/">
 <meta property="og:title" content="Achadinhos de Gateira · Grupo de ofertas no WhatsApp">
 <meta property="og:description" content="Gateira de verdade não perde achadinhos! Ofertas e cupons para você e seu gato, grátis no WhatsApp.">
@@ -18,58 +18,60 @@
 <link rel="preload" href="../fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Página de entrada do grupo "Achadinhos de Gateira" (anúncios, stories, link da bio).
-     Uma tela só, sem rolagem: quem chega vê o botão e entra. Mesma identidade do site
-     (cores, fontes, mosaico de fotos, avatar, sombra "clay"). O botão leva ao convite em GRUPO. -->
+     Uma tela só, sem rolagem, ocupando a tela inteira no celular: fotos no topo, nome do grupo,
+     uma frase, o botão de entrar e uma linha sobre a economia. Mesma identidade do site.
+     No computador vira um cartão centralizado em formato de celular. O botão leva ao convite em GRUPO. -->
 <style>
 @font-face{font-family:"Outfit";font-style:normal;font-weight:100 900;font-display:block;src:url(../fonts/outfit-latin.woff2) format("woff2")}
 @font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:block;src:url(../fonts/figtree-latin.woff2) format("woff2")}
 :root{
   --bg:#faf8f6;--surface:#fff;--ink:#1b1917;--ink-2:#4b4541;--muted:#6f6760;--line:#ece7e2;
-  --orange:#ee4d2d;--orange-soft:#fff1ec;--peach:#ffe3d6;
+  --orange:#ee4d2d;--orange-deep:#c93a1e;--orange-soft:#fff1ec;--peach:#ffe3d6;
   --green:#1fa85a;--green-deep:#168448;--green-soft:#e8f7ee;--wa:#25d366;
-  --clay:0 1px 0 rgba(255,255,255,.9) inset,0 -3px 0 rgba(27,25,23,.04) inset,0 14px 28px -18px rgba(120,60,30,.35),0 2px 6px -2px rgba(27,25,23,.06);
+  --clay:0 1px 0 rgba(255,255,255,.9) inset,0 -3px 0 rgba(27,25,23,.04) inset,0 24px 48px -24px rgba(120,60,30,.45),0 2px 6px -2px rgba(27,25,23,.06);
   --display:"Outfit","Segoe UI",system-ui,sans-serif;--body:"Figtree","Segoe UI",system-ui,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --paw:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='%23ee4d2d' fill-opacity='.05' transform='rotate(-16 48 48)'%3E%3Cellipse cx='48' cy='58' rx='11' ry='9'/%3E%3Ccircle cx='34' cy='44' r='5'/%3E%3Ccircle cx='42' cy='36' r='5'/%3E%3Ccircle cx='54' cy='36' r='5'/%3E%3Ccircle cx='62' cy='44' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 *{box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
-html{-webkit-text-size-adjust:100%;background:var(--bg)}
-body{margin:0;color:var(--ink);font:500 16px/1.45 var(--body);-webkit-font-smoothing:antialiased;text-align:center;
-  background:radial-gradient(60% 34% at 50% 0%,#ffe9dc 0%,rgba(255,233,220,0) 72%),var(--paw),var(--bg);background-size:auto,96px 96px,auto;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100dvh;padding:12px 14px calc(12px + env(safe-area-inset-bottom))}
+html{-webkit-text-size-adjust:100%;background:var(--surface)}
+body{margin:0;color:var(--ink);font:500 16px/1.45 var(--body);-webkit-font-smoothing:antialiased;text-align:center;background:var(--surface);
+  display:flex;flex-direction:column;align-items:stretch;justify-content:stretch;min-height:100dvh}
 img{display:block;max-width:100%}
-a{color:inherit}
-a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+a{color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:12px}
 .ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ---------- Cartão único ---------- */
-.card{position:relative;width:100%;max-width:440px;background:var(--surface);border:1px solid var(--line);border-radius:30px;box-shadow:var(--clay);padding-bottom:clamp(16px,3.2dvh,24px)}
-.cover{position:relative;height:clamp(96px,17dvh,150px);display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:4px;padding:4px 4px 0;border-radius:29px 29px 0 0;overflow:hidden}
-.cover img{width:100%;height:100%;object-fit:cover;border-radius:24px}
-.cover::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.6) 72%,#fff 100%)}
+/* ---------- No celular a página é o cartão: ocupa a tela inteira ---------- */
+.card{position:relative;flex:1;display:flex;flex-direction:column;width:100%;min-height:100dvh;background:var(--surface);
+  background-image:radial-gradient(70% 30% at 50% 0%,#ffe9dc 0%,rgba(255,233,220,0) 72%),var(--paw);background-size:auto,96px 96px}
+.cover{position:relative;flex:none;height:clamp(150px,27dvh,260px);display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:4px;padding:4px 4px 0;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;border-radius:0 0 24px 24px}
+.cover img:first-child{border-radius:0 0 24px 24px}
+.cover::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.55) 78%,#fff 100%)}
 .bubble{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:5px;font:800 12px/1 var(--display);padding:6px 10px;border-radius:999px;background:#fff;box-shadow:0 8px 16px -10px rgba(27,25,23,.5);animation:bob 4s ease-in-out infinite}
 .bubble .ico{width:13px;height:13px}
-.b1{top:12px;left:12px;color:var(--orange)}
-.b2{top:12px;right:12px;color:#fff;background:var(--green);animation-delay:1.3s}
+.b1{top:calc(12px + env(safe-area-inset-top));left:12px;color:var(--orange)}
+.b2{top:calc(12px + env(safe-area-inset-top));right:12px;color:#fff;background:var(--green);animation-delay:1.3s}
 @keyframes bob{50%{translate:0 -4px}}
 
-.body{position:relative;z-index:1;margin-top:calc(-1 * clamp(34px,7dvh,48px));padding:0 clamp(14px,4vw,22px);display:flex;flex-direction:column;align-items:center}
-.avatar{position:relative;width:clamp(68px,13dvh,92px);height:clamp(68px,13dvh,92px);margin-bottom:clamp(8px,1.6dvh,12px)}
+.body{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin-top:calc(-1 * clamp(40px,8dvh,56px));padding:0 clamp(16px,5vw,28px) calc(14px + env(safe-area-inset-bottom))}
+.avatar{position:relative;width:clamp(80px,15dvh,108px);height:clamp(80px,15dvh,108px);margin-bottom:clamp(8px,1.6dvh,14px)}
 .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#fff;border:4px solid #fff;box-shadow:0 0 0 2px var(--peach),0 14px 30px -12px rgba(27,25,23,.4)}
-.avatar .heart{position:absolute;right:-2px;bottom:2px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:#fff;border:3px solid #fff}
-.avatar .heart .ico{width:13px;height:13px;fill:currentColor;stroke:none}
-.tag{display:inline-flex;align-items:center;gap:7px;font:700 12.5px/1 var(--body);color:var(--green-deep);background:var(--green-soft);padding:7px 12px;border-radius:999px;margin-bottom:clamp(8px,1.8dvh,14px)}
+.avatar .heart{position:absolute;right:-2px;bottom:2px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:#fff;border:3px solid #fff}
+.avatar .heart .ico{width:14px;height:14px;fill:currentColor;stroke:none}
+.tag{display:inline-flex;align-items:center;gap:7px;font:700 13px/1 var(--body);color:var(--green-deep);background:var(--green-soft);padding:8px 13px;border-radius:999px;margin-bottom:clamp(10px,2dvh,16px)}
 .tag i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(31,168,90,.6);animation:pulse 1.8s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(31,168,90,0)}100%{box-shadow:0 0 0 0 rgba(31,168,90,0)}}
-h1{margin:0 0 clamp(6px,1.2dvh,10px);font:800 clamp(26px,min(7.6vw,4.6dvh),40px)/1.04 var(--display);letter-spacing:-.035em;text-wrap:balance}
+h1{margin:0 0 clamp(8px,1.4dvh,12px);font:800 clamp(30px,min(8.6vw,5.2dvh),46px)/1.04 var(--display);letter-spacing:-.035em;text-wrap:balance}
 h1 em{font-style:normal;color:var(--orange);position:relative;white-space:nowrap}
 h1 em svg{position:absolute;left:-1%;bottom:-.22em;width:102%;height:.34em;color:#ffc4ae}
-.hook{margin:0 auto clamp(14px,2.6dvh,22px);max-width:22em;font:600 clamp(14.5px,min(4vw,2.3dvh),17.5px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
+.hook{margin:0 auto clamp(18px,3.2dvh,28px);max-width:22em;font:600 clamp(15.5px,min(4.3vw,2.4dvh),19px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
 
 /* ---------- Botão do grupo: a peça principal ---------- */
-.cta{position:relative;isolation:isolate;display:flex;align-items:center;gap:12px;width:100%;min-height:clamp(74px,12dvh,92px);padding:12px;color:#fff;text-decoration:none;text-align:left;border-radius:28px;cursor:pointer;
+.cta{position:relative;isolation:isolate;display:flex;align-items:center;gap:12px;width:100%;max-width:460px;min-height:clamp(80px,12.5dvh,96px);padding:12px;color:#fff;text-decoration:none;text-align:left;border-radius:28px;cursor:pointer;
   background:linear-gradient(160deg,#2fcf6f 0%,var(--green) 55%,var(--green-deep) 100%);
   box-shadow:0 1px 0 rgba(255,255,255,.45) inset,0 -5px 0 rgba(0,0,0,.14) inset,0 0 0 6px rgba(31,168,90,.14),0 24px 40px -14px rgba(22,132,72,.9);
   transition:transform .2s var(--ease),box-shadow .2s var(--ease);animation:buzz 2.6s ease-in-out 1s infinite}
@@ -78,30 +80,42 @@ h1 em svg{position:absolute;left:-1%;bottom:-.22em;width:102%;height:.34em;color
 .cta::after{content:"";position:absolute;inset:-12px;border-radius:38px;border:2px solid rgba(31,168,90,.35);z-index:-1;animation:ring 2.6s var(--ease) infinite;pointer-events:none}
 @keyframes ring{0%{opacity:1;transform:scale(.98)}80%,100%{opacity:0;transform:scale(1.05)}}
 @keyframes buzz{0%,78%,100%{transform:none}80%{transform:translateX(-2px) rotate(-.8deg)}83%{transform:translateX(2px) rotate(.8deg)}86%{transform:translateX(-2px) rotate(-.6deg)}89%{transform:translateX(1px) rotate(.4deg)}92%{transform:none}}
-.cta .ic{flex:none;width:56px;height:56px;border-radius:19px;display:grid;place-items:center;background:#fff}
-.cta .ic svg{width:34px;height:34px;fill:var(--wa)}
+.cta .ic{flex:none;width:58px;height:58px;border-radius:19px;display:grid;place-items:center;background:#fff}
+.cta .ic svg{width:36px;height:36px;fill:var(--wa)}
 .cta .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
-.cta .tx b{font:800 clamp(19px,5.4vw,23px)/1.05 var(--display);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cta .tx small{font:600 13px/1.2 var(--body);color:rgba(255,255,255,.92)}
-.cta .go{flex:none;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:#fff;color:var(--green-deep)}
-.cta .go .ico{width:23px;height:23px;stroke-width:2.6;animation:nudge 1.8s var(--ease) infinite}
+.cta .tx b{font:800 clamp(20px,5.8vw,24px)/1.05 var(--display);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cta .tx small{font:600 13.5px/1.2 var(--body);color:rgba(255,255,255,.92)}
+.cta .go{flex:none;width:50px;height:50px;border-radius:17px;display:grid;place-items:center;background:#fff;color:var(--green-deep)}
+.cta .go .ico{width:24px;height:24px;stroke-width:2.6;animation:nudge 1.8s var(--ease) infinite}
 @keyframes nudge{0%,60%,100%{transform:none}30%{transform:translateX(3px)}}
-.cta .free{position:absolute;top:-13px;right:18px;display:inline-flex;align-items:center;gap:4px;font:800 11.5px/1 var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--orange);background:#fff;border:2px solid var(--peach);padding:5px 9px;border-radius:999px;transform:rotate(3deg)}
+.cta .free{position:absolute;top:-13px;right:18px;display:inline-flex;align-items:center;gap:4px;font:800 12px/1 var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--orange);background:#fff;border:2px solid var(--peach);padding:5px 10px;border-radius:999px;transform:rotate(3deg)}
 .cta .free .ico{width:12px;height:12px;fill:currentColor;stroke:none}
 
-/* confiança e escassez, uma linha cada */
-.trust{margin:clamp(12px,2.2dvh,16px) 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:4px 14px;font:700 12.5px/1.2 var(--body);color:var(--ink-2)}
+/* confiança (uma linha) e a economia de quem está no grupo */
+.trust{margin:clamp(12px,2.2dvh,18px) 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:4px 14px;font:700 13px/1.2 var(--body);color:var(--ink-2)}
 .trust span{display:inline-flex;align-items:center;gap:5px}
 .trust span::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23168448' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/10px no-repeat}
-.last{margin:clamp(8px,1.6dvh,12px) 0 0;display:inline-flex;align-items:center;gap:6px;font:800 12.5px/1 var(--display);color:var(--orange);background:var(--orange-soft);padding:7px 12px;border-radius:999px}
-.last .ico{width:14px;height:14px;fill:currentColor;stroke:none;animation:flick 1.4s ease-in-out infinite}
-@keyframes flick{50%{transform:scale(1.15) rotate(-8deg)}}
+.save{margin:clamp(12px,2.4dvh,20px) 0 0;display:flex;align-items:center;gap:12px;width:100%;max-width:460px;padding:12px 14px;border-radius:20px;text-align:left;background:var(--orange-soft);border:1.5px dashed #f7b29f}
+.save .pct{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:18px;background:var(--orange);color:#fff;font:800 15px/1 var(--display);letter-spacing:-.03em}
+.save .pct b{display:block;font-size:22px}
+.save p{margin:0;font:600 13.5px/1.3 var(--body);color:var(--ink-2)}
+.save p b{display:block;font:800 15px/1.2 var(--display);color:var(--orange-deep);letter-spacing:-.01em;margin-bottom:2px}
 
-footer{margin-top:clamp(10px,2dvh,16px);font:600 11.5px/1.3 var(--body);color:var(--muted)}
+footer{flex:none;padding:0 16px calc(10px + env(safe-area-inset-bottom));font:600 11.5px/1.3 var(--body);color:var(--muted)}
 footer a{text-decoration:none;color:var(--orange);font-weight:700}
 
-/* telas bem baixas (celular deitado): tira o mosaico pra caber tudo */
-@media (max-height:520px){.cover{display:none}.body{margin-top:14px}.last,footer{display:none}}
+/* No computador: cartão centralizado, em formato de celular, com o fundo do site em volta */
+@media (min-width:640px) and (min-height:560px){
+  html{background:var(--bg)}
+  body{background:radial-gradient(60% 34% at 50% 0%,#ffe9dc 0%,rgba(255,233,220,0) 72%),var(--paw),var(--bg);background-size:auto,96px 96px,auto;align-items:center;justify-content:center;padding:20px}
+  .card{flex:none;width:100%;max-width:480px;min-height:0;height:min(820px,100dvh - 40px);border:1px solid var(--line);border-radius:36px;box-shadow:var(--clay);overflow:hidden}
+  .cover{height:clamp(150px,27%,230px)}
+  .cover img{border-radius:0 0 24px 24px}
+  .b1,.b2{top:12px}
+  footer{position:absolute;left:0;right:0;bottom:clamp(8px,1.6dvh,14px);padding-bottom:0}
+}
+/* celular deitado: sem o mosaico pra caber tudo */
+@media (max-height:520px){.cover{display:none}.body{margin-top:14px}.save,footer{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -112,7 +126,6 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></symbol>
 </svg>
 
@@ -126,7 +139,7 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
   </div>
 
   <div class="body">
-    <div class="avatar"><img src="../img/avatar.jpg" alt="Império Felino" width="92" height="92"><span class="heart" aria-hidden="true"><svg class="ico"><use href="#i-heart"/></svg></span></div>
+    <div class="avatar"><img src="../img/avatar.jpg" alt="Império Felino" width="108" height="108"><span class="heart" aria-hidden="true"><svg class="ico"><use href="#i-heart"/></svg></span></div>
     <span class="tag"><i aria-hidden="true"></i>Achadinhos de Gateira · WhatsApp</span>
     <h1>Gateira de verdade não perde <em>achadinhos!<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9c40-6 90-7 194-4" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></em></h1>
     <p class="hook">Ofertas e cupons pro seu gato, direto no WhatsApp.</p>
@@ -139,11 +152,15 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
     </a>
 
     <p class="trust"><span>Grátis</span><span>Sem spam</span><span>Sai quando quiser</span></p>
-    <p class="last"><svg class="ico" aria-hidden="true"><use href="#i-flame"/></svg>Últimas vagas no grupo</p>
-  </div>
-</main>
 
-<footer>© <span id="ano">2026</span> <a href="https://www.imperiofelino.com.br/">Império Felino</a> · Todos os direitos reservados.</footer>
+    <div class="save">
+      <span class="pct" aria-hidden="true">até<b>70%</b></span>
+      <p><b>Quem está no grupo economiza</b>Descontos de até 70% e cupons da Shopee e do Mercado Livre, antes de todo mundo.</p>
+    </div>
+  </div>
+
+  <footer>© <span id="ano">2026</span> <a href="https://www.imperiofelino.com.br/">Império Felino</a> · Todos os direitos reservados.</footer>
+</main>
 
 <script>
 // Convite do grupo "Achadinhos de Gateira" (o mesmo GRUPO_URL do site)
