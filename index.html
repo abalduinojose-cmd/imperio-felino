@@ -585,6 +585,9 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 // ===== Estatísticas (Google Analytics 4) =====
 // Cole aqui o ID de medição, no formato G-XXXXXXXXXX. Vazio = o site não carrega nenhum contador.
 var GA_ID = "";
+// Pixel da Meta (conta de anúncios "Paraíso dos Gatos - Pixel"). Vazio = o site não carrega o pixel.
+// Eventos: PageView ao abrir, Lead ao tocar em "entrar no grupo", CliqueProduto e CliqueCupom.
+var META_PIXEL_ID = "1279419466725271";
 
 var GRUPO_URL = "https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK";
 // Cole aqui o link da página de cupons (ex.: sua página de cupons da Shopee com o seu código de afiliado).
@@ -899,8 +902,18 @@ var PRODUTOS = [
     window.gtag("js", new Date());
     window.gtag("config", GA_ID);
   }
+  if (META_PIXEL_ID) {
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", META_PIXEL_ID);
+    window.fbq("track", "PageView");
+  }
+  // Nome do evento no Google Analytics -> evento no pixel da Meta
+  var META_EVENTOS = { entrar_grupo: ["track", "Lead"], clique_produto: ["trackCustom", "CliqueProduto"], clique_cupom: ["trackCustom", "CliqueCupom"] };
   function track(nome, dados) {
     if (window.gtag) window.gtag("event", nome, Object.assign({ transport_type: "beacon" }, dados || {}));
+    if (window.fbq && META_EVENTOS[nome]) window.fbq(META_EVENTOS[nome][0], META_EVENTOS[nome][1], Object.assign({ content_name: nome === "entrar_grupo" ? "Grupo WhatsApp" : "" }, dados || {}));
   }
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a");
