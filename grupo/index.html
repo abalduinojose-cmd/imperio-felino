@@ -88,13 +88,12 @@ h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spaci
 .deals li span{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;width:100%}
 .deals em{font:800 11px/1 var(--display);font-style:normal;color:#fff;background:var(--orange);padding:3px 6px;border-radius:7px}
 .deals b{font:800 clamp(13px,3.8vw,16px)/1.1 var(--display);color:var(--orange-deep);letter-spacing:-.02em;white-space:nowrap}
+.deals s{white-space:nowrap;font:700 11px/1 var(--body);color:#8a8079;text-decoration-color:var(--orange);text-decoration-thickness:1.5px}
 .deals small{font:600 10.5px/1.15 var(--body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 /* quantas pessoas já estão no grupo */
-.proof{display:inline-flex;align-items:center;gap:9px;margin:0 0 clamp(12px,2dvh,20px);font:600 13.5px/1.2 var(--body);color:var(--ink-2)}
+.proof{display:flex;justify-content:center;align-items:center;gap:9px;text-align:left;max-width:420px;margin:0 0 clamp(12px,2dvh,20px);font:600 13.5px/1.2 var(--body);color:var(--ink-2)}
 .proof b{font-weight:800;color:var(--green-deep)}
-.faces{display:flex}
-.faces img{width:26px;height:26px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-8px;box-shadow:0 2px 6px -2px rgba(0,0,0,.25)}
-.faces img:first-child{margin-left:0}
+.proof .new{flex:none;font:800 10.5px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--green);padding:5px 8px;border-radius:999px;box-shadow:0 0 0 4px rgba(31,168,90,.15)}
 /* o que acontece depois do clique */
 .next{display:inline-flex;align-items:center;gap:6px;margin:clamp(10px,1.6dvh,16px) 0 0;font:600 12.5px/1.2 var(--body);color:var(--muted)}
 .next .ico{width:14px;height:14px;stroke-width:2.6;color:var(--green-deep)}
@@ -217,13 +216,13 @@ footer a{color:var(--muted);font-weight:700}
     <div class="deals" aria-label="Ofertas que já chegaram no grupo">
       <span class="deals-k">Já chegou no grupo</span>
       <ul>
-        <li><img src="../img/oferta-golden.jpg" alt="" width="120" height="120"><span><em>-53%</em><b>R$ 140,99</b><small>Ração Golden 10,1 kg</small></span></li>
-        <li><img src="../img/oferta-frontline.jpg" alt="" width="120" height="120"><span><em>-38%</em><b>R$ 26,47</b><small>Antipulgas Frontline</small></span></li>
-        <li><img src="../img/oferta-friskies.jpg" alt="" width="120" height="120"><span><em>-37%</em><b>R$ 34,82</b><small>Sachê Friskies kit 15</small></span></li>
+        <li><img src="../img/oferta-golden.jpg" alt="" width="120" height="120"><span><em>-53%</em><s>R$ 299,90</s><b>R$ 140,99</b><small>Ração Golden 10,1 kg</small></span></li>
+        <li><img src="../img/oferta-frontline.jpg" alt="" width="120" height="120"><span><em>-38%</em><s>R$ 42,94</s><b>R$ 26,47</b><small>Antipulgas Frontline</small></span></li>
+        <li><img src="../img/oferta-friskies.jpg" alt="" width="120" height="120"><span><em>-37%</em><s>R$ 55,00</s><b>R$ 34,82</b><small>Sachê Friskies kit 15</small></span></li>
       </ul>
     </div>
 
-    <p class="proof"><span class="faces" aria-hidden="true"><img src="../img/p13.jpg" alt=""><img src="../img/p21.jpg" alt=""><img src="../img/avatar.jpg" alt=""></span><span><b id="membros">76</b> gateiras já estão no grupo</span></p>
+    <p class="proof"><span class="new">Novo</span><span>Entre no novo grupo · <b><span id="membros">76</span> gateiros e gateiras</b> já entraram</span></p>
 
     <a class="cta" id="cta" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="free"><svg class="ico"><use href="#i-paw"/></svg>grátis</span>
