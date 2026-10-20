@@ -93,8 +93,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .cover img:nth-child(n+4){display:none}
 @media (min-width:720px){.cover img:nth-child(n+4){display:block}}
 .cover::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.55) 70%,#fff 100%)}
-.hero-body{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:-46px;padding-inline:14px}
-@media (min-width:980px){.hero-body{gap:10px;margin-top:-62px}}
+/* sem fotos de capa: o cartão abre direto na foto de perfil, com um fundo pêssego suave e patinhas */
+.hero{background:radial-gradient(80% 55% at 50% 0%,#ffe9dc 0%,rgba(255,233,220,0) 75%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='%23ee4d2d' fill-opacity='.05' transform='rotate(-16 48 48)'%3E%3Cellipse cx='48' cy='58' rx='11' ry='9'/%3E%3Ccircle cx='34' cy='44' r='5'/%3E%3Ccircle cx='42' cy='36' r='5'/%3E%3Ccircle cx='54' cy='36' r='5'/%3E%3Ccircle cx='62' cy='44' r='5'/%3E%3C/g%3E%3C/svg%3E") 0 0/96px 96px,#fff}
+.hero-body{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:0;padding:20px 14px 0}
+@media (min-width:980px){.hero-body{gap:10px;padding-top:28px}}
 .avatar-wrap{position:relative;width:84px;height:84px}
 @media (min-width:980px){.avatar-wrap,.avatar{width:108px!important;height:108px!important}}
 .avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;background:#fff;border:4px solid #fff;box-shadow:0 0 0 2px #ffe3da,0 14px 30px -12px rgba(27,25,23,.4)}
@@ -461,9 +463,6 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 
   <div class="intro">
   <header class="hero">
-    <div class="cover" aria-hidden="true">
-      <img src="img/p06.jpg" alt="" style="object-position:40% 45%"><img src="img/p21.jpg" alt="" style="object-position:50% 25%"><img src="img/p18.jpg" alt="" style="object-position:50% 50%"><img src="img/p24.jpg" alt="" style="object-position:55% 40%"><img src="img/p13.jpg" alt="" style="object-position:50% 60%">
-    </div>
     <div class="hero-body">
       <div class="avatar-wrap">
         <img class="avatar" src="img/avatar.jpg" alt="Logo Império Felino" width="108" height="108">

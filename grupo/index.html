@@ -67,6 +67,13 @@ a{color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulatio
 h1{margin:0 0 clamp(8px,1.4dvh,12px);font:800 clamp(30px,min(8.6vw,5.2dvh),46px)/1.04 var(--display);letter-spacing:-.035em;text-wrap:balance}
 h1 em{font-style:normal;color:var(--orange);position:relative;white-space:nowrap}
 h1 em svg{position:absolute;left:-1%;bottom:-.22em;width:102%;height:.34em;color:#ffc4ae}
+/* título em 2 linhas (mesmo do painel do grupo no site) */
+h1:has(.l1){display:flex;flex-direction:column;align-items:center;gap:.16em;text-wrap:nowrap}
+h1 .l1,h1 .l2{display:block;white-space:nowrap}
+h1 .l1{font-size:clamp(30px,min(9.4vw,5.6dvh),54px);line-height:1}
+h1 .l1 em{display:inline-block;padding:.06em .28em .1em;border-radius:.32em;background:#fff36b;color:#0b3d24;transform:rotate(-1.5deg);box-shadow:0 10px 22px -12px rgba(120,60,30,.55)}
+h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spacing:-.03em;color:var(--ink-2)}
+.hook b{color:var(--green-deep)}
 .hook{margin:0 auto clamp(16px,2.8dvh,26px);max-width:22em;font:600 clamp(15.5px,min(4.3vw,2.4dvh),19px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
 
 /* ---------- Botão do grupo: a peça principal (texto em uma linha só) ---------- */
@@ -122,7 +129,9 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
   .pet{width:96px;height:96px;margin-bottom:8px}
   .pet .heart{width:28px;height:28px}
   .tag{font-size:12px;padding:7px 11px;margin-bottom:8px}
-  h1{font-size:clamp(24px,7.2vw,30px);margin-bottom:6px}
+  h1{margin-bottom:6px}
+  h1 .l1{font-size:clamp(26px,8.6vw,32px)}
+  h1 .l2{font-size:clamp(16px,5vw,19px)}
   .hook{font-size:14.5px;margin-bottom:12px}
   .cta{min-height:78px;padding:10px 14px 10px 10px}
   .cta .ic{width:54px;height:54px;border-radius:18px}
@@ -164,8 +173,8 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
       <span class="heart" aria-hidden="true"><svg class="ico"><use href="#i-heart"/></svg></span>
     </div>
     <span class="tag"><i aria-hidden="true"></i>Achadinhos de Gateira · WhatsApp</span>
-    <h1>Gateira de verdade não perde <em>achadinhos!<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9c40-6 90-7 194-4" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></em></h1>
-    <p class="hook">Ofertas e cupons pro seu gato, direto no WhatsApp.</p>
+    <h1><span class="l1"><em>Economize até 70%</em></span><span class="l2">em mimos e ração para o seu gato</span></h1>
+    <p class="hook">Ofertas e cupons da Shopee e do Mercado Livre chegam <b>primeiro no grupo</b>.</p>
 
     <a class="cta" id="cta" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="free"><svg class="ico"><use href="#i-paw"/></svg>grátis</span>
@@ -179,10 +188,6 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
       <li class="t3"><svg class="ico" aria-hidden="true"><use href="#i-door"/></svg>Você pode sair do grupo quando quiser</li>
     </ul>
 
-    <div class="save">
-      <span class="pct" aria-hidden="true">até<b>70%</b></span>
-      <p><b>Quem está no grupo economiza</b>Descontos de até 70% e cupons da Shopee e do Mercado Livre, antes de todo mundo.</p>
-    </div>
   </div>
 
   <footer>© <span id="ano">2026</span> <a href="https://www.imperiofelino.com.br/">Império Felino</a> · Todos os direitos reservados.</footer>
