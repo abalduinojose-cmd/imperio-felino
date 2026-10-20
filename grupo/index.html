@@ -80,7 +80,7 @@ h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spaci
 .hook{margin:0 auto clamp(10px,1.8dvh,20px);max-width:22em;font:600 clamp(15.5px,min(4.3vw,2.4dvh),19px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
 
 /* ofertas que já chegaram no grupo */
-.deals{width:100%;max-width:480px;margin:0 0 clamp(10px,1.8dvh,16px)}
+.deals{width:100%;max-width:480px;margin:0 0 clamp(16px,2.6dvh,24px)}
 .deals-k{display:block;margin-bottom:8px;font:800 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .deals ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .deals li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 6px 9px;border-radius:18px;background:#fff;border:1.5px solid var(--line);box-shadow:0 10px 20px -16px rgba(120,60,30,.45)}
@@ -90,10 +90,18 @@ h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spaci
 .deals b{font:800 clamp(13px,3.8vw,16px)/1.1 var(--display);color:var(--orange-deep);letter-spacing:-.02em;white-space:nowrap}
 .deals s{white-space:nowrap;font:700 11px/1 var(--body);color:#8a8079;text-decoration-color:var(--orange);text-decoration-thickness:1.5px}
 .deals small{font:600 10.5px/1.15 var(--body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-/* quantas pessoas já estão no grupo */
-.proof{display:flex;justify-content:center;align-items:center;gap:9px;text-align:left;max-width:420px;margin:0 0 clamp(12px,2dvh,20px);font:600 13.5px/1.2 var(--body);color:var(--ink-2)}
-.proof b{font-weight:800;color:var(--green-deep)}
-.proof .new{flex:none;font:800 10.5px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--green);padding:5px 8px;border-radius:999px;box-shadow:0 0 0 4px rgba(31,168,90,.15)}
+/* notificação: entra pelo topo, fica 4 s e sai */
+.toast{position:fixed;z-index:50;top:calc(10px + env(safe-area-inset-top));left:50%;width:min(92vw,420px);display:flex;align-items:center;gap:11px;padding:10px 14px 10px 10px;border-radius:18px;
+  background:rgba(255,255,255,.97);border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(27,25,23,.45);text-align:left;
+  transform:translate(-50%,-140%);opacity:0;transition:transform .5s var(--ease),opacity .4s var(--ease);pointer-events:none}
+.toast.on{transform:translate(-50%,0);opacity:1}
+.toast .t-ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--green);color:#fff}
+.toast .t-ic svg{width:21px;height:21px}
+.toast .t-ic img{width:38px;height:38px;border-radius:12px;object-fit:cover;background:#f5f1ec}
+.toast .t-tx{font:600 13px/1.3 var(--body);color:var(--ink-2)}
+.toast .t-tx b{display:block;font:800 13.5px/1.25 var(--display);color:var(--ink)}
+.toast .t-tx em{font-style:normal;font-weight:800;color:var(--orange-deep)}
+
 /* o que acontece depois do clique */
 .next{display:inline-flex;align-items:center;gap:6px;margin:clamp(10px,1.6dvh,16px) 0 0;font:600 12.5px/1.2 var(--body);color:var(--muted)}
 .next .ico{width:14px;height:14px;stroke-width:2.6;color:var(--green-deep)}
@@ -167,7 +175,6 @@ footer a{color:var(--muted);font-weight:700}
   .deals small{display:none}
   .deals b{font-size:13px}
   .deals li{justify-content:center}
-  .proof{margin-bottom:10px;font-size:12.5px}
   .next{margin-top:8px;font-size:11.5px}
   .cta{min-height:78px;padding:10px 14px 10px 10px}
   .cta .ic{width:54px;height:54px;border-radius:18px}
@@ -184,7 +191,7 @@ footer a{color:var(--muted);font-weight:700}
 }
 /* celular deitado */
 @media (max-height:520px){.pet,.deals,footer{display:none}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.toast{transition:none}}
 </style>
 </head>
 <body>
@@ -195,6 +202,7 @@ footer a{color:var(--muted);font-weight:700}
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.96 18 12.5 18 8A6 6 0 0 0 6 8c0 4.5-1.41 5.96-2.74 7.33"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
   <symbol id="i-door" viewBox="0 0 24 24"><path d="M13 4h3a2 2 0 0 1 2 2v14M2 20h3M13 20h9M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.1 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></symbol>
@@ -222,12 +230,11 @@ footer a{color:var(--muted);font-weight:700}
       </ul>
     </div>
 
-    <p class="proof"><span class="new">Novo</span><span>Entre no novo grupo · <b><span id="membros">76</span> gateiros e gateiras</b> já entraram</span></p>
 
     <a class="cta" id="cta" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="free"><svg class="ico"><use href="#i-paw"/></svg>grátis</span>
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-      <span class="tx"><b>Entrar no grupo</b><small>Grátis · leva 2 segundos<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></small></span>
+      <span class="tx"><b>Quero entrar no grupo</b><small>Grátis · leva 2 segundos<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></small></span>
     </a>
     <p class="next">Abre o WhatsApp <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg> toque em <b>Entrar no grupo</b></p>
 
@@ -239,14 +246,13 @@ footer a{color:var(--muted);font-weight:700}
 
   </div>
 
+  <!-- Notificação que aparece sozinha: só ofertas e informações reais do grupo (preenchida pelo script) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"><span class="t-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></span><span class="t-tx"></span></div>
+
   <footer>© <span id="ano">2026</span> Império Felino · Usamos cookies para medir anúncios · <a href="../privacidade/">Privacidade</a></footer>
 </main>
 
 <script>
-// Quantas pessoas estão no grupo (atualizar quando mudar)
-var MEMBROS = 76;
-document.getElementById("membros").textContent = MEMBROS;
-
 // Convite do grupo "Achadinhos de Gateira" (o mesmo GRUPO_URL do site)
 var GRUPO = "https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK";
 // Pixel da Meta (o mesmo META_PIXEL_ID do site): PageView ao abrir e Lead ao tocar no botão do grupo.
@@ -263,6 +269,27 @@ if (META_PIXEL_ID) {
   fbq("init", META_PIXEL_ID);
   fbq("track", "PageView");
 }
+
+// Notificações: só coisas reais do grupo (ofertas que chegaram em 20/10 e como o grupo funciona). Uma a cada 6 s.
+var AVISOS = [
+  { img:"../img/oferta-golden.jpg",    t:"Nova oferta no grupo",     d:"Ração Golden 10,1 kg por <em>R$ 140,99</em> (−53%)" },
+  { ico:true,                          t:"Cupons novos todo dia",     d:"Os cupons da Shopee chegam primeiro no grupo" },
+  { img:"../img/oferta-frontline.jpg", t:"Nova oferta no grupo",     d:"Antipulgas Frontline por <em>R$ 26,47</em> (−38%)" },
+  { ico:true,                          t:"Entrar é grátis",           d:"Sem spam e você sai quando quiser" },
+  { img:"../img/oferta-friskies.jpg",  t:"Nova oferta no grupo",     d:"Sachê Friskies kit 15 por <em>R$ 34,82</em> (−37%)" }
+];
+(function () {
+  var box = document.getElementById("toast"), ic = box.querySelector(".t-ic"), tx = box.querySelector(".t-tx"), sino = ic.innerHTML, i = 0;
+  function mostra() {
+    if (document.visibilityState !== "visible") return;
+    var a = AVISOS[i++ % AVISOS.length];
+    ic.innerHTML = a.img ? '<img src="' + a.img + '" alt="">' : sino;
+    tx.innerHTML = "<b>" + a.t + "</b>" + a.d;
+    box.classList.add("on");
+    setTimeout(function () { box.classList.remove("on"); }, 4000);
+  }
+  setTimeout(function () { mostra(); setInterval(mostra, 6000); }, 1800);
+})();
 
 // O botão abre o WhatsApp na mesma aba: registra o Lead e só então segue (no máximo 400 ms de espera)
 cta.addEventListener("click", function (e) {
