@@ -90,16 +90,15 @@ h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spaci
 .deals b{font:800 clamp(13px,3.8vw,16px)/1.1 var(--display);color:var(--orange-deep);letter-spacing:-.02em;white-space:nowrap}
 .deals s{white-space:nowrap;font:700 11px/1 var(--body);color:#8a8079;text-decoration-color:var(--orange);text-decoration-thickness:1.5px}
 .deals small{font:600 10.5px/1.15 var(--body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-/* notificação: entra pelo topo, fica 4 s e sai */
-.toast{position:fixed;z-index:50;top:calc(10px + env(safe-area-inset-top));left:50%;width:min(92vw,420px);display:flex;align-items:center;gap:11px;padding:10px 14px 10px 10px;border-radius:18px;
-  background:rgba(255,255,255,.97);border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(27,25,23,.45);text-align:left;
-  transform:translate(-50%,-140%);opacity:0;transition:transform .5s var(--ease),opacity .4s var(--ease);pointer-events:none}
-.toast.on{transform:translate(-50%,0);opacity:1}
-.toast .t-ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--green);color:#fff}
-.toast .t-ic svg{width:21px;height:21px}
-.toast .t-ic img{width:38px;height:38px;border-radius:12px;object-fit:cover;background:#f5f1ec}
-.toast .t-tx{font:600 13px/1.3 var(--body);color:var(--ink-2)}
-.toast .t-tx b{display:block;font:800 13.5px/1.25 var(--display);color:var(--ink)}
+/* notificação pequena no canto de baixo à direita: entra pela lateral, fica 4 s e sai */
+.toast{position:fixed;z-index:50;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));max-width:min(70vw,260px);display:flex;align-items:center;gap:8px;padding:7px 12px 7px 7px;border-radius:14px;
+  background:rgba(255,255,255,.97);border:1px solid var(--line);box-shadow:0 12px 28px -14px rgba(27,25,23,.5);text-align:left;
+  transform:translateX(120%);opacity:0;transition:transform .45s var(--ease),opacity .35s var(--ease);pointer-events:none}
+.toast.on{transform:none;opacity:1}
+.toast .t-ic{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--green);color:#fff}
+.toast .t-ic svg{width:15px;height:15px}
+.toast .t-ic img{width:26px;height:26px;border-radius:8px;object-fit:cover;background:#f5f1ec}
+.toast .t-tx{font:700 12px/1.25 var(--body);color:var(--ink-2);white-space:nowrap}
 .toast .t-tx em{font-style:normal;font-weight:800;color:var(--orange-deep)}
 
 /* o que acontece depois do clique */
@@ -270,13 +269,14 @@ if (META_PIXEL_ID) {
   fbq("track", "PageView");
 }
 
-// Notificações: só coisas reais do grupo (ofertas que chegaram em 20/10 e como o grupo funciona). Uma a cada 6 s.
+// Notificações (canto de baixo à direita): só coisas reais do grupo — ofertas que chegaram em 20/10 e como o grupo funciona.
+// Não colocar pessoas/nomes inventados ("fulano entrou"): o site não sabe quem entra no WhatsApp. Uma a cada 6 s.
 var AVISOS = [
-  { img:"../img/oferta-golden.jpg",    t:"Nova oferta no grupo",     d:"Ração Golden 10,1 kg por <em>R$ 140,99</em> (−53%)" },
-  { ico:true,                          t:"Cupons novos todo dia",     d:"Os cupons da Shopee chegam primeiro no grupo" },
-  { img:"../img/oferta-frontline.jpg", t:"Nova oferta no grupo",     d:"Antipulgas Frontline por <em>R$ 26,47</em> (−38%)" },
-  { ico:true,                          t:"Entrar é grátis",           d:"Sem spam e você sai quando quiser" },
-  { img:"../img/oferta-friskies.jpg",  t:"Nova oferta no grupo",     d:"Sachê Friskies kit 15 por <em>R$ 34,82</em> (−37%)" }
+  { img:"../img/oferta-golden.jpg",    d:"Golden chegou por <em>R$ 140,99</em>" },
+  { ico:true,                          d:"Cupom novo sai primeiro aqui" },
+  { img:"../img/oferta-frontline.jpg", d:"Frontline chegou por <em>R$ 26,47</em>" },
+  { ico:true,                          d:"Grátis e sem spam" },
+  { img:"../img/oferta-friskies.jpg",  d:"Friskies chegou por <em>R$ 34,82</em>" }
 ];
 (function () {
   var box = document.getElementById("toast"), ic = box.querySelector(".t-ic"), tx = box.querySelector(".t-tx"), sino = ic.innerHTML, i = 0;
@@ -284,7 +284,7 @@ var AVISOS = [
     if (document.visibilityState !== "visible") return;
     var a = AVISOS[i++ % AVISOS.length];
     ic.innerHTML = a.img ? '<img src="' + a.img + '" alt="">' : sino;
-    tx.innerHTML = "<b>" + a.t + "</b>" + a.d;
+    tx.innerHTML = a.d;
     box.classList.add("on");
     setTimeout(function () { box.classList.remove("on"); }, 4000);
   }
