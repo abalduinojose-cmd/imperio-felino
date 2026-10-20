@@ -7,24 +7,27 @@
 <meta name="description" content="Grupo de ofertas no WhatsApp para tutores de gato: achadinhos e cupons da Shopee e do Mercado Livre antes de todo mundo. Grátis.">
 <meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://www.imperiofelino.com.br/grupo/">
-<meta property="og:title" content="Achadinhos de Gateira · Grupo de ofertas no WhatsApp">
-<meta property="og:description" content="Gateira de verdade não perde achadinhos! Ofertas e cupons para você e seu gato, grátis no WhatsApp.">
+<meta property="og:title" content="Economize até 70% em ração, mimos e sachês para o seu gato">
+<meta property="og:description" content="Entre grátis no grupo Achadinhos de Gateira: quedas de preço e cupons da Shopee e do Mercado Livre chegam primeiro.">
 <meta property="og:url" content="https://www.imperiofelino.com.br/grupo/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://www.imperiofelino.com.br/img/p21.jpg">
+<meta property="og:image" content="https://www.imperiofelino.com.br/img/og-grupo.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="icon" href="../img/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <link rel="preload" href="../fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Página de entrada do grupo "Achadinhos de Gateira" (anúncios, stories, link da bio).
-     Uma tela só, sem rolagem, ocupando a tela inteira no celular: o gato no topo, nome do grupo,
-     uma frase, o botão de entrar (texto em uma linha), três pílulas de confiança e a linha da economia.
+     Uma tela só, sem rolagem, ocupando a tela inteira no celular: o gato no topo, nome do grupo, título,
+     3 ofertas que já chegaram no grupo (as mesmas dos anúncios), quantas pessoas já estão no grupo,
+     o botão de entrar, o que acontece depois do clique e três pílulas de confiança.
      Mesma identidade do site. No computador vira um cartão centralizado em formato de celular.
      O botão leva ao convite em GRUPO. -->
 <style>
-@font-face{font-family:"Outfit";font-style:normal;font-weight:100 900;font-display:block;src:url(../fonts/outfit-latin.woff2) format("woff2")}
-@font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:block;src:url(../fonts/figtree-latin.woff2) format("woff2")}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/outfit-latin.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:swap;src:url(../fonts/figtree-latin.woff2) format("woff2")}
 :root{
   --bg:#faf8f6;--surface:#fff;--ink:#1b1917;--ink-2:#4b4541;--muted:#6f6760;--line:#ece7e2;
   --orange:#ee4d2d;--orange-deep:#c93a1e;--orange-soft:#fff1ec;--peach:#ffe3d6;
@@ -48,10 +51,10 @@ a{color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulatio
 .card{position:relative;flex:1;display:flex;flex-direction:column;width:100%;min-height:100dvh;background:var(--surface);
   background-image:radial-gradient(80% 36% at 50% 0%,#ffe9dc 0%,rgba(255,233,220,0) 72%),var(--paw);background-size:auto,96px 96px}
 .body{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:calc(clamp(18px,4dvh,40px) + env(safe-area-inset-top)) clamp(16px,5vw,28px) calc(14px + env(safe-area-inset-bottom))}
+  padding:calc(clamp(12px,2.4dvh,32px) + env(safe-area-inset-top)) clamp(16px,5vw,28px) calc(14px + env(safe-area-inset-bottom))}
 
 /* o gato no topo, com os balõezinhos em volta */
-.pet{position:relative;width:clamp(118px,19dvh,160px);height:clamp(118px,19dvh,160px);margin-bottom:clamp(10px,2dvh,16px)}
+.pet{position:relative;width:clamp(96px,13.5dvh,140px);height:clamp(96px,13.5dvh,140px);margin-bottom:clamp(8px,1.4dvh,14px)}
 .pet img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#fff;border:5px solid #fff;box-shadow:0 0 0 3px var(--peach),0 18px 36px -14px rgba(27,25,23,.4)}
 .pet .heart{position:absolute;right:0;bottom:4px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:#fff;border:3px solid #fff}
 .pet .heart .ico{width:16px;height:16px;fill:currentColor;stroke:none}
@@ -61,7 +64,7 @@ a{color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulatio
 .b2{top:14px;left:calc(100% - 10px);color:#fff;background:var(--green);animation-delay:1.3s}
 @keyframes bob{50%{translate:0 -4px}}
 
-.tag{display:inline-flex;align-items:center;gap:7px;font:700 13px/1 var(--body);color:var(--green-deep);background:var(--green-soft);padding:8px 13px;border-radius:999px;margin-bottom:clamp(10px,2dvh,16px)}
+.tag{display:inline-flex;align-items:center;gap:7px;font:700 13px/1 var(--body);color:var(--green-deep);background:var(--green-soft);padding:8px 13px;border-radius:999px;margin-bottom:clamp(8px,1.4dvh,14px)}
 .tag i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(31,168,90,.6);animation:pulse 1.8s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(31,168,90,0)}100%{box-shadow:0 0 0 0 rgba(31,168,90,0)}}
 h1{margin:0 0 clamp(8px,1.4dvh,12px);font:800 clamp(30px,min(8.6vw,5.2dvh),46px)/1.04 var(--display);letter-spacing:-.035em;text-wrap:balance}
@@ -74,10 +77,31 @@ h1 .l1{font-size:clamp(30px,min(9.4vw,5.6dvh),54px);line-height:1}
 h1 .l1 em{display:inline-block;padding:.06em .28em .1em;border-radius:.32em;background:#fff36b;color:#0b3d24;transform:rotate(-1.5deg);box-shadow:0 10px 22px -12px rgba(120,60,30,.55)}
 h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spacing:-.03em;color:var(--ink-2)}
 .hook b{color:var(--green-deep)}
-.hook{margin:0 auto clamp(16px,2.8dvh,26px);max-width:22em;font:600 clamp(15.5px,min(4.3vw,2.4dvh),19px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
+.hook{margin:0 auto clamp(10px,1.8dvh,20px);max-width:22em;font:600 clamp(15.5px,min(4.3vw,2.4dvh),19px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
+
+/* ofertas que já chegaram no grupo */
+.deals{width:100%;max-width:480px;margin:0 0 clamp(10px,1.8dvh,16px)}
+.deals-k{display:block;margin-bottom:8px;font:800 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.deals ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.deals li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 6px 9px;border-radius:18px;background:#fff;border:1.5px solid var(--line);box-shadow:0 10px 20px -16px rgba(120,60,30,.45)}
+.deals img{width:clamp(42px,6dvh,60px);height:clamp(42px,6dvh,60px);border-radius:12px;object-fit:cover;background:#f5f1ec}
+.deals li span{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;width:100%}
+.deals em{font:800 11px/1 var(--display);font-style:normal;color:#fff;background:var(--orange);padding:3px 6px;border-radius:7px}
+.deals b{font:800 clamp(13px,3.8vw,16px)/1.1 var(--display);color:var(--orange-deep);letter-spacing:-.02em;white-space:nowrap}
+.deals small{font:600 10.5px/1.15 var(--body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+/* quantas pessoas já estão no grupo */
+.proof{display:inline-flex;align-items:center;gap:9px;margin:0 0 clamp(12px,2dvh,20px);font:600 13.5px/1.2 var(--body);color:var(--ink-2)}
+.proof b{font-weight:800;color:var(--green-deep)}
+.faces{display:flex}
+.faces img{width:26px;height:26px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-8px;box-shadow:0 2px 6px -2px rgba(0,0,0,.25)}
+.faces img:first-child{margin-left:0}
+/* o que acontece depois do clique */
+.next{display:inline-flex;align-items:center;gap:6px;margin:clamp(10px,1.6dvh,16px) 0 0;font:600 12.5px/1.2 var(--body);color:var(--muted)}
+.next .ico{width:14px;height:14px;stroke-width:2.6;color:var(--green-deep)}
+.next b{color:var(--ink-2)}
 
 /* ---------- Botão do grupo: a peça principal (texto em uma linha só) ---------- */
-.cta{position:relative;isolation:isolate;display:flex;align-items:center;gap:14px;width:100%;max-width:480px;min-height:clamp(84px,13dvh,104px);padding:12px 18px 12px 12px;color:#fff;text-decoration:none;text-align:left;border-radius:32px;cursor:pointer;
+.cta{position:relative;isolation:isolate;display:flex;align-items:center;gap:14px;width:100%;max-width:480px;min-height:clamp(76px,10.5dvh,100px);padding:11px 18px 11px 11px;color:#fff;text-decoration:none;text-align:left;border-radius:32px;cursor:pointer;
   background:linear-gradient(160deg,#36d777 0%,var(--green) 55%,var(--green-deep) 100%);
   transition:box-shadow .2s var(--ease);animation:buzz 2s ease-in-out .8s infinite,glow 2s ease-in-out infinite}
 .cta:hover,.cta:active{animation-play-state:paused}
@@ -99,7 +123,7 @@ h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spaci
 .cta .free .ico{width:12px;height:12px;fill:currentColor;stroke:none}
 
 /* três pílulas de confiança, cada uma com seu ícone e sua cor */
-.trust{margin:clamp(14px,2.6dvh,20px) 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.trust{margin:clamp(10px,1.8dvh,18px) 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
 .trust li{display:inline-flex;align-items:center;gap:7px;padding:8px 13px 8px 9px;border-radius:999px;font:700 12.5px/1.15 var(--body);color:var(--ink-2);background:var(--surface);border:1.5px solid var(--line);box-shadow:0 6px 14px -10px rgba(120,60,30,.35)}
 .trust .ico{width:22px;height:22px;padding:4px;border-radius:50%;stroke-width:2.4}
 .trust .t1 .ico{color:var(--green-deep);background:var(--green-soft)}
@@ -114,14 +138,16 @@ h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spaci
 .save p b{display:block;font:800 15px/1.2 var(--display);color:var(--orange-deep);letter-spacing:-.01em;margin-bottom:2px}
 
 footer{flex:none;padding:0 16px calc(10px + env(safe-area-inset-bottom));font:600 11.5px/1.3 var(--body);color:var(--muted)}
-footer a{text-decoration:none;color:var(--orange);font-weight:700}
+footer a{color:var(--muted);font-weight:700}
 
 /* No computador: cartão centralizado, em formato de celular, com o fundo do site em volta */
 @media (min-width:640px) and (min-height:560px){
   html{background:var(--bg)}
   body{background:radial-gradient(60% 34% at 50% 0%,#ffe9dc 0%,rgba(255,233,220,0) 72%),var(--paw),var(--bg);background-size:auto,96px 96px,auto;align-items:center;justify-content:center;padding:20px}
-  .card{flex:none;width:100%;max-width:480px;min-height:0;height:min(820px,100dvh - 40px);border:1px solid var(--line);border-radius:36px;box-shadow:var(--clay);overflow:hidden}
-  footer{position:absolute;left:0;right:0;bottom:clamp(8px,1.6dvh,14px);padding-bottom:0}
+  html,body{height:auto;min-height:100%;overflow:auto}
+  .card{flex:none;width:100%;max-width:480px;min-height:0;height:auto;border:1px solid var(--line);border-radius:36px;box-shadow:var(--clay);overflow:hidden}
+  .body{padding-top:28px;padding-bottom:10px}
+  footer{position:static;padding:6px 16px 16px}
 }
 /* celulares baixos (até 700px de altura): tudo um pouco menor pra caber sem rolar */
 @media (max-height:700px){
@@ -132,7 +158,18 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
   h1{margin-bottom:6px}
   h1 .l1{font-size:clamp(26px,8.6vw,32px)}
   h1 .l2{font-size:clamp(16px,5vw,19px)}
-  .hook{font-size:14.5px;margin-bottom:12px}
+  .hook{font-size:14.5px;margin-bottom:10px}
+  .pet .bubble{display:none}
+  .deals{margin-bottom:8px}
+  .deals-k{margin-bottom:6px}
+  .deals li{flex-direction:row;padding:6px;gap:6px}
+  .deals img{width:38px;height:38px;border-radius:9px}
+  .deals li span{align-items:flex-start}
+  .deals small{display:none}
+  .deals b{font-size:13px}
+  .deals li{justify-content:center}
+  .proof{margin-bottom:10px;font-size:12.5px}
+  .next{margin-top:8px;font-size:11.5px}
   .cta{min-height:78px;padding:10px 14px 10px 10px}
   .cta .ic{width:54px;height:54px;border-radius:18px}
   .cta .ic svg{width:32px;height:32px}
@@ -147,7 +184,7 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
   footer{font-size:11px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
 }
 /* celular deitado */
-@media (max-height:520px){.pet{display:none}.save,footer{display:none}}
+@media (max-height:520px){.pet,.deals,footer{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -173,14 +210,27 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
       <span class="heart" aria-hidden="true"><svg class="ico"><use href="#i-heart"/></svg></span>
     </div>
     <span class="tag"><i aria-hidden="true"></i>Achadinhos de Gateira · WhatsApp</span>
-    <h1><span class="l1"><em>Economize até 70%</em></span><span class="l2">em mimos e ração para o seu gato</span></h1>
+    <h1><span class="l1"><em>Economize até 70%</em></span><span class="l2">em ração, mimos e sachês para o seu gato</span></h1>
     <p class="hook">Ofertas e cupons da Shopee e do Mercado Livre chegam <b>primeiro no grupo</b>.</p>
+
+    <!-- Ofertas que já chegaram no grupo (as mesmas dos anúncios). Preços com cupom de 20/10/2026. -->
+    <div class="deals" aria-label="Ofertas que já chegaram no grupo">
+      <span class="deals-k">Já chegou no grupo</span>
+      <ul>
+        <li><img src="../img/oferta-golden.jpg" alt="" width="120" height="120"><span><em>-53%</em><b>R$ 140,99</b><small>Ração Golden 10,1 kg</small></span></li>
+        <li><img src="../img/oferta-frontline.jpg" alt="" width="120" height="120"><span><em>-38%</em><b>R$ 26,47</b><small>Antipulgas Frontline</small></span></li>
+        <li><img src="../img/oferta-friskies.jpg" alt="" width="120" height="120"><span><em>-37%</em><b>R$ 34,82</b><small>Sachê Friskies kit 15</small></span></li>
+      </ul>
+    </div>
+
+    <p class="proof"><span class="faces" aria-hidden="true"><img src="../img/p13.jpg" alt=""><img src="../img/p21.jpg" alt=""><img src="../img/avatar.jpg" alt=""></span><span><b id="membros">76</b> gateiras já estão no grupo</span></p>
 
     <a class="cta" id="cta" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="free"><svg class="ico"><use href="#i-paw"/></svg>grátis</span>
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-      <span class="tx"><b>Entrar no grupo</b><small>Clique aqui para entrar no grupo<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></small></span>
+      <span class="tx"><b>Entrar no grupo</b><small>Grátis · leva 2 segundos<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></small></span>
     </a>
+    <p class="next">Abre o WhatsApp <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg> toque em <b>Entrar no grupo</b></p>
 
     <ul class="trust">
       <li class="t1"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Grátis</li>
@@ -190,10 +240,14 @@ footer a{text-decoration:none;color:var(--orange);font-weight:700}
 
   </div>
 
-  <footer>© <span id="ano">2026</span> <a href="https://www.imperiofelino.com.br/">Império Felino</a> · Todos os direitos reservados.</footer>
+  <footer>© <span id="ano">2026</span> Império Felino · Usamos cookies para medir anúncios · <a href="../privacidade/">Privacidade</a></footer>
 </main>
 
 <script>
+// Quantas pessoas estão no grupo (atualizar quando mudar)
+var MEMBROS = 76;
+document.getElementById("membros").textContent = MEMBROS;
+
 // Convite do grupo "Achadinhos de Gateira" (o mesmo GRUPO_URL do site)
 var GRUPO = "https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK";
 // Pixel da Meta (o mesmo META_PIXEL_ID do site): PageView ao abrir e Lead ao tocar no botão do grupo.
