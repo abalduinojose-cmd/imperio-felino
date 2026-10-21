@@ -261,7 +261,24 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .insta-copy h2{font-size:clamp(22px,3.4vw,30px);font-weight:800;line-height:1.1}
 .ig-handle{align-self:flex-start;font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none}
 .ig-handle:hover{color:#d62976}
+.ig-handle span{display:block;font-weight:600}
+.ig-handle b{color:var(--ink);font-weight:800}
+.ig-sub{font-size:14px;font-weight:600;color:var(--muted);line-height:1.4;margin:-4px 4px 12px}
+.ig-follow{flex:none;margin-left:auto;align-self:center;height:36px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;font-size:13.5px;font-weight:800;color:#fff;text-decoration:none;
+  background:linear-gradient(90deg,#fa7e1e,#d62976 55%,#962fbf);box-shadow:0 8px 18px -10px rgba(214,41,118,.8);transition:transform .16s var(--ease-out),filter .18s}
+.ig-follow:hover{filter:brightness(1.06)}
+.ig-follow:active{transform:scale(.96)}
+@media (min-width:720px){.ig-follow{margin-left:0}}
 .reels-nav{display:none;margin-left:auto;gap:8px}
+.reel-tag{position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;gap:3px;height:24px;padding:0 9px 0 6px;border-radius:999px;font-size:11.5px;font-weight:800;color:#fff;
+  background:rgba(22,19,17,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.reel-tag svg{width:13px;height:13px}
+.reel.reel-more{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:18px 14px;text-align:center;color:var(--ink);
+  background:linear-gradient(160deg,#fff4e8,#fde3ef 60%,#efe2fb)}
+.reel-more b{font-family:var(--display);font-size:17px;font-weight:800;line-height:1.2}
+.rm-ring{width:64px;height:64px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#feda75)}
+.rm-ring img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid #fff}
+.rm-btn{height:36px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(90deg,#fa7e1e,#d62976 55%,#962fbf)}
 @media (min-width:720px){.reels-nav{display:flex}}
 .reels-nav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .18s var(--ease-out),transform .16s var(--ease-out),opacity .18s}
 .reels-nav button:hover{border-color:var(--line-strong)}
@@ -516,13 +533,15 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
       <a class="ig-ring" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener" aria-label="Instagram @imperiofelino_miau"><img src="img/avatar.jpg" alt=""></a>
       <div class="insta-copy">
         <h2 id="insta-titulo">Você viu no Instagram</h2>
-        <a class="ig-handle" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener">@imperiofelino_miau</a>
+        <a class="ig-handle" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener">@imperiofelino_miau<span><b id="ig-seg">210 mil</b> seguidores</span></a>
       </div>
+      <a class="ig-follow" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener">Seguir</a>
       <div class="reels-nav">
         <button type="button" data-reels="-1" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
         <button type="button" data-reels="1" aria-label="Avançar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
+    <p class="ig-sub">Os achadinhos que apareceram nos nossos Reels, com o link certinho.</p>
     <div class="reels-row" id="insta-shelf"></div>
   </section>
 
@@ -643,13 +662,18 @@ var NO_GRUPO = [
 
 // ===== Você viu no Instagram =====
 // Links dos produtos que apareceram nos vídeos do Instagram, na ordem em que devem aparecer.
+// "reel" é a data do vídeo (aparece no selo do card).
 var NO_INSTAGRAM = [
-  "https://s.shopee.com.br/9KiobfFxkr",  // toca de feltro 6 funções (reel de 13/10)
-  "https://s.shopee.com.br/7faY4QJkAl",  // difusor de feromônio (reels de 12/10 e 14/10)
-  "https://s.shopee.com.br/6AkhfmvD0o",  // luvinha de higiene (reel de 13/10)
-  "https://s.shopee.com.br/AKazSeLJYM",  // enfeites natalinos (reel de 12/09)
-  "https://s.shopee.com.br/7pu2CAOo78"   // lagarto robô
+  { link:"https://s.shopee.com.br/2BFpnPZ2SQ", reel:"15/10" },  // pelúcia com batimento
+  { link:"https://s.shopee.com.br/AKazSeLJYM", reel:"30/09" },  // enfeites natalinos
+  { link:"https://s.shopee.com.br/70Kgth4jyY", reel:"11/10" },  // porta-retrato com patinha
+  { link:"https://s.shopee.com.br/9KiobfFxkr", reel:"13/10" },  // toca de feltro 6 funções
+  { link:"https://s.shopee.com.br/7faY4QJkAl", reel:"14/10" },  // difusor de feromônio
+  { link:"https://s.shopee.com.br/6AkhfmvD0o", reel:"13/10" },  // luvinha de higiene
+  { link:"https://s.shopee.com.br/7pu2CAOo78", reel:"15/10" }   // lagarto robô
 ];
+// Seguidores do @imperiofelino_miau (atualizar de vez em quando)
+var IG_SEGUIDORES = "210 mil";
 
 // ===== Produtos =====
 // Ordem = ordem de cliques (os 6 primeiros viram "Mais procurados do mês").
@@ -672,6 +696,7 @@ var PRODUTOS = [
   { img:"img/p42.jpg", nome:"Saco de dormir caverna de pelúcia para gatos",                    cat:"casa",        link:"https://s.shopee.com.br/9APWIKfPJp", preco:51.23,  de:211.75, desc:76, nota:"com cupom", frete:"cupom", vendidos:"871", parcelas:{n:10, valor:5.88} },
   { img:"img/p01.jpg", nome:"Conjunto de enfeites natalinos em acrílico em forma de gatinhos", cat:"natal",       link:"https://s.shopee.com.br/AKazSeLJYM", preco:68.42,  de:122.17, desc:44, frete:"cupom", estrelas:4.3, avaliacoes:"4",       vendidos:"63",      parcelas:{n:12, valor:6.64} },
   { img:"img/p22.jpg", nome:"Difusor de feromônio calmante para gatos",                        cat:"higiene",     link:"https://s.shopee.com.br/7faY4QJkAl", preco:42.99,  de:72.70,  desc:41, frete:"cupom", estrelas:4.7, avaliacoes:"65",      vendidos:"157",     parcelas:{n:8,  valor:6.07} },
+  { img:"img/p43.jpg", nome:"Pelúcia com batimento de coração que acalma o pet",            cat:"fofura",      link:"https://s.shopee.com.br/2BFpnPZ2SQ", preco:77.75,  de:149.07, desc:48, frete:"cupom", estrelas:5.0, avaliacoes:"7",       vendidos:"44" },
   { img:"img/p02.jpg", nome:"Reprodutor de vídeo Crystal",                                     cat:"fofura",      de:405.10, desc:40, link:"https://s.shopee.com.br/3g4AT6cPAe", preco:243.06, frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"26" },
   { img:"img/p03.jpg", nome:"Lagarto robô escalador de parede com controle remoto",            cat:"brinquedos",  link:"https://s.shopee.com.br/7pu2CAOo78", preco:79.68,  de:111.50, desc:29, frete:"cupom", estrelas:5.0, avaliacoes:"30",      vendidos:"123",     parcelas:{n:12, valor:7.73} },
   { img:"img/p04.jpg", nome:"Brinquedo suspenso de pendurar na porta",                         cat:"brinquedos",  de:219.90, desc:55, link:"https://s.shopee.com.br/6VO7HDvE75", preco:98.95, frete:"cupom", estrelas:5.0, avaliacoes:"24", vendidos:"98" },
@@ -786,6 +811,7 @@ var PRODUTOS = [
   function reel(p) {
     return '<a class="reel' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="instagram" target="_blank" rel="noopener sponsored">' +
       '<img src="' + esc(p.img) + '" alt="" loading="lazy">' + (p.esgotado ? badges(p) : (p.desc ? '<span class="off">-' + p.desc + '%</span>' : '')) +
+      (p.reelData ? '<span class="reel-tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>Reel ' + esc(p.reelData) + '</span>' : '') +
       '<span class="reel-info"><b>' + esc(p.nome) + '</b>' +
       (p.preco ? '<span class="reel-price">' + (p.aPartir ? '<small>a partir de</small>' : '') + brl(p.preco) + '</span>' : '') +
       buy(p) + '</span></a>';
@@ -830,9 +856,16 @@ var PRODUTOS = [
   document.getElementById("top-grid").innerHTML = PRODUTOS.slice(0, 6).map(function (p, i) { return mini(p, i + 1); }).join("");
 
   // Você viu no Instagram
-  var instaItens = NO_INSTAGRAM.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
+  var instaItens = NO_INSTAGRAM.map(function (r) {
+    var p = PRODUTOS.filter(function (x) { return x.link === r.link; })[0];
+    return p && Object.assign({}, p, { reelData: r.reel });
+  }).filter(Boolean);
   var instaSec = document.getElementById("viu-no-instagram");
-  if (instaItens.length) document.getElementById("insta-shelf").innerHTML = instaItens.map(reel).join("");
+  var igSeg = document.getElementById("ig-seg"); if (igSeg) igSeg.textContent = IG_SEGUIDORES;
+  if (instaItens.length) document.getElementById("insta-shelf").innerHTML = instaItens.map(reel).join("") +
+    '<a class="reel reel-more" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener">' +
+      '<span class="rm-ring"><img src="img/avatar.jpg" alt=""></span><b>Achadinho novo todo dia nos Reels</b>' +
+      '<span class="rm-btn">Ver no Instagram</span></a>';
   else if (instaSec) instaSec.hidden = true;
   (function () {
     var row = document.getElementById("insta-shelf"), bts = document.querySelectorAll("[data-reels]");
