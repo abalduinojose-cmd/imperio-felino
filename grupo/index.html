@@ -291,14 +291,33 @@ var AVISOS = [
   setTimeout(function () { mostra(); setInterval(mostra, 6000); }, 1800);
 })();
 
+// Teste "abrir o app direto": só quando o link tem ?abrir=app (campanha de teste). No celular, tenta abrir o app do
+// WhatsApp já no convite (pula a página "Entrar na conversa" do navegador); se o app não abrir em 1,5 s, vai para o link normal.
+var Q = new URLSearchParams(location.search);
+var ABRIR_APP = Q.get("abrir") === "app";
+var CODIGO = GRUPO.split("/").pop();
+var UA = navigator.userAgent;
+var ANDROID = /Android/i.test(UA), IOS = /iPhone|iPad|iPod/i.test(UA);
+function vaiProGrupo() {
+  if (ABRIR_APP && (ANDROID || IOS)) {
+    var app = ANDROID
+      ? "intent://chat?code=" + CODIGO + "#Intent;scheme=whatsapp;package=com.whatsapp;S.browser_fallback_url=" + encodeURIComponent(GRUPO) + ";end"
+      : "whatsapp://chat?code=" + CODIGO;
+    location.href = app;
+    setTimeout(function () { if (document.visibilityState === "visible") location.href = GRUPO; }, 1500);
+  } else {
+    location.href = GRUPO;
+  }
+}
+
 // O botão abre o WhatsApp na mesma aba: registra o Lead e só então segue (no máximo 400 ms de espera)
 cta.addEventListener("click", function (e) {
-  if (!window.fbq || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
   e.preventDefault();
   var foi = false;
-  function segue() { if (!foi) { foi = true; location.href = GRUPO; } }
-  fbq("track", "Lead", { content_name: "Grupo WhatsApp", origem: new URLSearchParams(location.search).get("origem") || "direto" });
-  setTimeout(segue, 400);
+  function segue() { if (!foi) { foi = true; vaiProGrupo(); } }
+  if (window.fbq) fbq("track", "Lead", { content_name: "Grupo WhatsApp", origem: Q.get("origem") || "direto", variante: ABRIR_APP ? "app_direto" : "link" });
+  setTimeout(segue, window.fbq ? 400 : 0);
 });
 </script>
 </body>
