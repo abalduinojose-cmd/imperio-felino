@@ -12,6 +12,7 @@
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <link rel="preload" href="../fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://connect.facebook.net">
 <!-- Página dos anúncios de ração (carrossel e imagem). Só rações de 10 kg.
      Cada botão leva ao link de afiliado com Sub_id1 "anuncio", Sub_id2 "ofertas" e Sub_id3 = id do produto,
      e dispara AddToCart no pixel, que é o evento que a campanha otimiza.
@@ -168,13 +169,13 @@ var brl = function (v) { return "R$ " + v.toFixed(2).replace(".", ","); };
 var lista = RACOES.slice();
 var i = lista.findIndex(function (p) { return p.id === PRIMEIRO; });
 if (i > 0) lista.unshift(lista.splice(i, 1)[0]);
-document.getElementById("lista").innerHTML = lista.map(function (p) {
+document.getElementById("lista").innerHTML = lista.map(function (p, n) {
   var desc = p.de && p.de > p.preco ? Math.round((1 - p.preco / p.de) * 100) : 0;
   var ship = p.frete === "gratis"
     ? '<span class="ship gratis"><svg aria-hidden="true"><use href="#i-truck"/></svg>Frete grátis</span>'
     : '<span class="ship"><svg aria-hidden="true"><use href="#i-ticket"/></svg>Até R$ 40 OFF no frete</span>';
   return '<li class="card' + (p.id === PRIMEIRO ? ' first' : '') + '" data-tipo="' + p.tipo + '" data-frete="' + p.frete + '">' +
-    '<div class="ph"><img src="' + p.img + '" alt="" width="400" height="400" loading="lazy">' + (desc ? '<em>-' + desc + '%</em>' : '') + '</div>' +
+    '<div class="ph"><img src="' + p.img + '" alt="" width="400" height="400" ' + (n < 4 ? 'fetchpriority="high"' : 'loading="lazy"') + '>' + (desc ? '<em>-' + desc + '%</em>' : '') + '</div>' +
     '<h3>' + p.nome + '</h3>' +
     '<span class="price">' + (desc ? '<s>' + brl(p.de) + '</s>' : '') + '<b>' + brl(p.preco) + '</b></span>' + ship +
     '<a class="btn" href="' + p.link + '" data-id="' + p.id + '" data-preco="' + p.preco + '" rel="noopener sponsored">Ver na Shopee</a></li>';
