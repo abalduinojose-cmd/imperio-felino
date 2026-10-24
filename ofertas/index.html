@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Ração de 10 kg em oferta · Império Felino</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Rações de 10 kg para gatos com desconto na Shopee, conferidas pelo Império Felino.">
+<meta name="description" content="Rações de 10 kg para gatos com desconto e frete grátis na Shopee, conferidas pelo Império Felino.">
 <meta name="theme-color" content="#ffffff">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.imperiofelino.com.br/ofertas/">
@@ -12,9 +12,10 @@
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <link rel="preload" href="../fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Página dos anúncios (carrossel de rações e Reels). Cada botão leva ao link de afiliado com
-     Sub_id1 "anuncio", Sub_id2 "ofertas" e Sub_id3 = produto, e dispara AddToCart no pixel,
-     que é o evento que a campanha otimiza. ?p=<produto> coloca esse produto em primeiro. -->
+<!-- Página dos anúncios de ração (carrossel e imagem). Só rações de 10 kg.
+     Cada botão leva ao link de afiliado com Sub_id1 "anuncio", Sub_id2 "ofertas" e Sub_id3 = id do produto,
+     e dispara AddToCart no pixel, que é o evento que a campanha otimiza.
+     ?p=<id> coloca esse produto em primeiro; ?origem= vai junto nos eventos do pixel. -->
 <style>
 @font-face{font-family:"Outfit";font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/outfit-latin.woff2) format("woff2")}
 @font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:swap;src:url(../fonts/figtree-latin.woff2) format("woff2")}
@@ -27,115 +28,156 @@
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.45 var(--body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.45 var(--body);-webkit-font-smoothing:antialiased;text-align:center;
+  background-image:radial-gradient(90% 420px at 50% 0%,#ffe9dc 0%,rgba(255,233,220,0) 100%);background-repeat:no-repeat}
 img{display:block;max-width:100%}
 a{color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:12px}
-main{max-width:760px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top)) 16px 28px}
+main{max-width:980px;margin:0 auto;padding:calc(22px + env(safe-area-inset-top)) 16px 28px}
 
-.top{display:flex;align-items:center;gap:10px;margin-bottom:18px;text-decoration:none}
-.top img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 2px var(--peach)}
-.top b{font:800 17px/1 var(--display);letter-spacing:-.02em}
-h1{margin:0 0 6px;font:800 clamp(28px,7.4vw,40px)/1.05 var(--display);letter-spacing:-.035em;text-wrap:balance}
-h1 em{font-style:normal;color:var(--orange)}
-.sub{margin:0 0 20px;color:var(--ink-2);font-weight:600;text-wrap:pretty}
-h2{margin:28px 0 10px;font:800 20px/1.2 var(--display);letter-spacing:-.02em}
+/* topo centralizado */
+.brand{display:inline-flex;align-items:center;gap:9px;text-decoration:none;margin-bottom:18px}
+.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 2px var(--peach)}
+.brand b{font:800 16px/1 var(--display);letter-spacing:-.02em}
+h1{margin:0 auto 10px;max-width:14em;font:800 clamp(30px,8vw,50px)/1.02 var(--display);letter-spacing:-.04em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--green-deep)}
+.sub{margin:0 auto 18px;max-width:30em;color:var(--ink-2);font-weight:600;text-wrap:balance}
+.facts{display:flex;justify-content:center;margin:0 auto 22px;max-width:520px;padding:12px 6px;border-radius:20px;background:var(--surface);border:1.5px solid var(--line)}
+.facts div{flex:1;min-width:0;padding:0 6px}
+.facts div+div{border-left:1.5px solid var(--line)}
+.facts b{display:block;font:800 clamp(17px,4.6vw,21px)/1.1 var(--display);letter-spacing:-.02em;color:var(--orange-deep)}
+.facts div:nth-child(2) b{color:var(--green-deep)}
+.facts span{display:block;margin-top:3px;font:600 12px/1.25 var(--body);color:var(--muted)}
 
-.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-@media (min-width:700px){.list{grid-template-columns:1fr 1fr}}
-.item{display:flex;gap:12px;padding:10px;border-radius:20px;background:var(--surface);border:1.5px solid var(--line);box-shadow:0 10px 20px -18px rgba(120,60,30,.5)}
-.item.first{border-color:#f7b29f;box-shadow:0 0 0 3px var(--orange-soft),0 12px 24px -18px rgba(120,60,30,.6)}
-.ph{position:relative;flex:none;width:112px;height:112px;border-radius:14px;overflow:hidden;background:#f5f1ec}
+/* filtro */
+.tabs{display:inline-flex;gap:4px;padding:4px;margin:0 auto 16px;border-radius:16px;background:#f1ece7;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:0;background:transparent;cursor:pointer;padding:9px 11px;border-radius:12px;font:700 13.5px/1 var(--body);color:var(--ink-2);transition:background .15s var(--ease),color .15s var(--ease)}
+.tabs button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 2px 6px -2px rgba(27,25,23,.18)}
+
+/* cards */
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;text-align:center}
+@media (min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+@media (min-width:960px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{display:flex;flex-direction:column;align-items:center;padding:8px 8px 10px;border-radius:22px;background:var(--surface);border:1.5px solid var(--line);box-shadow:0 14px 24px -22px rgba(120,60,30,.55)}
+.card.first{border-color:#f7b29f;box-shadow:0 0 0 3px var(--orange-soft),0 14px 24px -20px rgba(120,60,30,.6)}
+.card[hidden]{display:none}
+.ph{position:relative;width:100%;aspect-ratio:1;border-radius:16px;overflow:hidden;background:#f5f1ec;margin-bottom:9px}
 .ph img{width:100%;height:100%;object-fit:cover}
-.ph em{position:absolute;left:6px;top:6px;font:800 12px/1 var(--display);font-style:normal;color:#fff;background:var(--orange);padding:4px 7px;border-radius:8px}
-.info{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.info h3{margin:0;font:700 15px/1.25 var(--body);color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.rate{font:600 12.5px/1.2 var(--body);color:var(--muted)}
-.rate b{color:#e8a200}
-.price{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:1px}
-.price b{font:800 21px/1 var(--display);color:var(--orange-deep);letter-spacing:-.02em}
-.price s{font:700 12.5px/1 var(--body);color:#8a8079;text-decoration-color:var(--orange)}
-.price small{font:600 12px/1 var(--body);color:var(--muted)}
-.btn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:0 14px;border-radius:14px;
+.ph em{position:absolute;left:7px;top:7px;font:800 13px/1 var(--display);font-style:normal;color:#fff;background:var(--orange);padding:5px 8px;border-radius:9px}
+.card h3{margin:0 2px 8px;min-height:2.5em;font:700 14px/1.25 var(--body);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-wrap:balance}
+.price{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:6px}
+.price s{font:700 12px/1 var(--body);color:#8a8079;text-decoration-color:var(--orange)}
+.price b{font:800 clamp(20px,5.6vw,24px)/1 var(--display);color:var(--orange-deep);letter-spacing:-.03em}
+.ship{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:24px;margin-bottom:9px;padding:0 6px;font:700 12px/1.15 var(--body);color:var(--muted)}
+.ship svg{flex:none;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ship.gratis{color:var(--green-deep)}
+.btn{margin-top:auto;display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:0 10px;border-radius:14px;
   background:var(--orange);color:#fff;text-decoration:none;font:800 15px/1 var(--display);letter-spacing:-.01em;transition:background .15s var(--ease),transform .15s var(--ease)}
 .btn:active{transform:scale(.97)}
 @media (hover:hover){.btn:hover{background:var(--orange-deep)}}
-.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 
-.note{margin:16px 0 0;font:600 12.5px/1.4 var(--body);color:var(--muted)}
-.grupo{margin:26px 0 0;display:flex;align-items:center;gap:12px;padding:14px;border-radius:20px;background:var(--green-soft);border:1.5px solid #bfe8cf;text-decoration:none}
-.grupo p{margin:0;flex:1;font:600 14px/1.35 var(--body);color:var(--ink-2)}
-.grupo p b{display:block;font:800 16px/1.2 var(--display);color:var(--green-deep)}
-.grupo span{flex:none;padding:10px 14px;border-radius:12px;background:var(--green);color:#fff;font:800 14px/1 var(--display)}
-footer{max-width:760px;margin:0 auto;padding:0 16px calc(20px + env(safe-area-inset-bottom));font:600 12px/1.4 var(--body);color:var(--muted)}
+.note{margin:18px auto 0;max-width:36em;font:600 12.5px/1.45 var(--body);color:var(--muted);text-wrap:pretty}
+.grupo{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:520px;margin:26px auto 0;padding:18px 16px;border-radius:22px;background:var(--green-soft);border:1.5px solid #bfe8cf}
+.grupo p{margin:0;font:600 14.5px/1.35 var(--body);color:var(--ink-2)}
+.grupo p b{display:block;margin-bottom:2px;font:800 18px/1.2 var(--display);color:var(--green-deep);letter-spacing:-.01em}
+.grupo a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:14px;background:var(--green);color:#fff;text-decoration:none;font:800 15px/1 var(--display)}
+@media (hover:hover){.grupo a:hover{background:var(--green-deep)}}
+footer{max-width:980px;margin:0 auto;padding:0 16px calc(20px + env(safe-area-inset-bottom));font:600 12px/1.4 var(--body);color:var(--muted);text-align:center}
 footer a{color:var(--muted);font-weight:700}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></symbol>
+</svg>
+
 <main>
-  <a class="top" href="../"><img src="../img/avatar.jpg" alt="" width="80" height="80"><b>Império Felino</b></a>
-  <h1>Ração de 10 kg <em>com desconto</em> para o seu gato</h1>
-  <p class="sub">Separamos as rações com melhor avaliação e o maior desconto do dia na Shopee.</p>
+  <a class="brand" href="../"><img src="../img/avatar.jpg" alt="" width="80" height="80"><b>Império Felino</b></a>
+  <h1>Ração de 10 kg com <em>frete grátis</em> e desconto</h1>
+  <p class="sub">Economize na ração do seu gato: separamos as rações de 10 kg com o menor preço que encontramos hoje na Shopee.</p>
 
-  <ul class="list" id="racoes"></ul>
+  <div class="facts">
+    <div><b>Até 50% OFF</b><span>no preço da Shopee</span></div>
+    <div><b>Frete grátis</b><span>ou até R$ 40 OFF no frete</span></div>
+    <div><b>10 kg</b><span>castrados e adultos</span></div>
+  </div>
 
-  <h2>Também em oferta</h2>
-  <ul class="list" id="outros"></ul>
+  <div class="tabs" role="group" aria-label="Filtrar rações">
+    <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+    <button type="button" data-f="gratis" aria-pressed="false">Frete grátis</button>
+    <button type="button" data-f="castrados" aria-pressed="false">Castrados</button>
+    <button type="button" data-f="adultos" aria-pressed="false">Adultos</button>
+  </div>
 
-  <p class="note">Preços conferidos em <span id="em"></span>. Eles mudam rápido: o valor final aparece na Shopee. Se você comprar pelo link, o Império Felino pode receber uma comissão, sem custo extra para você.</p>
+  <ul class="grid" id="lista"></ul>
 
-  <a class="grupo" href="../grupo/?origem=ofertas">
-    <p><b>Quer saber quando o preço cai?</b>As ofertas chegam primeiro no grupo do WhatsApp.</p>
-    <span>Entrar no grupo</span>
-  </a>
+  <p class="note">Preços e frete conferidos em <span id="em"></span>. Eles mudam rápido: o valor final aparece na Shopee. O desconto no frete usa o cupom de frete da própria Shopee. Se você comprar pelo link, o Império Felino pode receber uma comissão, sem custo extra para você.</p>
+
+  <div class="grupo">
+    <p><b>Quer saber quando o preço cai?</b>As ofertas de ração chegam primeiro no grupo do WhatsApp.</p>
+    <a href="../grupo/?origem=ofertas">Entrar no grupo</a>
+  </div>
 </main>
 <footer>© <span id="ano">2026</span> Império Felino · Usamos cookies para medir anúncios · <a href="../privacidade/">Privacidade</a></footer>
 
 <script>
 // Links de afiliado da conta imperiofelinoloja (an_18332531179), gerados no painel em 24/10/2026
 // com Sub_id1 "anuncio", Sub_id2 "ofertas" e Sub_id3 = id abaixo.
+// frete: "gratis" = frete grátis na Shopee; "cupom" = cupom de até R$ 40 de desconto no frete.
 var PRECOS_EM = "24/10/2026";
 var RACOES = [
-  { id:"quatreesupreme", img:"../img/p59.jpg", nome:"Ração Quatree Supreme gatos castrados frango e batata-doce, 10 kg", link:"https://s.shopee.com.br/2qVaghZm4F", preco:194.90, de:259.90, estrelas:4.9, avaliacoes:"1,7 mil" },
-  { id:"granplus",       img:"../img/p57.jpg", nome:"Ração GranPlus Choice gatos adultos frango e carne, 10,1 kg",       link:"https://s.shopee.com.br/9Kj4QeOITu", preco:126.90, de:169.90, estrelas:4.9, avaliacoes:"6,3 mil" },
-  { id:"quatreelife",    img:"../img/p64.jpg", nome:"Ração Quatree Life gatos castrados salmão, 10 kg",                  link:"https://s.shopee.com.br/6L5Sr8mqcU", preco:164.90, de:239.90, estrelas:4.9, avaliacoes:"1,2 mil" },
-  { id:"goldenformula",  img:"../img/p62.jpg", nome:"Ração Golden Fórmula gatos castrados salmão, 10,1 kg",              link:"https://s.shopee.com.br/113wVLG5bi", preco:147.16, de:239.30, estrelas:4.9, avaliacoes:"4,5 mil" },
-  { id:"quatreegourmet", img:"../img/p56.jpg", nome:"Ração Quatree Gourmet gatos adultos, 10,1 kg",                      link:"https://s.shopee.com.br/906E22yh9K", preco:125.85, de:219.90, estrelas:4.9, avaliacoes:"7,8 mil" },
-  { id:"kin",            img:"../img/p65.jpg", nome:"Ração Kin Premium gatos castrados, 10,1 kg",                        link:"https://s.shopee.com.br/7puGdugwLH", preco:69.99,  de:140.00, estrelas:4.9, avaliacoes:"298" },
-  { id:"miacat",         img:"../img/p60.jpg", nome:"Ração Mia Cat Premium filhotes e adultos, 10 kg",                   link:"https://s.shopee.com.br/4fxEs61nM7", preco:65.90,  de:99.99,  estrelas:4.9, avaliacoes:"7 mil" }
-];
-// Produtos dos Reels que viram anúncio
-var OUTROS = [
-  { id:"pelucia",   img:"../img/p43.jpg", nome:"Pelúcia com batimento de coração que acalma o pet", link:"https://s.shopee.com.br/7faqRc3ZeC", preco:82.15, de:149.07, estrelas:5.0, avaliacoes:"7" },
-  { id:"mochila",   img:"../img/p46.jpg", nome:"Mochila bolsa-colete para passear com o gato",      link:"https://s.shopee.com.br/8V9xR9DSiD", preco:45.99, estrelas:4.9, avaliacoes:"441" },
-  { id:"bebedouro", img:"../img/p12.jpg", nome:"Dispensador de água automático para gatos",          link:"https://s.shopee.com.br/1Lgmtys58N", preco:34.69, de:50.86, aPartir:true, estrelas:4.4, avaliacoes:"14" }
+  { id:"miacat",         tipo:"adultos",   img:"../img/p60.jpg", nome:"Mia Cat Premium filhotes e adultos, 10 kg",         link:"https://s.shopee.com.br/4fxEs61nM7", preco:65.90,  de:99.99,  frete:"gratis" },
+  { id:"kin",            tipo:"castrados", img:"../img/p65.jpg", nome:"Kin Premium gatos castrados, 10,1 kg",              link:"https://s.shopee.com.br/7puGdugwLH", preco:69.99,  de:140.00, frete:"cupom" },
+  { id:"nutrican",       tipo:"adultos",   img:"../img/p69.jpg", nome:"Nutrican Premium gatos adultos carne e frango, 10 kg", link:"https://s.shopee.com.br/1W0D7O3N3Y", preco:71.49,  de:99.99,  frete:"gratis" },
+  { id:"quatreecarne",   tipo:"adultos",   img:"../img/p70.jpg", nome:"Quatree gatos adultos carne, 10 kg",                link:"https://s.shopee.com.br/60ScTezZnl", preco:121.90, de:174.90, frete:"cupom" },
+  { id:"quatreegourmet", tipo:"adultos",   img:"../img/p56.jpg", nome:"Quatree Gourmet gatos adultos, 10,1 kg",            link:"https://s.shopee.com.br/906E22yh9K", preco:125.85, de:219.90, frete:"cupom" },
+  { id:"specialcat",     tipo:"castrados", img:"../img/p58.jpg", nome:"Special Cat gatos castrados, 10,1 kg",              link:"https://s.shopee.com.br/3LRrIlizjQ", preco:125.90, de:230.00, frete:"gratis" },
+  { id:"granplus",       tipo:"adultos",   img:"../img/p57.jpg", nome:"GranPlus Choice gatos adultos frango e carne, 10,1 kg", link:"https://s.shopee.com.br/9Kj4QeOITu", preco:126.90, de:169.90, frete:"cupom" },
+  { id:"goldencastrado", tipo:"castrados", img:"../img/p71.jpg", nome:"Golden gatos castrados frango e carne, 10 kg",       link:"https://s.shopee.com.br/4VdoguIYQi", preco:139.90, de:219.90, frete:"cupom" },
+  { id:"goldenformula",  tipo:"castrados", img:"../img/p62.jpg", nome:"Golden Fórmula gatos castrados salmão, 10,1 kg",     link:"https://s.shopee.com.br/113wVLG5bi", preco:154.90, de:239.30, frete:"cupom" },
+  { id:"quatreelife",    tipo:"castrados", img:"../img/p64.jpg", nome:"Quatree Life gatos castrados salmão, 10 kg",        link:"https://s.shopee.com.br/6L5Sr8mqcU", preco:164.90, de:239.90, frete:"cupom" },
+  { id:"goldenselecao",  tipo:"castrados", img:"../img/p72.jpg", nome:"Golden Seleção Natural gatos castrados, 10 kg",     link:"https://s.shopee.com.br/9APeFUDqkN", preco:169.90, de:299.90, frete:"cupom" },
+  { id:"quatreesupreme", tipo:"castrados", img:"../img/p59.jpg", nome:"Quatree Supreme gatos castrados frango e batata-doce, 10 kg", link:"https://s.shopee.com.br/2qVaghZm4F", preco:194.90, de:259.90, frete:"cupom" }
 ];
 var META_PIXEL_ID = "1279419466725271";
 
 var Q = new URLSearchParams(location.search);
 var PRIMEIRO = Q.get("p"), ORIGEM = Q.get("origem") || "direto";
 var brl = function (v) { return "R$ " + v.toFixed(2).replace(".", ","); };
-var seta = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
-function monta(lista, alvo) {
-  var l = lista.slice();
-  var i = l.findIndex(function (p) { return p.id === PRIMEIRO; });
-  if (i > 0) l.unshift(l.splice(i, 1)[0]);
-  document.getElementById(alvo).innerHTML = l.map(function (p) {
-    var desc = p.de && p.de > p.preco ? Math.round((1 - p.preco / p.de) * 100) : 0;
-    return '<li class="item' + (p.id === PRIMEIRO ? ' first' : '') + '">' +
-      '<div class="ph"><img src="' + p.img + '" alt="" width="224" height="224" loading="lazy">' + (desc ? '<em>-' + desc + '%</em>' : '') + '</div>' +
-      '<div class="info"><h3>' + p.nome + '</h3>' +
-      '<span class="rate"><b>★</b> ' + p.estrelas.toFixed(1).replace(".", ",") + ' · ' + p.avaliacoes + ' avaliações</span>' +
-      '<span class="price">' + (p.aPartir ? '<small>a partir de</small>' : '') + '<b>' + brl(p.preco) + '</b>' + (desc ? '<s>' + brl(p.de) + '</s>' : '') + '</span>' +
-      '<a class="btn" href="' + p.link + '" data-id="' + p.id + '" data-preco="' + p.preco + '" rel="noopener sponsored">Ver na Shopee' + seta + '</a></div></li>';
-  }).join("");
-}
-monta(RACOES, "racoes");
-monta(OUTROS, "outros");
+var lista = RACOES.slice();
+var i = lista.findIndex(function (p) { return p.id === PRIMEIRO; });
+if (i > 0) lista.unshift(lista.splice(i, 1)[0]);
+document.getElementById("lista").innerHTML = lista.map(function (p) {
+  var desc = p.de && p.de > p.preco ? Math.round((1 - p.preco / p.de) * 100) : 0;
+  var ship = p.frete === "gratis"
+    ? '<span class="ship gratis"><svg aria-hidden="true"><use href="#i-truck"/></svg>Frete grátis</span>'
+    : '<span class="ship"><svg aria-hidden="true"><use href="#i-ticket"/></svg>Até R$ 40 OFF no frete</span>';
+  return '<li class="card' + (p.id === PRIMEIRO ? ' first' : '') + '" data-tipo="' + p.tipo + '" data-frete="' + p.frete + '">' +
+    '<div class="ph"><img src="' + p.img + '" alt="" width="400" height="400" loading="lazy">' + (desc ? '<em>-' + desc + '%</em>' : '') + '</div>' +
+    '<h3>' + p.nome + '</h3>' +
+    '<span class="price">' + (desc ? '<s>' + brl(p.de) + '</s>' : '') + '<b>' + brl(p.preco) + '</b></span>' + ship +
+    '<a class="btn" href="' + p.link + '" data-id="' + p.id + '" data-preco="' + p.preco + '" rel="noopener sponsored">Ver na Shopee</a></li>';
+}).join("");
 document.getElementById("em").textContent = PRECOS_EM;
 document.getElementById("ano").textContent = new Date().getFullYear();
+
+// Filtro: Todas / Frete grátis / Castrados / Adultos
+var botoes = document.querySelectorAll(".tabs button");
+botoes.forEach(function (b) {
+  b.addEventListener("click", function () {
+    var f = b.dataset.f;
+    botoes.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    document.querySelectorAll(".card").forEach(function (c) {
+      c.hidden = !(f === "todas" || (f === "gratis" ? c.dataset.frete === "gratis" : c.dataset.tipo === f));
+    });
+  });
+});
 
 if (META_PIXEL_ID) {
   !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
@@ -143,10 +185,10 @@ if (META_PIXEL_ID) {
     s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
   fbq("init", META_PIXEL_ID);
   fbq("track", "PageView");
-  fbq("track", "ViewContent", { content_name: "Ofertas", origem: ORIGEM });
+  fbq("track", "ViewContent", { content_name: "Ofertas de ração", origem: ORIGEM });
 }
 
-// Botão "Ver na Shopee": registra AddToCart (o evento da campanha) e só então abre a Shopee (no máximo 400 ms de espera)
+// "Ver na Shopee": registra AddToCart (o evento da campanha) e só então abre a Shopee (no máximo 400 ms de espera)
 document.addEventListener("click", function (e) {
   var a = e.target.closest && e.target.closest("a.btn");
   if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
