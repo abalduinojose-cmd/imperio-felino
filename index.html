@@ -487,7 +487,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
           <p class="lead">Os achadinhos mais clicados por aqui.</p>
         </div>
       </div>
-      <p class="checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Preços de <b id="precos-em">25/10/2026</b> · podem mudar nas lojas</p>
+      <p class="checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Preços de <b id="precos-em">26/10/2026</b> · podem mudar nas lojas</p>
     </div>
     <div class="top-grid" id="top-grid"></div>
   </section>
@@ -590,6 +590,7 @@ var CUPONS_URL = "https://s.shopee.com.br/4LKLKouPdG";
 // ===== Cupons =====
 // Os cupons da Shopee mudam todo dia. "ate" é o fim da validade; depois disso o cupom some sozinho do site.
 var CUPONS = [
+  { valor:"R$ 30 OFF",  regra:"Compras acima de R$ 129", onde:"Lojas Oficiais (vale para rações de 10 kg das lojas oficiais)", ate:"2026-10-26T23:59:00-03:00" },
   { valor:"50% OFF",    regra:"Compras acima de R$ 10, desconto de até R$ 50", onde:"Produtos de Natal selecionados", ate:"2026-11-27T23:59:00-03:00" }
 ];
 
@@ -651,7 +652,7 @@ var IG_SEGUIDORES = "210 mil";
 //   esgotado: true quando a loja estiver sem estoque (o card fica marcado como esgotado)
 //   estrelas: nota de 0 a 5   avaliacoes: ex. "3,5 mil"   vendidos: ex. "10 mil"
 //   parcelas: { n: 12, valor: 7.36 }  (máximo de parcelas no cartão, como a Shopee mostra)
-var PRECOS_EM = "25/10/2026";
+var PRECOS_EM = "26/10/2026";
 var PRODUTOS = [
   // ----- Mais procurados do mês (6 primeiros) -----
   { img:"img/p42.jpg", nome:"Saco de dormir caverna de pelúcia para gatos",                    cat:"casa",        link:"https://s.shopee.com.br/9APWIKfPJp", preco:57.93,  de:211.75, desc:73, nota:"com cupom", frete:"cupom", vendidos:"871", parcelas:{n:10, valor:5.88} },
@@ -672,7 +673,7 @@ var PRODUTOS = [
   { img:"img/p48.jpg", nome:"Ração Fórmula Natural Life gatos castrados salmão, 15 kg",         cat:"racao", link:"https://s.shopee.com.br/4VdlbgBzib", preco:280.00, de:620.00, desc:55, nota:"no Pix", frete:"cupom", estrelas:5.0, avaliacoes:"7", vendidos:"28" },
   { img:"img/p09.jpg", nome:"Ração Fórmula Natural Fresh Meat para gatos, 10 kg",              cat:"racao", link:"https://s.shopee.com.br/1gIYPP1ptI", preco:355.99, frete:"cupom", estrelas:5.0, avaliacoes:"217", vendidos:"514" },
   // Rações e sachês (links do painel com sub_id site-racao, 22/10)
-  { img:"img/p56.jpg", nome:"Ração Quatree Gourmet gatos adultos, 10,1 kg",                    cat:"racao",       link:"https://s.shopee.com.br/4qGc2T4euK", preco:129.23, aPartir:true, de:209.90, desc:40, frete:"cupom", estrelas:4.9, avaliacoes:"7,8 mil", vendidos:"10 mil+" },
+  { img:"img/p56.jpg", nome:"Ração Quatree Gourmet gatos adultos, 10,1 kg",                    cat:"racao",       link:"https://s.shopee.com.br/4qGc2T4euK", preco:125.85, aPartir:true, de:209.90, desc:43, frete:"cupom", estrelas:4.9, avaliacoes:"7,8 mil", vendidos:"10 mil+" },
   { img:"img/p60.jpg", nome:"Ração Mia Cat Premium filhotes e adultos, 10 kg",                 cat:"racao",       link:"https://s.shopee.com.br/2qVXenCGy0", preco:65.90,  de:99.99,  desc:34, nota:"com cupom", frete:"cupom", estrelas:4.9, avaliacoes:"7 mil", vendidos:"10 mil+" },
   { img:"img/p57.jpg", nome:"Ração GranPlus Choice gatos adultos frango e carne, 10,1 kg",     cat:"racao",       link:"https://s.shopee.com.br/4fxBqA5IFJ", preco:126.90, de:169.90, desc:25, frete:"cupom", estrelas:4.9, avaliacoes:"6,3 mil", vendidos:"10 mil+" },
   { img:"img/p58.jpg", nome:"Ração Special Cat gatos castrados, 10,1 kg",                      cat:"racao",       link:"https://s.shopee.com.br/5AtSR53OEQ", preco:125.90, de:230.00, desc:45, frete:"cupom", estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"3 mil+" },
