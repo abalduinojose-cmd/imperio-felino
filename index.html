@@ -487,7 +487,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
           <p class="lead">Os achadinhos mais clicados por aqui.</p>
         </div>
       </div>
-      <p class="checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Preços de <b id="precos-em">29/10/2026</b> · podem mudar nas lojas</p>
+      <p class="checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Preços de <b id="precos-em">30/10/2026</b> · podem mudar nas lojas</p>
     </div>
     <div class="top-grid" id="top-grid"></div>
   </section>
@@ -590,8 +590,9 @@ var CUPONS_URL = "https://s.shopee.com.br/4LKLKouPdG";
 // ===== Cupons =====
 // Os cupons da Shopee mudam todo dia. "ate" é o fim da validade; depois disso o cupom some sozinho do site.
 var CUPONS = [
-  { valor:"R$ 10 OFF",  regra:"Compras acima de R$ 99", onde:"Todas as lojas (vale para 1 saco de ração de 10 kg)", ate:"2026-10-29T23:59:00-03:00" },
-  { valor:"R$ 30 OFF",  regra:"Compras acima de R$ 299", onde:"Todas as lojas (dá para usar em 2 sacos de ração de 10 kg)", ate:"2026-10-29T23:59:00-03:00" },
+  { valor:"20% OFF",    regra:"Sem valor mínimo, desconto de até R$ 20", onde:"Lojas Oficiais (vale para as rações das lojas oficiais)", ate:"2026-10-30T23:59:00-03:00" },
+  { valor:"R$ 20 OFF",  regra:"Compras acima de R$ 189", onde:"Todas as lojas", ate:"2026-10-30T23:59:00-03:00" },
+  { valor:"R$ 30 OFF",  regra:"Compras acima de R$ 279", onde:"Todas as lojas (dá para usar em 2 sacos de ração de 10 kg)", ate:"2026-10-30T23:59:00-03:00" },
   { valor:"50% OFF",    regra:"Compras acima de R$ 10, desconto de até R$ 50", onde:"Produtos de Natal selecionados", ate:"2026-11-27T23:59:00-03:00" }
 ];
 
@@ -653,7 +654,7 @@ var IG_SEGUIDORES = "210 mil";
 //   esgotado: true quando a loja estiver sem estoque (o card fica marcado como esgotado)
 //   estrelas: nota de 0 a 5   avaliacoes: ex. "3,5 mil"   vendidos: ex. "10 mil"
 //   parcelas: { n: 12, valor: 7.36 }  (máximo de parcelas no cartão, como a Shopee mostra)
-var PRECOS_EM = "29/10/2026";
+var PRECOS_EM = "30/10/2026";
 var PRODUTOS = [
   // ----- Mais procurados do mês (6 primeiros) -----
   { img:"img/p12.jpg", nome:"Dispensador de água automático para gatos",                       cat:"bebedouros", link:"https://s.shopee.com.br/5foOQ6Ipn4", preco:34.69,  de:50.86,  desc:32, aPartir:true, frete:"cupom", estrelas:4.4, avaliacoes:"14", vendidos:"141", parcelas:{n:6, valor:6.47} },
