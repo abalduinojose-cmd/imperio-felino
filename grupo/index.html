@@ -19,12 +19,8 @@
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <link rel="preload" href="../fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Página de entrada do grupo "Achadinhos de Gateira" (anúncios, stories, link da bio).
-     Uma tela só, sem rolagem, ocupando a tela inteira no celular: o gato no topo, nome do grupo, título,
-     3 ofertas que já chegaram no grupo (as mesmas dos anúncios), quantas pessoas já estão no grupo,
-     o botão de entrar, o que acontece depois do clique e três pílulas de confiança.
-     Mesma identidade do site. No computador vira um cartão centralizado em formato de celular.
-     O botão leva ao convite em GRUPO. -->
+<!-- Página de entrada do grupo de ofertas (anúncios, stories, link da bio): só o gato, o título e o botão do grupo,
+     numa tela só. O botão leva ao convite em GRUPO. -->
 <style>
 @font-face{font-family:"Outfit";font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/outfit-latin.woff2) format("woff2")}
 @font-face{font-family:"Figtree";font-style:normal;font-weight:300 900;font-display:swap;src:url(../fonts/figtree-latin.woff2) format("woff2")}
@@ -54,19 +50,11 @@ a{color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulatio
   padding:calc(clamp(12px,2.4dvh,32px) + env(safe-area-inset-top)) clamp(16px,5vw,28px) calc(14px + env(safe-area-inset-bottom))}
 
 /* o gato no topo, com os balõezinhos em volta */
-.pet{position:relative;width:clamp(96px,13.5dvh,140px);height:clamp(96px,13.5dvh,140px);margin-bottom:clamp(8px,1.4dvh,14px)}
+.pet{position:relative;width:clamp(110px,17dvh,170px);height:clamp(110px,17dvh,170px);margin-bottom:clamp(14px,2.4dvh,24px)}
 .pet img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#fff;border:5px solid #fff;box-shadow:0 0 0 3px var(--peach),0 18px 36px -14px rgba(27,25,23,.4)}
 .pet .heart{position:absolute;right:0;bottom:4px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:#fff;border:3px solid #fff}
 .pet .heart .ico{width:16px;height:16px;fill:currentColor;stroke:none}
-.bubble{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:5px;font:800 12px/1 var(--display);padding:6px 10px;border-radius:999px;background:#fff;box-shadow:0 8px 16px -10px rgba(27,25,23,.5);white-space:nowrap}
-.bubble .ico{width:13px;height:13px}
-.b1{top:2px;right:calc(100% - 14px);color:var(--orange)}
-.b2{top:14px;left:calc(100% - 10px);color:#fff;background:var(--green);animation-delay:1.3s}
-@keyframes bob{50%{translate:0 -4px}}
 
-.tag{display:inline-flex;align-items:center;gap:7px;font:700 13px/1 var(--body);color:var(--green-deep);background:var(--green-soft);padding:8px 13px;border-radius:999px;margin-bottom:clamp(8px,1.4dvh,14px)}
-.tag i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(31,168,90,.6);animation:pulse 1.8s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(31,168,90,0)}100%{box-shadow:0 0 0 0 rgba(31,168,90,0)}}
 h1{margin:0 0 clamp(8px,1.4dvh,12px);font:800 clamp(30px,min(8.6vw,5.2dvh),46px)/1.04 var(--display);letter-spacing:-.035em;text-wrap:balance}
 h1 em{font-style:normal;color:var(--orange);position:relative;white-space:nowrap}
 h1 em svg{position:absolute;left:-1%;bottom:-.22em;width:102%;height:.34em;color:#ffc4ae}
@@ -77,39 +65,12 @@ h1 .l1{font-size:clamp(30px,min(9.4vw,5.6dvh),54px);line-height:1}
 h1 .l1 em{display:inline-block;padding:.06em .28em .1em;border-radius:.32em;background:#fff36b;color:#0b3d24;transform:rotate(-1.5deg);box-shadow:0 10px 22px -12px rgba(120,60,30,.55)}
 h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spacing:-.03em;color:var(--ink-2)}
 .hook b{color:var(--green-deep)}
-.hook{margin:0 auto clamp(10px,1.8dvh,20px);max-width:22em;font:600 clamp(15.5px,min(4.3vw,2.4dvh),19px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
+.hook{margin:0 auto clamp(26px,4.4dvh,40px);max-width:22em;font:600 clamp(15.5px,min(4.3vw,2.4dvh),19px)/1.35 var(--body);color:var(--ink-2);text-wrap:balance}
 
-/* ofertas que já chegaram no grupo */
-.deals{width:100%;max-width:480px;margin:0 0 clamp(16px,2.6dvh,24px)}
-.deals-k{display:block;margin-bottom:8px;font:800 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.deals ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.deals li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 6px 9px;border-radius:18px;background:#fff;border:1.5px solid var(--line);box-shadow:0 10px 20px -16px rgba(120,60,30,.45)}
-.deals img{width:clamp(42px,6dvh,60px);height:clamp(42px,6dvh,60px);border-radius:12px;object-fit:cover;background:#f5f1ec}
-.deals li span{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;width:100%}
-.deals em{font:800 11px/1 var(--display);font-style:normal;color:#fff;background:var(--orange);padding:3px 6px;border-radius:7px}
-.deals b{font:800 clamp(13px,3.8vw,16px)/1.1 var(--display);color:var(--orange-deep);letter-spacing:-.02em;white-space:nowrap}
-.deals s{white-space:nowrap;font:700 11px/1 var(--body);color:#8a8079;text-decoration-color:var(--orange);text-decoration-thickness:1.5px}
-.deals small{font:600 10.5px/1.15 var(--body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-/* notificação pequena no canto de baixo à direita: entra pela lateral, fica 4 s e sai */
-.toast{position:fixed;z-index:50;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));max-width:min(70vw,260px);display:flex;align-items:center;gap:8px;padding:7px 12px 7px 7px;border-radius:14px;
-  background:rgba(255,255,255,.97);border:1px solid var(--line);box-shadow:0 12px 28px -14px rgba(27,25,23,.5);text-align:left;
-  transform:translateX(120%);opacity:0;transition:transform .45s var(--ease),opacity .35s var(--ease);pointer-events:none}
-.toast.on{transform:none;opacity:1}
-.toast .t-ic{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--green);color:#fff}
-.toast .t-ic svg{width:15px;height:15px}
-.toast .t-ic img{width:26px;height:26px;border-radius:8px;object-fit:cover;background:#f5f1ec}
-.toast .t-tx{font:700 12px/1.25 var(--body);color:var(--ink-2);white-space:nowrap}
-.toast .t-tx em{font-style:normal;font-weight:800;color:var(--orange-deep)}
 
-/* o que acontece depois do clique */
-.next{display:inline-flex;align-items:center;gap:6px;margin:clamp(10px,1.6dvh,16px) 0 0;font:600 12.5px/1.2 var(--body);color:var(--muted)}
-.next .ico{width:14px;height:14px;stroke-width:2.6;color:var(--green-deep)}
-.next b{color:var(--ink-2)}
-.who{margin:clamp(10px,1.6dvh,16px) auto 0;max-width:24em;font:600 12.5px/1.35 var(--body);color:var(--muted)}
-.who b{color:var(--ink-2)}
 
 /* ---------- Botão do grupo: a peça principal (texto em uma linha só) ---------- */
-.cta{position:relative;isolation:isolate;display:flex;align-items:center;gap:14px;width:100%;max-width:480px;min-height:clamp(76px,10.5dvh,100px);padding:11px 18px 11px 11px;color:#fff;text-decoration:none;text-align:left;border-radius:32px;cursor:pointer;
+.cta{position:relative;isolation:isolate;display:flex;align-items:center;gap:14px;width:100%;max-width:480px;min-height:clamp(96px,13dvh,124px);padding:14px 20px 14px 14px;color:#fff;text-decoration:none;text-align:left;border-radius:32px;cursor:pointer;
   background:linear-gradient(160deg,#36d777 0%,var(--green) 55%,var(--green-deep) 100%);
   transition:box-shadow .2s var(--ease);box-shadow:0 1px 0 rgba(255,255,255,.45) inset,0 -6px 0 rgba(0,0,0,.14) inset,0 0 0 7px rgba(31,168,90,.16),0 24px 40px -14px rgba(22,132,72,.9)}
 .cta:hover,.cta:active{animation-play-state:paused}
@@ -117,33 +78,13 @@ h1 .l2{font-size:clamp(18px,min(5.4vw,3.2dvh),30px);font-weight:700;letter-spaci
 .cta:active{transform:scale(.98)}
 .cta::after{content:"";position:absolute;inset:-14px;border-radius:44px;border:3px solid rgba(31,168,90,.45);z-index:-1;animation:ring 2s var(--ease) infinite;pointer-events:none}
 @keyframes ring{0%{opacity:1;transform:scale(.97)}75%,100%{opacity:0;transform:scale(1.07)}}
-@keyframes glow{0%,100%{box-shadow:0 1px 0 rgba(255,255,255,.45) inset,0 -6px 0 rgba(0,0,0,.14) inset,0 0 0 7px rgba(31,168,90,.16),0 0 22px 2px rgba(31,168,90,.3),0 24px 40px -14px rgba(22,132,72,.9)}
-  50%{box-shadow:0 1px 0 rgba(255,255,255,.45) inset,0 -6px 0 rgba(0,0,0,.14) inset,0 0 0 11px rgba(31,168,90,.22),0 0 46px 8px rgba(31,168,90,.55),0 28px 46px -14px rgba(22,132,72,1)}}
-@keyframes buzz{0%,46%,100%{transform:none}4%{transform:translateX(-1.5px) rotate(-.6deg)}10%{transform:translateX(1.5px) rotate(.6deg)}16%{transform:translateX(-1.5px) rotate(-.5deg)}22%{transform:translateX(1.5px) rotate(.5deg)}28%{transform:translateX(-1px) rotate(-.3deg)}34%{transform:translateX(1px) rotate(.3deg)}40%{transform:translateX(-.5px)}}
-.cta .ic{flex:none;width:64px;height:64px;border-radius:21px;display:grid;place-items:center;background:#fff;box-shadow:0 6px 14px -6px rgba(22,132,72,.6)}
-.cta .ic svg{width:40px;height:40px;fill:var(--wa)}
+.cta .ic{flex:none;width:76px;height:76px;border-radius:21px;display:grid;place-items:center;background:#fff;box-shadow:0 6px 14px -6px rgba(22,132,72,.6)}
+.cta .ic svg{width:48px;height:48px;fill:var(--wa)}
 .cta .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
-.cta .tx b{font:800 clamp(21px,6.2vw,28px)/1.05 var(--display);letter-spacing:-.02em;white-space:nowrap}
-.cta .tx small{display:flex;align-items:center;gap:6px;font:600 clamp(12px,3.5vw,14px)/1.2 var(--body);color:rgba(255,255,255,.94);white-space:nowrap}
+.cta .tx b{font:800 clamp(26px,7.6vw,34px)/1.05 var(--display);letter-spacing:-.02em;white-space:nowrap}
+.cta .tx small{display:flex;align-items:center;gap:6px;font:700 clamp(14px,4vw,16px)/1.2 var(--body);color:rgba(255,255,255,.94);white-space:nowrap}
 .cta .tx small .ico{width:15px;height:15px;stroke-width:2.8}
-@keyframes nudge{0%,60%,100%{transform:none}30%{transform:translateX(3px)}}
-.cta .free{position:absolute;top:-13px;right:18px;display:inline-flex;align-items:center;gap:4px;font:800 12px/1 var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--orange);background:#fff;border:2px solid var(--peach);padding:5px 10px;border-radius:999px;transform:rotate(3deg)}
-.cta .free .ico{width:12px;height:12px;fill:currentColor;stroke:none}
 
-/* três pílulas de confiança, cada uma com seu ícone e sua cor */
-.trust{margin:clamp(10px,1.8dvh,18px) 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
-.trust li{display:inline-flex;align-items:center;gap:7px;padding:8px 13px 8px 9px;border-radius:999px;font:700 12.5px/1.15 var(--body);color:var(--ink-2);background:var(--surface);border:1.5px solid var(--line);box-shadow:0 6px 14px -10px rgba(120,60,30,.35)}
-.trust .ico{width:22px;height:22px;padding:4px;border-radius:50%;stroke-width:2.4}
-.trust .t1 .ico{color:var(--green-deep);background:var(--green-soft)}
-.trust .t2 .ico{color:#2457a8;background:#e6f1ff}
-.trust .t3 .ico{color:var(--orange-deep);background:var(--orange-soft)}
-
-/* a economia de quem está no grupo */
-.save{margin:clamp(12px,2.4dvh,20px) 0 0;display:flex;align-items:center;gap:12px;width:100%;max-width:480px;padding:12px 14px;border-radius:20px;text-align:left;background:var(--orange-soft);border:1.5px dashed #f7b29f}
-.save .pct{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:18px;background:var(--orange);color:#fff;font:800 15px/1 var(--display);letter-spacing:-.03em}
-.save .pct b{display:block;font-size:22px}
-.save p{margin:0;font:600 13.5px/1.3 var(--body);color:var(--ink-2)}
-.save p b{display:block;font:800 15px/1.2 var(--display);color:var(--orange-deep);letter-spacing:-.01em;margin-bottom:2px}
 
 footer{flex:none;padding:0 16px calc(10px + env(safe-area-inset-bottom));font:600 11.5px/1.3 var(--body);color:var(--muted)}
 footer a{color:var(--muted);font-weight:700}
@@ -160,39 +101,17 @@ footer a{color:var(--muted);font-weight:700}
 /* celulares baixos (até 700px de altura): tudo um pouco menor pra caber sem rolar */
 @media (max-height:700px){
   .body{padding-top:calc(14px + env(safe-area-inset-top))}
-  .pet{width:96px;height:96px;margin-bottom:8px}
+  .pet{width:104px;height:104px;margin-bottom:12px}
   .pet .heart{width:28px;height:28px}
-  .tag{font-size:12px;padding:7px 11px;margin-bottom:8px}
   h1{margin-bottom:6px}
   h1 .l1{font-size:clamp(26px,8.6vw,32px)}
   h1 .l2{font-size:clamp(16px,5vw,19px)}
-  .hook{font-size:14.5px;margin-bottom:10px}
-  .pet .bubble{display:none}
-  .deals{margin-bottom:8px}
-  .deals-k{margin-bottom:6px}
-  .deals li{flex-direction:row;padding:6px;gap:6px}
-  .deals img{width:38px;height:38px;border-radius:9px}
-  .deals li span{align-items:flex-start}
-  .deals small{display:none}
-  .deals b{font-size:13px}
-  .deals li{justify-content:center}
-  .next{margin-top:8px;font-size:11.5px}
-  .cta{min-height:78px;padding:10px 14px 10px 10px}
-  .cta .ic{width:54px;height:54px;border-radius:18px}
-  .cta .ic svg{width:32px;height:32px}
-  .trust{margin-top:10px;gap:6px}
-  .trust li{padding:6px 10px 6px 7px;font-size:11.5px}
-  .trust .ico{width:20px;height:20px}
-  .save{margin-top:10px;padding:9px 11px;gap:10px}
-  .save .pct{width:48px;height:48px;border-radius:15px;font-size:12px}
-  .save .pct b{font-size:18px}
-  .save p{font-size:12.5px}
-  .save p b{font-size:14px}
+  .hook{font-size:15px;margin-bottom:22px}
   footer{font-size:11px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
 }
 /* celular deitado */
-@media (max-height:520px){.pet,.deals,footer{display:none}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}.toast{transition:none}}
+@media (max-height:520px){.pet,footer{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
 <body>
@@ -212,41 +131,18 @@ footer a{color:var(--muted);font-weight:700}
 <main class="card">
   <div class="body">
     <div class="pet">
-      <span class="bubble b1" aria-hidden="true"><svg class="ico" style="fill:currentColor;stroke:none"><use href="#i-paw"/></svg>miau!</span>
-      <span class="bubble b2" aria-hidden="true"><svg class="ico"><use href="#i-sparkle"/></svg>achadinho novo</span>
       <img src="../img/avatar.jpg" alt="Império Felino" width="160" height="160">
       <span class="heart" aria-hidden="true"><svg class="ico"><use href="#i-heart"/></svg></span>
     </div>
     <h1><span class="l1"><em>Economize até 70%</em></span><span class="l2">no grupo de ofertas do WhatsApp</span></h1>
-    <p class="hook">Todo dia a gente manda no grupo as melhores ofertas de ração, areia e mimos para gato, com cupom da Shopee. <b>É grátis.</b></p>
-
-    <!-- Ofertas que chegaram no grupo nesta semana (preços conferidos em 31/10/2026). -->
-    <div class="deals" aria-label="Ofertas que chegaram no grupo esta semana">
-      <span class="deals-k">Chegou no grupo esta semana</span>
-      <ul>
-        <li><img src="../img/p71.jpg" alt="" width="120" height="120"><span><em>-36%</em><s>R$ 219,90</s><b>R$ 139,90</b><small>Ração Golden castrados 10 kg</small></span></li>
-        <li><img src="../img/p65.jpg" alt="" width="120" height="120"><span><em>-51%</em><s>R$ 140,00</s><b>R$ 67,99</b><small>Ração Kin castrados 10,1 kg</small></span></li>
-        <li><img src="../img/p12.jpg" alt="" width="120" height="120"><span><em>-32%</em><s>R$ 50,86</s><b>R$ 34,69</b><small>Dispensador de água</small></span></li>
-      </ul>
-    </div>
+    <p class="hook">Toque no botão e entre <b>grátis</b>.</p>
 
     <a class="cta" id="cta" href="https://chat.whatsapp.com/JI17CVs7ct9Alzx4CfjxCK" rel="noopener">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-      <span class="tx"><b>Entrar no grupo</b><small>Grátis · abre o WhatsApp<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></small></span>
+      <span class="tx"><b>Entrar no grupo</b><small>Abre o WhatsApp<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></small></span>
     </a>
-    <p class="next">Abre o WhatsApp <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg> toque em <b>Entrar no grupo</b></p>
-
-    <ul class="trust">
-      <li class="t1"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Grátis</li>
-      <li class="t2"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Sem spam</li>
-      <li class="t3"><svg class="ico" aria-hidden="true"><use href="#i-door"/></svg>Você pode sair do grupo quando quiser</li>
-    </ul>
-    <p class="who">Grupo do <b>Império Felino</b>, a página de gatos @imperiofelino_miau no Instagram.</p>
 
   </div>
-
-  <!-- Notificação que aparece sozinha: só ofertas e informações reais do grupo (preenchida pelo script) -->
-  <div class="toast" id="toast" role="status" aria-live="polite"><span class="t-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></span><span class="t-tx"></span></div>
 
   <footer>© <span id="ano">2026</span> Império Felino · Usamos cookies para medir anúncios · <a href="../privacidade/">Privacidade</a></footer>
 </main>
@@ -268,28 +164,6 @@ if (META_PIXEL_ID) {
   fbq("init", META_PIXEL_ID);
   fbq("track", "PageView");
 }
-
-// Notificações (canto de baixo à direita): só coisas reais do grupo — ofertas que chegaram na semana de 27 a 31/10 e como o grupo funciona.
-// Não colocar pessoas/nomes inventados ("fulano entrou"): o site não sabe quem entra no WhatsApp. Uma a cada 6 s.
-var AVISOS = [
-  { img:"../img/p71.jpg", d:"Golden castrados por <em>R$ 139,90</em>" },
-  { ico:true,             d:"Cupom novo sai primeiro aqui" },
-  { img:"../img/p65.jpg", d:"Kin castrados por <em>R$ 67,99</em>" },
-  { ico:true,             d:"Grátis e sem spam" },
-  { img:"../img/p12.jpg", d:"Dispensador de água por <em>R$ 34,69</em>" }
-];
-(function () {
-  var box = document.getElementById("toast"), ic = box.querySelector(".t-ic"), tx = box.querySelector(".t-tx"), sino = ic.innerHTML, i = 0;
-  function mostra() {
-    if (document.visibilityState !== "visible") return;
-    var a = AVISOS[i++ % AVISOS.length];
-    ic.innerHTML = a.img ? '<img src="' + a.img + '" alt="">' : sino;
-    tx.innerHTML = a.d;
-    box.classList.add("on");
-    setTimeout(function () { box.classList.remove("on"); }, 4000);
-  }
-  setTimeout(function () { mostra(); setInterval(mostra, 6000); }, 1800);
-})();
 
 // Teste "abrir o app direto": só quando o link tem ?abrir=app (campanha de teste). No celular, tenta abrir o app do
 // WhatsApp já no convite (pula a página "Entrar na conversa" do navegador); se o app não abrir em 1,5 s, vai para o link normal.
