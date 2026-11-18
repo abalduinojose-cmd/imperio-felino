@@ -164,6 +164,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .bf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 @media (min-width:720px){.bf-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.bf .mini .mb{padding:12px 12px 14px}}
 .bf .mini{border-color:transparent}
+/* cards da Black Friday iguais e compactos: sem avaliações e sem linha de frete, preço sempre na mesma altura */
+.bf .mini .stars,.bf .mini .ship{display:none}
+.bf .mini .mb{gap:8px}
+.bf .mini .price{min-height:44px;align-content:flex-end}
 .bf .mini .off{font-size:15px;padding:5px 10px}
 .bf-note{margin:14px 4px 0;font-size:12.5px;color:#a9a19b;text-align:center}
 /* botão do grupo: maior, com brilho pulsando */
@@ -687,16 +691,23 @@ var NO_GRUPO = [
 ];
 
 // ===== Black Friday =====
-// Os 8 produtos do site com o maior desconto (refazer a lista a cada atualização de preços).
+// 8 produtos com desconto: primeiro as rações (são as que mais vendem), depois os outros. Refazer a cada atualização de preços.
 var BLACK_FRIDAY = [
-  "https://s.shopee.com.br/20wmuwHiAE",  // bolinha automática com cauda
+  "https://s.shopee.com.br/W7z88FpnD",  // ração Origens Class castrados
+  "https://s.shopee.com.br/4VdlbgBzib",  // ração Fórmula Natural Life castrados salmão
+  "https://s.shopee.com.br/AUvL2VdlVA",  // ração Quatree Select castrados
   "https://s.shopee.com.br/6VPCHANn4o",  // bebedouro automático com filtro
-  "https://s.shopee.com.br/8pn73VMQYQ",  // escova 3 em 1 com spray
   "https://s.shopee.com.br/6AkhfmvD0o",  // luvas umedecidas para higiene a seco
   "https://s.shopee.com.br/9APxS7L9sS",  // arranhador poste de sisal
-  "https://s.shopee.com.br/2BGD7FH4pH",  // abacate com catnip
   "https://s.shopee.com.br/9V12L28byo",  // arranhador adesivo design gato
   "https://s.shopee.com.br/1gJwWLI5uN",  // pá coletora inox
+];
+
+// Fotos que aparecem no painel do grupo, ao lado de "Ração e sachê com até"
+var GRUPO_FOTOS = [
+  "https://s.shopee.com.br/W7z88FpnD",   // ração Origens Class
+  "https://s.shopee.com.br/9fLrnMYaOj",  // sachê GranPlus Gourmet, display com 18
+  "https://s.shopee.com.br/4VdlbgBzib"   // ração Fórmula Natural Life castrados salmão
 ];
 
 // ===== Você viu no Instagram =====
@@ -960,15 +971,12 @@ var PRODUTOS = [
   var bfItens = BLACK_FRIDAY.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
   document.getElementById("bf-grid").innerHTML = bfItens.map(function (p, i) { return mini(p, i + 1, "black-friday"); }).join("");
   var bfd = document.getElementById("bf-data"); if (bfd) bfd.textContent = PRECOS_EM;
-  // Painel do grupo: fotos de 3 rações e sachês do site com desconto (o maior desconto aparece no texto)
+  // Painel do grupo: fotos das rações e do sachê de GRUPO_FOTOS (o texto mostra o maior desconto entre elas)
   var gh = document.getElementById("g-hoje");
-  var rs = PRODUTOS.filter(function (p) { return p.cat === "racao" && p.desc && !p.esgotado; }).sort(function (a, b) { return b.desc - a.desc; });
-  var sache = rs.filter(function (p) { return /sach/i.test(p.nome); })[0];
-  var fotos = rs.filter(function (p) { return /ração/i.test(p.nome); }).slice(0, sache ? 2 : 3);
-  if (sache) fotos.splice(1, 0, sache);
-  if (gh && fotos.length >= 3) {
+  var fotos = GRUPO_FOTOS.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
+  if (gh && fotos.length) {
     gh.innerHTML = '<span class="th" aria-hidden="true">' + fotos.map(function (p) { return '<span><img src="' + esc(p.img) + '" alt=""></span>'; }).join("") + '</span>' +
-      '<p>Ração e sachê com até <b>-' + rs[0].desc + '%</b><br>e oferta nova todo dia</p>';
+      '<p>Ração e sachê com até <b>-' + Math.max.apply(null, fotos.map(function (p) { return p.desc || 0; })) + '%</b><br>e oferta nova todo dia</p>';
     gh.hidden = false;
   }
 
