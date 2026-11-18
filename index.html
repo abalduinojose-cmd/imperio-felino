@@ -133,7 +133,40 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .offers::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(40% 30% at 10% 0%,rgba(255,243,107,.22),transparent 70%),radial-gradient(45% 35% at 100% 100%,rgba(93,255,155,.25),transparent 70%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 96 96'%3E%3Cg fill='%23ffffff' fill-opacity='.06' transform='rotate(-16 48 48)'%3E%3Cellipse cx='48' cy='58' rx='11' ry='9'/%3E%3Ccircle cx='34' cy='44' r='5'/%3E%3Ccircle cx='42' cy='36' r='5'/%3E%3Ccircle cx='54' cy='36' r='5'/%3E%3Ccircle cx='62' cy='44' r='5'/%3E%3C/g%3E%3C/svg%3E") 0 0/120px 120px}
-/* botão do grupo: maior, com brilho pulsando e um tremidinho leve */
+/* Painel do grupo (18/11): título direto, 3 vantagens, prévia de ofertas e o botão */
+.offers h2.g-title{font-size:clamp(30px,7.6vw,46px);max-width:15ch;line-height:1.04;letter-spacing:-.035em}
+.offers h2.g-title em{font-style:normal;color:#fff36b;white-space:nowrap}
+.offers h2.g-title em::after{display:none}
+.wa-badge{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 12px 24px -12px rgba(0,0,0,.55);transform:rotate(-6deg)}
+.wa-badge svg{width:32px;height:32px}
+.perks{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:9px;text-align:left;width:100%;max-width:340px}
+.perks li{display:flex;align-items:center;gap:10px;font-size:15.5px;font-weight:700;line-height:1.3;color:#fff}
+.perks li i{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#fff36b;color:#0b3d24}
+.perks li i svg{width:14px;height:14px}
+.g-hoje{display:flex;align-items:center;gap:12px;margin-top:4px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.14)}
+.g-hoje[hidden]{display:none}
+.g-hoje .th{display:flex}
+.g-hoje .th span{position:relative;width:46px;height:46px;border-radius:50%;overflow:hidden;border:2px solid #fff;background:#fff;margin-left:-12px}
+.g-hoje .th span:first-child{margin-left:0}
+.g-hoje .th img{width:100%;height:100%;object-fit:cover}
+.g-hoje p{margin:0;font-size:13.5px;font-weight:700;line-height:1.25;text-align:left;color:#fff}
+.g-hoje p b{color:#fff36b}
+@media (min-width:860px){.perks li{font-size:16.5px}}
+
+/* ===== Black Friday (18/11): os 8 produtos com maior desconto ===== */
+.bf{background:#111014;color:#fff;border-radius:28px;padding:26px 12px 14px;margin-top:22px;position:relative;overflow:hidden;isolation:isolate}
+.bf::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 40% at 0% 0%,rgba(238,77,45,.35),transparent 70%),radial-gradient(50% 35% at 100% 100%,rgba(255,243,107,.16),transparent 70%)}
+@media (min-width:860px){.bf{padding:34px 26px 24px}}
+.bf-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;margin-bottom:18px}
+.bf-head h2{font-size:clamp(34px,9vw,58px);font-weight:900;letter-spacing:-.045em;line-height:.95;color:#fff;text-transform:uppercase}
+.bf-head h2 span{color:#ff6a45}
+.bf-head .lead{font-size:15px;font-weight:600;color:#d9d3cf;max-width:34ch}
+.bf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:720px){.bf-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.bf .mini .mb{padding:12px 12px 14px}}
+.bf .mini{border-color:transparent}
+.bf .mini .off{font-size:15px;padding:5px 10px}
+.bf-note{margin:14px 4px 0;font-size:12.5px;color:#a9a19b;text-align:center}
+/* botão do grupo: maior, com brilho pulsando */
 .btn.btn-cta{position:relative;isolation:isolate;width:auto;max-width:100%;height:auto;min-height:74px;padding:10px;justify-content:center;gap:14px;background:#fff;color:#0b3d24;border:0;border-radius:999px;box-shadow:0 14px 30px -14px rgba(0,0,0,.6)}
 .btn.btn-cta::after{content:"";position:absolute;inset:-10px;border-radius:999px;border:3px solid rgba(255,243,107,.7);z-index:-1;animation:ctaRing 2s var(--ease-out) infinite;pointer-events:none}
 @keyframes ctaRing{0%{opacity:1;transform:scale(.96)}75%,100%{opacity:0;transform:scale(1.08)}}
@@ -470,7 +503,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 </style>
 </head>
 <body>
-<a class="skip" href="#mais-procurados">Pular para os produtos</a>
+<a class="skip" href="#black-friday">Pular para os produtos</a>
 <div class="wrap">
 
   <div class="intro">
@@ -493,27 +526,30 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 
   <section class="offers" id="grupo" aria-labelledby="grupo-titulo">
     <div class="offers-copy">
-      <h2 id="grupo-titulo"><span class="l1"><em>Economize até 70%</em></span><span class="l2">em mimos e ração para o seu gato</span></h2>
-      <p class="lead">Ofertas e cupons da Shopee e do Mercado Livre chegam <b>primeiro no grupo</b>.</p>
+      <span class="wa-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></span>
+      <h2 id="grupo-titulo" class="g-title">Ofertas para gatos <em>no seu WhatsApp</em></h2>
+      <p class="lead">Ração, areia e brinquedos <b>em promoção</b>, escolhidos a dedo todo dia.</p>
+      <ul class="perks">
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></i>Cupons da Shopee e do Mercado Livre</li>
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></i>Ofertas da Black Friday chegam primeiro</li>
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></i>Só achadinhos para gatos, sem spam</li>
+      </ul>
+      <div class="g-hoje" id="g-hoje" hidden></div>
       <div class="actions">
         <a class="btn btn-cta" id="btn-grupo" href="#grupo"><span class="cta-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></span><span class="cta-txt"><b>Entrar no grupo</b><small>do WhatsApp · é grátis</small></span><span class="cta-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
-      <p class="cta-note">Grátis, sem spam e você sai quando quiser.</p>
+      <p class="cta-note">Grátis, e você sai quando quiser.</p>
     </div>
   </section>
   </div>
 
-  <section class="section featured" id="mais-procurados" aria-labelledby="top-titulo">
-    <div class="section-head top-head">
-      <div class="top-title">
-        <span class="fire" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.5c.6 3.2-1.2 5-2.8 6.6C8.2 10.6 7 12 7 14.5A5 5 0 0 0 12 19.5a5 5 0 0 0 5-5c0-1.8-.7-3.1-1.6-4.1.1 1.3-.4 2.4-1.5 2.9.4-3.2-.4-7-1.4-10.8z"/></svg></span>
-        <div>
-          <h2 id="top-titulo">Mais procurados <span class="month" id="top-mes">do mês</span></h2>
-          <p class="lead">Os achadinhos mais clicados por aqui.</p>
-        </div>
-      </div>
+  <section class="section bf" id="black-friday" aria-labelledby="bf-titulo">
+    <div class="bf-head">
+      <h2 id="bf-titulo"><span>Black</span> Friday</h2>
+      <p class="lead">Os 8 produtos do site com o maior desconto agora.</p>
     </div>
-    <div class="top-grid" id="top-grid"></div>
+    <div class="bf-grid" id="bf-grid"></div>
+    <p class="bf-note">Preços conferidos em <span id="bf-data"></span>. Na loja eles podem mudar a qualquer momento.</p>
   </section>
 
   <section class="section insta" id="viu-no-instagram" aria-labelledby="insta-titulo">
@@ -614,11 +650,9 @@ var CUPONS_URL = "https://s.shopee.com.br/4LKLKouPdG";
 // ===== Cupons =====
 // Os cupons da Shopee mudam todo dia. "ate" é o fim da validade; depois disso o cupom some sozinho do site.
 var CUPONS = [
-  { valor:"R$ 10 OFF",  regra:"Compras acima de R$ 89", onde:"Todas as lojas", ate:"2026-11-11T23:59:00-03:00" },
-  { valor:"R$ 20 OFF",  regra:"Compras acima de R$ 159", onde:"Todas as lojas", ate:"2026-11-11T23:59:00-03:00" },
-  { valor:"R$ 30 OFF",  regra:"Compras acima de R$ 249", onde:"Todas as lojas", ate:"2026-11-11T23:59:00-03:00" },
-  { valor:"R$ 50 OFF",  regra:"Compras acima de R$ 389", onde:"Todas as lojas", ate:"2026-11-11T23:59:00-03:00" },
-  { valor:"20% OFF",    regra:"Sem valor mínimo, desconto de até R$ 20", onde:"Lojas oficiais", ate:"2026-11-11T23:59:00-03:00" },
+  { valor:"R$ 30 OFF",  regra:"Compras acima de R$ 279", onde:"Todas as lojas", ate:"2026-11-18T23:59:00-03:00" },
+  { valor:"R$ 80 OFF",  regra:"Compras acima de R$ 699", onde:"Todas as lojas", ate:"2026-11-18T23:59:00-03:00" },
+  { valor:"20% cashback", regra:"Sem valor mínimo, volta até R$ 20 em moedas", onde:"Lojas oficiais", ate:"2026-11-18T23:59:00-03:00" },
   { valor:"50% OFF",    regra:"Compras acima de R$ 10, desconto de até R$ 50", onde:"Produtos de Natal selecionados", ate:"2026-11-27T23:59:00-03:00" }
 ];
 
@@ -649,6 +683,19 @@ var NO_GRUPO = [
   "https://s.shopee.com.br/9KiobfFxkr",  // toca 6 funções
   "https://s.shopee.com.br/AAHwyXVVIk",  // brinquedo giratório de porta
   "https://s.shopee.com.br/AAHvzX68Hu"   // antipulgas Frontline
+];
+
+// ===== Black Friday =====
+// Os 8 produtos do site com o maior desconto (refazer a lista a cada atualização de preços).
+var BLACK_FRIDAY = [
+  "https://s.shopee.com.br/20wmuwHiAE",  // bolinha automática com cauda
+  "https://s.shopee.com.br/6VPCHANn4o",  // bebedouro automático com filtro
+  "https://s.shopee.com.br/8pn73VMQYQ",  // escova 3 em 1 com spray
+  "https://s.shopee.com.br/6AkhfmvD0o",  // luvas umedecidas para higiene a seco
+  "https://s.shopee.com.br/9APxS7L9sS",  // arranhador poste de sisal
+  "https://s.shopee.com.br/2BGD7FH4pH",  // abacate com catnip
+  "https://s.shopee.com.br/9V12L28byo",  // arranhador adesivo design gato
+  "https://s.shopee.com.br/1gJwWLI5uN",  // pá coletora inox
 ];
 
 // ===== Você viu no Instagram =====
@@ -687,7 +734,7 @@ var IG_SEGUIDORES = "210 mil";
 //   esgotado: true quando a loja estiver sem estoque (o card fica marcado como esgotado)
 //   estrelas: nota de 0 a 5   avaliacoes: ex. "3,5 mil"   vendidos: ex. "10 mil"
 //   parcelas: { n: 12, valor: 7.36 }  (máximo de parcelas no cartão, como a Shopee mostra)
-var PRECOS_EM = "11/11/2026";
+var PRECOS_EM = "18/11/2026";
 var PRODUTOS = [
   // ----- Mais procurados do mês (6 primeiros) -----
   { img:"img/p12.jpg", nome:"Dispensador de água automático para gatos",                       cat:"bebedouros", link:"https://s.shopee.com.br/5foOQ6Ipn4", preco:34.69,  de:50.86,  desc:32, aPartir:true, frete:"cupom", estrelas:4.4, avaliacoes:"14", vendidos:"141", parcelas:{n:6, valor:6.47} },
@@ -705,33 +752,33 @@ var PRODUTOS = [
   { img:"img/p05.jpg", nome:"Relógio criativo Jokercat gato e rato, minimalista unissex",      cat:"fofura",      de:1481.91, desc:73, link:"https://s.shopee.com.br/9pePx7nQX8", preco:393.45, frete:"cupom", estrelas:5.0, avaliacoes:"2", vendidos:"12" },
   { img:"img/p06.jpg", nome:"Fonte automática para gatos",                                     cat:"bebedouros", link:"https://s.shopee.com.br/9KhYlVvrPM", preco:49.90,  de:100.00, desc:50, frete:"cupom", estrelas:4.9, avaliacoes:"3,5 mil", vendidos:"8 mil+",  parcelas:{n:9,  valor:6.31} },
   { img:"img/p07.jpg", nome:"Luvas umedecidas descartáveis para higiene a seco",               cat:"higiene",     link:"https://s.shopee.com.br/6AkhfmvD0o", preco:14.10,  de:59.90,  desc:76, aPartir:true, frete:"cupom", estrelas:4.9, avaliacoes:"126", vendidos:"403" },
-  { img:"img/p08.jpg", nome:"Fantasia de gato esqueleto de dinossauro",                        cat:"fofura",      link:"https://s.shopee.com.br/4AziytB2zy", preco:73.20,  de:147.96, desc:51, aPartir:true, frete:"cupom", vendidos:"3" },
-  { img:"img/p47.jpg", nome:"Ração Golden Special para gatos castrados, 10 kg",                 cat:"racao", link:"https://s.shopee.com.br/3LRoDXGR5K", preco:150.00, nota:"no Pix", frete:"cupom", estrelas:4.9, avaliacoes:"11,9 mil", vendidos:"20 mil+" },
+  { img:"img/p08.jpg", nome:"Fantasia de gato esqueleto de dinossauro",                        cat:"fofura",      link:"https://s.shopee.com.br/4AziytB2zy", preco:78.74,  de:147.96, desc:47, aPartir:true, frete:"cupom", vendidos:"3" },
+  { img:"img/p47.jpg", nome:"Ração Golden Special para gatos castrados, 10 kg",                 cat:"racao", link:"https://s.shopee.com.br/3LRoDXGR5K", preco:138.00, desc:8, de:150.00, nota:"no Pix", frete:"cupom", estrelas:4.9, avaliacoes:"11,9 mil", vendidos:"20 mil+" },
   { img:"img/p48.jpg", nome:"Ração Fórmula Natural Life gatos castrados salmão, 15 kg",         cat:"racao", link:"https://s.shopee.com.br/4VdlbgBzib", preco:311.12, de:620.00, desc:50, nota:"no Pix", frete:"cupom", estrelas:5.0, avaliacoes:"7", vendidos:"28" },
   { img:"img/p09.jpg", nome:"Ração Fórmula Natural Fresh Meat para gatos, 10 kg",              cat:"racao", link:"https://s.shopee.com.br/1gIYPP1ptI", preco:355.99, frete:"cupom", estrelas:5.0, avaliacoes:"217", vendidos:"514" },
   // Rações e sachês (links do painel com sub_id site-racao, 22/10)
-  { img:"img/p56.jpg", nome:"Ração Quatree Gourmet gatos adultos, 10,1 kg",                    cat:"racao",       link:"https://s.shopee.com.br/4qGc2T4euK", preco:119.99, aPartir:true, de:209.90, desc:43, frete:"cupom", estrelas:4.9, avaliacoes:"7,8 mil", vendidos:"10 mil+" },
+  { img:"img/p56.jpg", nome:"Ração Quatree Gourmet gatos adultos, 10,1 kg",                    cat:"racao",       link:"https://s.shopee.com.br/4qGc2T4euK", preco:114.99, aPartir:true, de:209.90, desc:45, frete:"cupom", estrelas:4.9, avaliacoes:"7,8 mil", vendidos:"10 mil+" },
   { img:"img/p60.jpg", nome:"Ração Mia Cat Premium filhotes e adultos, 10 kg",                 cat:"racao",       link:"https://s.shopee.com.br/2qVXenCGy0", preco:65.85,  de:99.99,  desc:34, nota:"com cupom", frete:"cupom", estrelas:4.9, avaliacoes:"7 mil", vendidos:"10 mil+" },
   { img:"img/p57.jpg", nome:"Ração GranPlus Choice gatos adultos frango e carne, 10,1 kg",     cat:"racao",       link:"https://s.shopee.com.br/4fxBqA5IFJ", preco:99.90, de:169.90, desc:41, frete:"cupom", estrelas:4.9, avaliacoes:"6,3 mil", vendidos:"10 mil+" },
   { img:"img/p58.jpg", nome:"Ração Special Cat gatos castrados, 10,1 kg",                      cat:"racao",       link:"https://s.shopee.com.br/5AtSR53OEQ", preco:230.00, frete:"cupom", estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"3 mil+" },
   { img:"img/p62.jpg", nome:"Ração Golden Fórmula gatos castrados salmão, 10,1 kg",            cat:"racao",       link:"https://s.shopee.com.br/AAI8OHAXum", preco:154.90, de:239.30, desc:35, frete:"cupom", estrelas:4.9, avaliacoes:"4,5 mil", vendidos:"8 mil+" },
-  { img:"img/p61.jpg", nome:"Ração Golden Special gatos adultos, 10 kg",                       cat:"racao",       link:"https://s.shopee.com.br/9fLrnMCRvf", preco:122.90, de:136.00, desc:10, frete:"cupom", estrelas:4.9, avaliacoes:"1,4 mil", vendidos:"2 mil+" },
-  { img:"img/p63.jpg", nome:"Ração Fórmula Natural Life gatos castrados frango, 10,1 kg",      cat:"racao",       link:"https://s.shopee.com.br/9zyiByBBFl", preco:222.59, de:399.40, desc:44, frete:"cupom", estrelas:4.9, avaliacoes:"2,8 mil", vendidos:"5 mil+" },
-  { img:"img/p64.jpg", nome:"Ração Quatree Life gatos castrados salmão, 10 kg",                cat:"racao",       link:"https://s.shopee.com.br/AUuymt9HEs", preco:162.90, de:239.90, desc:32, frete:"cupom", estrelas:4.9, avaliacoes:"1,2 mil", vendidos:"2 mil+" },
-  { img:"img/p59.jpg", nome:"Ração Quatree Supreme castrados frango e batata-doce, 10 kg",     cat:"racao",       link:"https://s.shopee.com.br/50a2Em41ZP", preco:194.90, de:259.90, desc:25, frete:"cupom", estrelas:4.9, avaliacoes:"1,7 mil", vendidos:"3 mil+" },
+  { img:"img/p61.jpg", nome:"Ração Golden Special gatos adultos, 10 kg",                       cat:"racao",       link:"https://s.shopee.com.br/9fLrnMCRvf", preco:136.00, frete:"cupom", estrelas:4.9, avaliacoes:"1,4 mil", vendidos:"2 mil+" },
+  { img:"img/p63.jpg", nome:"Ração Fórmula Natural Life gatos castrados frango, 10,1 kg",      cat:"racao",       link:"https://s.shopee.com.br/9zyiByBBFl", preco:220.63, de:399.40, desc:45, frete:"cupom", estrelas:4.9, avaliacoes:"2,8 mil", vendidos:"5 mil+" },
+  { img:"img/p64.jpg", nome:"Ração Quatree Life gatos castrados salmão, 10 kg",                cat:"racao",       link:"https://s.shopee.com.br/AUuymt9HEs", preco:164.90, de:239.90, desc:31, frete:"cupom", estrelas:4.9, avaliacoes:"1,2 mil", vendidos:"2 mil+" },
+  { img:"img/p59.jpg", nome:"Ração Quatree Supreme castrados frango e batata-doce, 10 kg",     cat:"racao",       link:"https://s.shopee.com.br/50a2Em41ZP", preco:199.90, de:259.90, desc:23, frete:"cupom", estrelas:4.9, avaliacoes:"1,7 mil", vendidos:"3 mil+" },
   { img:"img/p65.jpg", nome:"Ração Kin Premium gatos castrados, 10,1 kg",                      cat:"racao",       link:"https://s.shopee.com.br/AKbYaa9uZr", preco:64.99,  de:140.00, desc:54, frete:"cupom", estrelas:4.9, avaliacoes:"298", vendidos:"706" },
   { img:"img/p94.jpg", nome:"Ração BemStar gatos castrados, 10,1 kg", cat:"racao", link:"https://s.shopee.com.br/LoYvpGT8A", preco:73.90, aPartir:true, de:155.99, desc:53, estrelas:4.9, avaliacoes:"1,5 mil", vendidos:"2 mil" },
-  { img:"img/p95.jpg", nome:"Ração Origens Class gatos castrados salmão e frango, 10,1 kg", cat:"racao", link:"https://s.shopee.com.br/W7z88FpnD", preco:141.26, de:422.50, desc:67, estrelas:4.9, avaliacoes:"181", vendidos:"375" },
-  { img:"img/p96.jpg", nome:"Ração Quatree Select gatos castrados frango e arroz, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AUvL2VdlVA", preco:140.76, de:273.31, desc:48, estrelas:5.0, avaliacoes:"389", vendidos:"676" },
+  { img:"img/p95.jpg", nome:"Ração Origens Class gatos castrados salmão e frango, 10,1 kg", cat:"racao", link:"https://s.shopee.com.br/W7z88FpnD", preco:141.25, de:422.50, desc:67, estrelas:4.9, avaliacoes:"181", vendidos:"375" },
+  { img:"img/p96.jpg", nome:"Ração Quatree Select gatos castrados frango e arroz, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AUvL2VdlVA", preco:145.05, de:273.31, desc:47, estrelas:5.0, avaliacoes:"389", vendidos:"676" },
   { img:"img/p97.jpg", nome:"Ração Quatree Gourmet gatos filhotes carne e leite, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AKbuqCeOq9", preco:130.99, de:233.31, desc:44, estrelas:4.9, avaliacoes:"243", vendidos:"536" },
   { img:"img/p98.jpg", nome:"Ração Quatree Gourmet gatos castrados Delícias do Mar, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AAIUdtf2B8", preco:133.97, de:244.98, desc:45, estrelas:5.0, avaliacoes:"401", vendidos:"755" },
   { img:"img/p67.jpg", nome:"Sachê Whiskas 85 g, leve 20 (16 + 4 grátis)",                     cat:"racao",       link:"https://s.shopee.com.br/9pfHzfXx3k", preco:53.90, desc:32, de:78.90, frete:"cupom", estrelas:5.0, avaliacoes:"10,3 mil", vendidos:"20 mil+" },
-  { img:"img/p66.jpg", nome:"Sachê Friskies 85 g, kit com 15",                                 cat:"racao",       link:"https://s.shopee.com.br/9zyiByXJil", preco:32.20, desc:34, de:48.90, aPartir:true, frete:"cupom", estrelas:4.9, avaliacoes:"8,4 mil", vendidos:"10 mil+" },
-  { img:"img/p68.jpg", nome:"Sachê GranPlus Gourmet 85 g, display com 18",                     cat:"racao",       link:"https://s.shopee.com.br/9fLrnMYaOj", preco:42.90, aPartir:true,  de:69.90,  desc:39, frete:"cupom", estrelas:5.0, avaliacoes:"6,2 mil", vendidos:"10 mil+" },
+  { img:"img/p66.jpg", nome:"Sachê Friskies 85 g, kit com 15",                                 cat:"racao",       link:"https://s.shopee.com.br/9zyiByXJil", preco:41.49, desc:15, de:48.90, aPartir:true, frete:"cupom", estrelas:4.9, avaliacoes:"8,4 mil", vendidos:"10 mil+" },
+  { img:"img/p68.jpg", nome:"Sachê GranPlus Gourmet 85 g, display com 18",                     cat:"racao",       link:"https://s.shopee.com.br/9fLrnMYaOj", preco:45.55, aPartir:true,  de:69.90,  desc:35, frete:"cupom", estrelas:5.0, avaliacoes:"6,2 mil", vendidos:"10 mil+" },
   { img:"img/p100.jpg", nome:"Petisco purê Churu Inaba, vários sabores", cat:"racao", link:"https://s.shopee.com.br/2Vt3VrFo9J", preco:25.89, aPartir:true, de:69.90, desc:63, estrelas:5.0, avaliacoes:"1,6 mil", vendidos:"4 mil" },
   { img:"img/p10.jpg", nome:"Cápsula de armazenamento de pelos de gato",                       cat:"higiene",     link:"https://s.shopee.com.br/2BEVwopCaM", preco:3.96, aPartir:true,   de:8.10,   desc:51, relampago:true, freteMin:10, estrelas:4.9, avaliacoes:"1,9 mil", vendidos:"10 mil+" },
   { img:"img/p11.jpg", nome:"Areia higiênica Katbom granulado capim-limão, 6 kg",              cat:"higiene",     link:"https://s.shopee.com.br/5VVGyHMl8w", preco:56.18,  de:81.90,  desc:31, freteMin:80, estrelas:5.0, avaliacoes:"2,7 mil", vendidos:"6 mil+", parcelas:{n:12, valor:6.10}, esgotado:true },
-  { img:"img/p13.jpg", nome:"Arranhador adesivo design gato em carpete premium",               cat:"casa",        link:"https://s.shopee.com.br/9V12L28byo", preco:13.90,  de:49.99,  desc:72, aPartir:true, frete:"cupom", estrelas:4.8, avaliacoes:"1,3 mil", vendidos:"3 mil+" },
+  { img:"img/p13.jpg", nome:"Arranhador adesivo design gato em carpete premium",               cat:"casa",        link:"https://s.shopee.com.br/9V12L28byo", preco:14.99,  de:49.99,  desc:70, aPartir:true, frete:"cupom", estrelas:4.8, avaliacoes:"1,3 mil", vendidos:"3 mil+" },
   { img:"img/p14.jpg", nome:"Túnel dobrável em T com 3 saídas e janela",                       cat:"brinquedos",  link:"https://s.shopee.com.br/8AVbPdITZ5", preco:27.30,  de:33.80,  desc:19, aPartir:true, frete:"cupom", estrelas:4.9, avaliacoes:"2,5 mil", vendidos:"5 mil+", parcelas:{n:5, valor:6.11} },
   { img:"img/p15.jpg", nome:"Túnel mola interativo dobrável e flexível",                       cat:"brinquedos",  link:"https://s.shopee.com.br/2VrEf305gV", preco:22.99,  frete:"cupom", estrelas:4.9, avaliacoes:"922", vendidos:"1 mil+", parcelas:{n:4, valor:6.33} },
   { img:"img/p16.jpg", nome:"Comedouro pote elevado alto para gato",                           cat:"bebedouros", link:"https://s.shopee.com.br/9KhYmiVgor", preco:59.90,  aPartir:true, frete:"cupom", estrelas:4.9, avaliacoes:"1,5 mil", vendidos:"3 mil+", parcelas:{n:11, valor:6.29} },
@@ -756,46 +803,46 @@ var PRODUTOS = [
   { img:"img/p50.jpg", nome:"Enfeite de Natal gato para canto de porta ou janela",             cat:"natal",       link:"https://s.shopee.com.br/5fpj0xjLB9", preco:26.90,  de:35.99,  desc:25, frete:"cupom", estrelas:4.9, avaliacoes:"46", vendidos:"158" },
   { img:"img/p54.jpg", nome:"Gato na lareira natalina, enfeite com luz LED",                  cat:"natal",       link:"https://s.shopee.com.br/AKbYZiivQi", preco:55.49,  frete:"cupom", estrelas:5.0, avaliacoes:"18", vendidos:"26" },
   { img:"img/p55.jpg", nome:"Kit 4 capas de almofada de Natal com gatinhos",                   cat:"natal",       link:"https://s.shopee.com.br/4fxBp890h8", preco:39.92,  de:49.90,  desc:20, frete:"cupom", estrelas:4.9, avaliacoes:"63", vendidos:"95" },
-  { img:"img/p89.jpg", nome:"Gorro de Papai Noel para gatos", cat:"natal", link:"https://s.shopee.com.br/30pK6hxmaI", preco:12.00, aPartir:true, estrelas:5.0, avaliacoes:"2,1 mil", vendidos:"6 mil" },
-  { img:"img/p90.jpg", nome:"Enfeite de Natal: gato subindo na árvore", cat:"natal", link:"https://s.shopee.com.br/AKbuqbPlJc", preco:35.89, de:39.90, desc:10, estrelas:4.8, avaliacoes:"105", vendidos:"279" },
-  { img:"img/p91.jpg", nome:"Topo de árvore: gato brincando com a estrela", cat:"natal", link:"https://s.shopee.com.br/3LSAVJwVuO", preco:45.69, de:68.90, desc:34, estrelas:4.9, avaliacoes:"44", vendidos:"146" },
-  { img:"img/p92.jpg", nome:"Kit 6 enfeites de gato em acrílico dourado espelhado", cat:"natal", link:"https://s.shopee.com.br/3VlahcvsZR", preco:29.87, aPartir:true, de:37.90, desc:21, estrelas:4.9, avaliacoes:"34", vendidos:"69" },
-  { img:"img/p93.jpg", nome:"Enfeite de Natal gato preto, frajola, siamês ou rajado para canto de porta", cat:"natal", link:"https://s.shopee.com.br/3g50tvvFEU", preco:26.90, aPartir:true, de:28.90, desc:7, estrelas:5.0, avaliacoes:"549", vendidos:"1 mil" },
+  { img:"img/p89.jpg", nome:"Gorro de Papai Noel para gatos", cat:"natal", link:"https://s.shopee.com.br/30pK6hxmaI", preco:13.00, aPartir:true, estrelas:5.0, avaliacoes:"2,1 mil", vendidos:"6 mil" },
+  { img:"img/p90.jpg", nome:"Enfeite de Natal: gato subindo na árvore", cat:"natal", link:"https://s.shopee.com.br/AKbuqbPlJc", preco:35.90, de:39.90, desc:10, estrelas:4.8, avaliacoes:"105", vendidos:"279" },
+  { img:"img/p91.jpg", nome:"Topo de árvore: gato brincando com a estrela", cat:"natal", link:"https://s.shopee.com.br/3LSAVJwVuO", preco:47.90, de:68.90, desc:30, estrelas:4.9, avaliacoes:"44", vendidos:"146" },
+  { img:"img/p92.jpg", nome:"Kit 6 enfeites de gato em acrílico dourado espelhado", cat:"natal", link:"https://s.shopee.com.br/3VlahcvsZR", preco:28.87, aPartir:true, de:37.90, desc:24, estrelas:4.9, avaliacoes:"34", vendidos:"69" },
+  { img:"img/p93.jpg", nome:"Enfeite de Natal gato preto, frajola, siamês ou rajado para canto de porta", cat:"natal", link:"https://s.shopee.com.br/3g50tvvFEU", preco:28.90, aPartir:true, estrelas:5.0, avaliacoes:"549", vendidos:"1 mil" },
   // Novidades de 05/11/2026: produtos dos Reels recentes (sub_id site-instagram) e achadinhos (site-achados)
   { img:"img/p74.jpg", nome:"Cama túnel de pelúcia para gatos, quentinha e lavável", cat:"casa", link:"https://s.shopee.com.br/6AmLsYP3ki", preco:212.39 },
-  { img:"img/p76.jpg", nome:"Bebedouro automático com filtro, 1,5 L, silencioso (USB)", cat:"bebedouros", link:"https://s.shopee.com.br/6VPCHANn4o", preco:39.98, desc:80, de:200.00, estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"4 mil" },
+  { img:"img/p76.jpg", nome:"Bebedouro automático com filtro, 1,5 L, silencioso (USB)", cat:"bebedouros", link:"https://s.shopee.com.br/6VPCHANn4o", preco:39.99, desc:80, de:200.00, estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"4 mil" },
   { img:"img/p77.jpg", nome:"Caminha ninho com tapete de aquecimento USB", cat:"casa", link:"https://s.shopee.com.br/6L5m4rOQPn", preco:194.50, aPartir:true},
   { img:"img/p78.jpg", nome:"Etiqueta localizadora antiperda para coleira de gato", cat:"passeio", link:"https://s.shopee.com.br/6q22fmMWOu", preco:47.43, desc:15, de:55.50, estrelas:5.0, avaliacoes:"5" },
-  { img:"img/p79.jpg", nome:"Caixa de secagem para gatos depois do banho", cat:"higiene", link:"https://s.shopee.com.br/9fME2zg3HD", preco:103.81 },
+  { img:"img/p79.jpg", nome:"Caixa de secagem para gatos depois do banho", cat:"higiene", link:"https://s.shopee.com.br/9fME2zg3HD", preco:138.05, aPartir:true },
   { img:"img/p80.jpg", nome:"Bolsa de transporte multifuncional para gatos com alça", cat:"passeio", link:"https://s.shopee.com.br/8pn73SjDy4", preco:226.39, aPartir:true},
   { img:"img/p81.jpg", nome:"Tenda dobrável para gatos, cercadinho de tela respirável", cat:"casa", link:"https://s.shopee.com.br/8fTgr9jrJ3", preco:148.94, desc:50, de:297.88},
-  { img:"img/p82.jpg", nome:"Torre de porta para gatos", cat:"casa", link:"https://s.shopee.com.br/9APxS4hxIA", preco:693.97, desc:9, de:762.60, estrelas:4.9, avaliacoes:"40" },
+  { img:"img/p82.jpg", nome:"Torre de porta para gatos", cat:"casa", link:"https://s.shopee.com.br/9APxS4hxIA", preco:678.72, desc:11, de:762.60, estrelas:4.9, avaliacoes:"40" },
   { img:"img/p83.jpg", nome:"Cama banana para gatos", cat:"casa", link:"https://s.shopee.com.br/1BiXEleLI", preco:54.34, desc:30, de:77.62, aPartir:true, estrelas:4.5, avaliacoes:"64" },
   { img:"img/p84.jpg", nome:"Pente tira-pulgas e removedor de pelos", cat:"higiene", link:"https://s.shopee.com.br/BV8jXl10L", preco:21.45, desc:45, de:39.00, estrelas:5.0, avaliacoes:"7" },
   { img:"img/p85.jpg", nome:"Kit de treinamento para o gato usar o vaso sanitário", cat:"higiene", link:"https://s.shopee.com.br/LoYvqkNfO", preco:78.97, desc:52, de:163.04, aPartir:true, estrelas:4.9, avaliacoes:"52" },
   { img:"img/p86.jpg", nome:"Ninho de console de carro para viajar com o pet", cat:"passeio", link:"https://s.shopee.com.br/W7z89jkKR", preco:146.32 },
   { img:"img/p87.jpg", nome:"Cercado dobrável portátil de tela, 70 cm", cat:"casa", link:"https://s.shopee.com.br/gRPKSj6zU", preco:109.90, desc:45, de:200.00},
-  { img:"img/p88.jpg", nome:"Tapete coletor de areia em EVA, 78 x 62 cm, lavável", cat:"higiene", link:"https://s.shopee.com.br/7puZreUciG", preco:34.99, aPartir:true, de:88.00, desc:60, estrelas:4.9, avaliacoes:"3,1 mil", vendidos:"10 mil" },
-  { img:"img/p101.jpg", nome:"Bolinha automática com cauda, recarregável", cat:"brinquedos", link:"https://s.shopee.com.br/20wmuwHiAE", preco:12.59, aPartir:true, de:100.00, desc:87, estrelas:4.8, avaliacoes:"13,9 mil", vendidos:"30 mil" },
+  { img:"img/p88.jpg", nome:"Tapete coletor de areia em EVA, 78 x 62 cm, lavável", cat:"higiene", link:"https://s.shopee.com.br/7puZreUciG", preco:32.99, aPartir:true, de:88.00, desc:63, estrelas:4.9, avaliacoes:"3,1 mil", vendidos:"10 mil" },
+  { img:"img/p101.jpg", nome:"Bolinha automática com cauda, recarregável", cat:"brinquedos", link:"https://s.shopee.com.br/20wmuwHiAE", preco:13.99, aPartir:true, de:100.00, desc:86, estrelas:4.8, avaliacoes:"13,9 mil", vendidos:"30 mil" },
   { img:"img/p102.jpg", nome:"Abacate de brinquedo com catnip", cat:"brinquedos", link:"https://s.shopee.com.br/2BGD7FH4pH", preco:10.90, aPartir:true, de:39.90, desc:73, estrelas:4.8, avaliacoes:"11,4 mil", vendidos:"20 mil" },
   { img:"img/p103.jpg", nome:"Varinha interativa que imita um pássaro", cat:"brinquedos", link:"https://s.shopee.com.br/1gJwWKIyqC", preco:17.99, de:55.00, desc:67, estrelas:4.8, avaliacoes:"3,4 mil", vendidos:"7 mil" },
   { img:"img/p104.jpg", nome:"Bastão mordedor natural para gatos", cat:"brinquedos", link:"https://s.shopee.com.br/80E03yPbFD", preco:10.99, aPartir:true, de:30.00, desc:63, estrelas:4.9, avaliacoes:"6,4 mil", vendidos:"10 mil" },
   { img:"img/p105.jpg", nome:"Arranhador poste de sisal com brinquedos", cat:"casa", link:"https://s.shopee.com.br/9APxS7L9sS", preco:19.99, aPartir:true, de:79.90, desc:75, estrelas:4.9, avaliacoes:"3,4 mil", vendidos:"6 mil" },
   { img:"img/p106.jpg", nome:"Kit 2 arranhadores de canto para proteger o sofá", cat:"casa", link:"https://s.shopee.com.br/906XFoLnDR", preco:39.90, aPartir:true, de:99.90, desc:60, estrelas:4.9, avaliacoes:"2,8 mil", vendidos:"7 mil" },
-  { img:"img/p107.jpg", nome:"Escova 3 em 1 com spray de água para tirar pelos", cat:"higiene", link:"https://s.shopee.com.br/8pn73VMQYQ", preco:31.97, de:150.00, desc:79, estrelas:4.9, avaliacoes:"3,2 mil", vendidos:"6 mil" },
+  { img:"img/p107.jpg", nome:"Escova 3 em 1 com spray de água para tirar pelos", cat:"higiene", link:"https://s.shopee.com.br/8pn73VMQYQ", preco:31.99, de:150.00, desc:79, estrelas:4.9, avaliacoes:"3,2 mil", vendidos:"6 mil" },
   { img:"img/p108.jpg", nome:"Cortador de unhas com furo de segurança para gatos", cat:"higiene", link:"https://s.shopee.com.br/8fTgrCN3tP", preco:14.50, aPartir:true, de:29.90, desc:52, estrelas:4.9, avaliacoes:"4,5 mil", vendidos:"8 mil" },
   { img:"img/p109.jpg", nome:"Pá coletora de areia em aço inox", cat:"higiene", link:"https://s.shopee.com.br/1gJwWLI5uN", preco:15.80, de:50.00, desc:68, estrelas:4.9, avaliacoes:"3,2 mil", vendidos:"7 mil" },
-  { img:"img/p110.jpg", nome:"Areia biodegradável Kadi grãos finos, 4 a 10 kg", cat:"higiene", link:"https://s.shopee.com.br/2BGD7GGBtU", preco:31.22, aPartir:true, de:89.99, desc:65, estrelas:4.8, avaliacoes:"9,8 mil", vendidos:"20 mil" },
-  { img:"img/p111.jpg", nome:"Fonte de água em aço inox Newpet, 3 L", cat:"bebedouros", link:"https://s.shopee.com.br/20wmuxGpET", preco:117.95, de:229.00, desc:48, estrelas:5.0, avaliacoes:"3,8 mil", vendidos:"8 mil" },
+  { img:"img/p110.jpg", nome:"Areia biodegradável Kadi grãos finos, 4 a 10 kg", cat:"higiene", link:"https://s.shopee.com.br/2BGD7GGBtU", preco:38.86, aPartir:true, de:89.99, desc:57, estrelas:4.8, avaliacoes:"9,8 mil", vendidos:"20 mil" },
+  { img:"img/p111.jpg", nome:"Fonte de água em aço inox Newpet, 3 L", cat:"bebedouros", link:"https://s.shopee.com.br/20wmuxGpET", preco:116.51, de:229.00, desc:49, estrelas:5.0, avaliacoes:"3,8 mil", vendidos:"8 mil" },
   // ----- Medicamentos -----
   { img:"img/p31.jpg", nome:"Antipulgas Frontline Top Spot para gatos, 1 pipeta",              cat:"saude",       link:"https://s.shopee.com.br/AAHvzX68Hu", preco:29.42,  de:42.94,  desc:31, frete:"cupom", estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"7 mil+",  parcelas:{n:5,  valor:6.53} },
-  { img:"img/p32.jpg", nome:"Antipulgas Credeli para gatos de 2,1 a 8 kg, 1 comprimido",       cat:"saude",       link:"https://s.shopee.com.br/5q8wpaM5UH", preco:60.90,  de:79.90,  desc:24, frete:"cupom", estrelas:5.0, avaliacoes:"479",     vendidos:"1 mil+",  parcelas:{n:12, valor:5.91} },
+  { img:"img/p32.jpg", nome:"Antipulgas Credeli para gatos de 2,1 a 8 kg, 1 comprimido",       cat:"saude",       link:"https://s.shopee.com.br/5q8wpaM5UH", preco:47.52,  de:79.90,  desc:41, frete:"cupom", estrelas:5.0, avaliacoes:"479",     vendidos:"1 mil+",  parcelas:{n:12, valor:5.91} },
   { img:"img/p33.jpg", nome:"Vermitil Cats contra pulgas, carrapatos, sarna e vermes",         cat:"saude",       link:"https://s.shopee.com.br/8pmYP7NbHm", preco:28.00, aPartir:true,  de:35.00,  desc:20, frete:"cupom", estrelas:4.9, avaliacoes:"266", vendidos:"669", parcelas:{n:5, valor:6.22} },
   { img:"img/p35.jpg", nome:"Vermífugo Verminex Gatos, 4 comprimidos",                         cat:"saude",       link:"https://s.shopee.com.br/1LgXTMtbcf", preco:11.98,  de:15.99,  desc:25, frete:"cupom", estrelas:4.9, avaliacoes:"689",     vendidos:"1 mil+" },
-  { img:"img/p30.jpg", nome:"Suplemento Ball Free 70 g contra bolas de pelo",                  cat:"saude",       link:"https://s.shopee.com.br/8V9i0RQPs4", preco:51.99,  aPartir:true, frete:"cupom", estrelas:5.0, avaliacoes:"3,3 mil", vendidos:"6 mil+",  parcelas:{n:10, valor:5.97} },
+  { img:"img/p30.jpg", nome:"Suplemento Ball Free 70 g contra bolas de pelo",                  cat:"saude",       link:"https://s.shopee.com.br/8V9i0RQPs4", preco:120.00,  aPartir:true, frete:"cupom", estrelas:5.0, avaliacoes:"3,3 mil", vendidos:"6 mil+",  parcelas:{n:10, valor:5.97} },
   { img:"img/p34.jpg", nome:"Suplemento Nutrifull Cat Organnact, 30 ml",                       cat:"saude",       link:"https://s.shopee.com.br/113h4jmcIw", preco:47.37,  de:49.86,  desc:5,  frete:"cupom", estrelas:4.9, avaliacoes:"1,5 mil", vendidos:"2 mil+",  parcelas:{n:9,  valor:5.99} },
   { img:"img/p36.jpg", nome:"Óleo de peixe cremoso OmeCat3 para gatos",                        cat:"saude",       link:"https://s.shopee.com.br/70KuDoSkyb", preco:79.90,  frete:"cupom", estrelas:4.6, avaliacoes:"24",      vendidos:"75",      parcelas:{n:12, valor:7.75} },
-  { img:"img/p99.jpg", nome:"Suplemento Ograx Gatos com ômega 3, 30 cápsulas", cat:"saude", link:"https://s.shopee.com.br/2LZdJYGRUG", preco:72.63, de:102.90, desc:29, estrelas:4.8, avaliacoes:"1,4 mil", vendidos:"3 mil" },
+  { img:"img/p99.jpg", nome:"Suplemento Ograx Gatos com ômega 3, 30 cápsulas", cat:"saude", link:"https://s.shopee.com.br/2LZdJYGRUG", preco:84.90, de:102.90, desc:17, estrelas:4.8, avaliacoes:"1,4 mil", vendidos:"3 mil" },
   // ----- Mercado Livre -----
   { img:"img/p27.jpg", nome:"Bebedouro fonte de água Miw 1,5 L com USB",                        cat:"bebedouros", link:"https://meli.la/1NT5mSa", loja:"ml", preco:42.10, de:99.00, desc:57, nota:"no Pix", frete:"gratis", estrelas:4.6, avaliacoes:"761",      vendidos:"10 mil+" },
   { img:"img/p28.jpg", nome:"Areia sanitária Kadi milho e mandioca, 4 kg",                      cat:"higiene",     link:"https://meli.la/2TYmfCd", loja:"ml", preco:26.98, de:37.90,  desc:28, nota:"no Pix", frete:"gratis", estrelas:4.7, avaliacoes:"10,8 mil", vendidos:"50 mil+" },
@@ -860,9 +907,9 @@ var PRODUTOS = [
     else if (p.freteMin) h += '<span class="ship">' + TRUCK + 'Frete grátis acima de R$ ' + p.freteMin + '</span>';
     return h;
   }
-  function mini(p, rank) {
-    return '<a class="mini' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="mais-procurados-' + rank + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
-      '<div class="sq"><img src="' + esc(p.img) + '" alt=""><span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>' + badges(p) + '</div>' +
+  function mini(p, rank, lugar) {
+    return '<a class="mini' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="' + (lugar || "mais-procurados") + '-' + rank + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
+      '<div class="sq"><img src="' + esc(p.img) + '" alt="">' + (lugar ? '' : '<span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>') + badges(p) + '</div>' +
       '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
   }
   function reel(p) {
@@ -908,8 +955,17 @@ var PRODUTOS = [
   var pe = document.getElementById("precos-em"); if (pe) pe.textContent = PRECOS_EM;
   var MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
   var mesN = parseInt(String(PRECOS_EM).split("/")[1], 10);
-  var tm = document.getElementById("top-mes"); if (tm && mesN >= 1 && mesN <= 12) tm.textContent = "de " + MESES[mesN - 1];
-  document.getElementById("top-grid").innerHTML = PRODUTOS.slice(0, 6).map(function (p, i) { return mini(p, i + 1); }).join("");
+  // Black Friday: os produtos de BLACK_FRIDAY, na ordem da lista
+  var bfItens = BLACK_FRIDAY.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
+  document.getElementById("bf-grid").innerHTML = bfItens.map(function (p, i) { return mini(p, i + 1, "black-friday"); }).join("");
+  var bfd = document.getElementById("bf-data"); if (bfd) bfd.textContent = PRECOS_EM;
+  // Painel do grupo: fotos das 3 maiores ofertas
+  var gh = document.getElementById("g-hoje");
+  if (gh && bfItens.length >= 3) {
+    gh.innerHTML = '<span class="th" aria-hidden="true">' + bfItens.slice(0, 3).map(function (p) { return '<span><img src="' + esc(p.img) + '" alt=""></span>'; }).join("") + '</span>' +
+      '<p>Hoje tem até <b>-' + Math.max.apply(null, bfItens.map(function (p) { return p.desc || 0; })) + '%</b><br>e oferta nova todo dia no grupo</p>';
+    gh.hidden = false;
+  }
 
   // Você viu no Instagram
   var instaItens = NO_INSTAGRAM.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
