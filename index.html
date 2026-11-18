@@ -164,10 +164,13 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .bf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 @media (min-width:720px){.bf-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.bf .mini .mb{padding:12px 12px 14px}}
 .bf .mini{border-color:transparent}
-/* cards da Black Friday iguais e compactos: sem avaliações e sem linha de frete, preço sempre na mesma altura */
-.bf .mini .stars,.bf .mini .ship{display:none}
-.bf .mini .mb{gap:8px}
-.bf .mini .price{min-height:44px;align-content:flex-end}
+/* cards da Black Friday: avaliações, preço, parcelas (ou frete) e botão, com alturas fixas para todos ficarem iguais */
+.bf .mini .mb{gap:7px}
+.bf .mini .stars{min-height:2.7em;align-content:flex-start}
+.bf .mini .price{min-height:40px;align-content:flex-end}
+.bf .mini .ship,.bf .mini .parc{min-height:22px;display:flex;align-items:center;margin-top:-2px}
+.bf .mini .parc{gap:4px;font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.bf .mini .parc b{font-weight:800;color:var(--ink)}
 .bf .mini .off{font-size:15px;padding:5px 10px}
 .bf-note{margin:14px 4px 0;font-size:12.5px;color:#a9a19b;text-align:center}
 /* botão do grupo: maior, com brilho pulsando */
@@ -694,13 +697,13 @@ var NO_GRUPO = [
 // 8 produtos com desconto: primeiro as rações (são as que mais vendem), depois os outros. Refazer a cada atualização de preços.
 var BLACK_FRIDAY = [
   "https://s.shopee.com.br/W7z88FpnD",  // ração Origens Class castrados
-  "https://s.shopee.com.br/4VdlbgBzib",  // ração Fórmula Natural Life castrados salmão
   "https://s.shopee.com.br/AUvL2VdlVA",  // ração Quatree Select castrados
+  "https://s.shopee.com.br/9fLrnMYaOj",  // sachê GranPlus Gourmet, display com 18
+  "https://s.shopee.com.br/9pfHzfXx3k",  // sachê Whiskas, leve 20
   "https://s.shopee.com.br/6VPCHANn4o",  // bebedouro automático com filtro
   "https://s.shopee.com.br/6AkhfmvD0o",  // luvas umedecidas para higiene a seco
   "https://s.shopee.com.br/9APxS7L9sS",  // arranhador poste de sisal
   "https://s.shopee.com.br/9V12L28byo",  // arranhador adesivo design gato
-  "https://s.shopee.com.br/1gJwWLI5uN",  // pá coletora inox
 ];
 
 // Fotos que aparecem no painel do grupo, ao lado de "Ração e sachê com até"
@@ -780,13 +783,13 @@ var PRODUTOS = [
   { img:"img/p59.jpg", nome:"Ração Quatree Supreme castrados frango e batata-doce, 10 kg",     cat:"racao",       link:"https://s.shopee.com.br/50a2Em41ZP", preco:199.90, de:259.90, desc:23, frete:"cupom", estrelas:4.9, avaliacoes:"1,7 mil", vendidos:"3 mil+" },
   { img:"img/p65.jpg", nome:"Ração Kin Premium gatos castrados, 10,1 kg",                      cat:"racao",       link:"https://s.shopee.com.br/AKbYaa9uZr", preco:64.99,  de:140.00, desc:54, frete:"cupom", estrelas:4.9, avaliacoes:"298", vendidos:"706" },
   { img:"img/p94.jpg", nome:"Ração BemStar gatos castrados, 10,1 kg", cat:"racao", link:"https://s.shopee.com.br/LoYvpGT8A", preco:73.90, aPartir:true, de:155.99, desc:53, estrelas:4.9, avaliacoes:"1,5 mil", vendidos:"2 mil" },
-  { img:"img/p95.jpg", nome:"Ração Origens Class gatos castrados salmão e frango, 10,1 kg", cat:"racao", link:"https://s.shopee.com.br/W7z88FpnD", preco:141.25, de:422.50, desc:67, estrelas:4.9, avaliacoes:"181", vendidos:"375" },
-  { img:"img/p96.jpg", nome:"Ração Quatree Select gatos castrados frango e arroz, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AUvL2VdlVA", preco:145.05, de:273.31, desc:47, estrelas:5.0, avaliacoes:"389", vendidos:"676" },
+  { img:"img/p95.jpg", nome:"Ração Origens Class gatos castrados salmão e frango, 10,1 kg", cat:"racao", link:"https://s.shopee.com.br/W7z88FpnD", preco:141.25, de:422.50, desc:67, estrelas:4.9, avaliacoes:"181", vendidos:"375", parcelas:{n:12, valor:13.71}},
+  { img:"img/p96.jpg", nome:"Ração Quatree Select gatos castrados frango e arroz, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AUvL2VdlVA", preco:145.05, de:273.31, desc:47, estrelas:5.0, avaliacoes:"389", vendidos:"676", parcelas:{n:12, valor:14.07}},
   { img:"img/p97.jpg", nome:"Ração Quatree Gourmet gatos filhotes carne e leite, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AKbuqCeOq9", preco:130.99, de:233.31, desc:44, estrelas:4.9, avaliacoes:"243", vendidos:"536" },
   { img:"img/p98.jpg", nome:"Ração Quatree Gourmet gatos castrados Delícias do Mar, 10 kg", cat:"racao", link:"https://s.shopee.com.br/AAIUdtf2B8", preco:133.97, de:244.98, desc:45, estrelas:5.0, avaliacoes:"401", vendidos:"755" },
-  { img:"img/p67.jpg", nome:"Sachê Whiskas 85 g, leve 20 (16 + 4 grátis)",                     cat:"racao",       link:"https://s.shopee.com.br/9pfHzfXx3k", preco:53.90, desc:32, de:78.90, frete:"cupom", estrelas:5.0, avaliacoes:"10,3 mil", vendidos:"20 mil+" },
+  { img:"img/p67.jpg", nome:"Sachê Whiskas 85 g, leve 20 (16 + 4 grátis)",                     cat:"racao",       link:"https://s.shopee.com.br/9pfHzfXx3k", preco:53.90, desc:32, de:78.90, frete:"cupom", estrelas:5.0, avaliacoes:"10,3 mil", vendidos:"20 mil+", parcelas:{n:11, valor:5.87}},
   { img:"img/p66.jpg", nome:"Sachê Friskies 85 g, kit com 15",                                 cat:"racao",       link:"https://s.shopee.com.br/9zyiByXJil", preco:41.49, desc:15, de:48.90, aPartir:true, frete:"cupom", estrelas:4.9, avaliacoes:"8,4 mil", vendidos:"10 mil+" },
-  { img:"img/p68.jpg", nome:"Sachê GranPlus Gourmet 85 g, display com 18",                     cat:"racao",       link:"https://s.shopee.com.br/9fLrnMYaOj", preco:45.55, aPartir:true,  de:69.90,  desc:35, frete:"cupom", estrelas:5.0, avaliacoes:"6,2 mil", vendidos:"10 mil+" },
+  { img:"img/p68.jpg", nome:"Sachê GranPlus Gourmet 85 g, display com 18",                     cat:"racao",       link:"https://s.shopee.com.br/9fLrnMYaOj", preco:45.55, aPartir:true,  de:69.90,  desc:35, frete:"cupom", estrelas:5.0, avaliacoes:"6,2 mil", vendidos:"10 mil+", parcelas:{n:9, valor:5.76}},
   { img:"img/p100.jpg", nome:"Petisco purê Churu Inaba, vários sabores", cat:"racao", link:"https://s.shopee.com.br/2Vt3VrFo9J", preco:25.89, aPartir:true, de:69.90, desc:63, estrelas:5.0, avaliacoes:"1,6 mil", vendidos:"4 mil" },
   { img:"img/p10.jpg", nome:"Cápsula de armazenamento de pelos de gato",                       cat:"higiene",     link:"https://s.shopee.com.br/2BEVwopCaM", preco:3.96, aPartir:true,   de:8.10,   desc:51, relampago:true, freteMin:10, estrelas:4.9, avaliacoes:"1,9 mil", vendidos:"10 mil+" },
   { img:"img/p11.jpg", nome:"Areia higiênica Katbom granulado capim-limão, 6 kg",              cat:"higiene",     link:"https://s.shopee.com.br/5VVGyHMl8w", preco:56.18,  de:81.90,  desc:31, freteMin:80, estrelas:5.0, avaliacoes:"2,7 mil", vendidos:"6 mil+", parcelas:{n:12, valor:6.10}, esgotado:true },
@@ -822,7 +825,7 @@ var PRODUTOS = [
   { img:"img/p93.jpg", nome:"Enfeite de Natal gato preto, frajola, siamês ou rajado para canto de porta", cat:"natal", link:"https://s.shopee.com.br/3g50tvvFEU", preco:28.90, aPartir:true, estrelas:5.0, avaliacoes:"549", vendidos:"1 mil" },
   // Novidades de 05/11/2026: produtos dos Reels recentes (sub_id site-instagram) e achadinhos (site-achados)
   { img:"img/p74.jpg", nome:"Cama túnel de pelúcia para gatos, quentinha e lavável", cat:"casa", link:"https://s.shopee.com.br/6AmLsYP3ki", preco:212.39 },
-  { img:"img/p76.jpg", nome:"Bebedouro automático com filtro, 1,5 L, silencioso (USB)", cat:"bebedouros", link:"https://s.shopee.com.br/6VPCHANn4o", preco:39.99, desc:80, de:200.00, estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"4 mil" },
+  { img:"img/p76.jpg", nome:"Bebedouro automático com filtro, 1,5 L, silencioso (USB)", cat:"bebedouros", link:"https://s.shopee.com.br/6VPCHANn4o", preco:39.99, desc:80, de:200.00, estrelas:4.9, avaliacoes:"2,1 mil", vendidos:"4 mil", parcelas:{n:7, valor:6.41}},
   { img:"img/p77.jpg", nome:"Caminha ninho com tapete de aquecimento USB", cat:"casa", link:"https://s.shopee.com.br/6L5m4rOQPn", preco:194.50, aPartir:true},
   { img:"img/p78.jpg", nome:"Etiqueta localizadora antiperda para coleira de gato", cat:"passeio", link:"https://s.shopee.com.br/6q22fmMWOu", preco:47.43, desc:15, de:55.50, estrelas:5.0, avaliacoes:"5" },
   { img:"img/p79.jpg", nome:"Caixa de secagem para gatos depois do banho", cat:"higiene", link:"https://s.shopee.com.br/9fME2zg3HD", preco:138.05, aPartir:true },
@@ -922,7 +925,13 @@ var PRODUTOS = [
   function mini(p, rank, lugar) {
     return '<a class="mini' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="' + (lugar || "mais-procurados") + '-' + rank + '" target="_blank" rel="noopener sponsored" title="' + esc(p.nome) + '">' +
       '<div class="sq"><img src="' + esc(p.img) + '" alt="">' + (lugar ? '' : '<span class="rank' + (rank === 1 ? ' first' : '') + '">' + rank + 'º</span>') + badges(p) + '</div>' +
-      '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + stars(p) + price(p) + buy(p) + '</div></a>';
+      '<div class="mb"><h3>' + esc(p.nome) + '</h3>' + stars(p) + (lugar ? priceBF(p) : price(p)) + buy(p) + '</div></a>';
+  }
+  // Na Black Friday: parcelas no lugar da linha de frete (quando a loja parcela); sem nenhum dos dois, fica uma linha vazia para os cards terem a mesma altura
+  function priceBF(p) {
+    var h = price(p);
+    if (p.parcelas && !p.esgotado) return h.replace(/<span class="ship[\s\S]*$/, '') + '<span class="parc">ou <b>' + p.parcelas.n + 'x</b> de ' + brl(p.parcelas.valor) + '</span>';
+    return /class="ship/.test(h) ? h : h + '<span class="parc"></span>';
   }
   function reel(p) {
     return '<a class="reel' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="instagram" target="_blank" rel="noopener sponsored">' +
