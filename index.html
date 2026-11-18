@@ -315,6 +315,19 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .reel:hover .go .ext{transform:translate(1px,-1px)}
 @media (max-width:380px){.reel .go .ext{display:none}}
 .reel.out>img{filter:grayscale(.7)}
+/* Reels em vídeo (18/11): vídeo 9:16 de fundo e o produto no canto de baixo */
+.reel.rv{aspect-ratio:9/16;background:#1b1714;border-color:transparent}
+.reel.rv video{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;background:#1b1714}
+.reel.rv::after{content:"";position:absolute;inset:auto 0 0;height:45%;z-index:-1;pointer-events:none;background:linear-gradient(to top,rgba(0,0,0,.55),transparent)}
+.reel.rv.out video{filter:grayscale(.7)}
+.rv-prod{position:absolute;left:6px;right:6px;bottom:6px;display:flex;flex-direction:column;gap:6px;padding:6px;border-radius:13px;background:rgba(22,19,17,.86);backdrop-filter:blur(10px) saturate(140%);-webkit-backdrop-filter:blur(10px) saturate(140%);box-shadow:0 8px 20px -10px rgba(0,0,0,.6)}
+.rv-row{display:flex;align-items:center;gap:7px;min-width:0}
+.rv-row img{flex:none;width:40px;height:40px;border-radius:9px;object-fit:cover;background:#fff}
+.rv-txt{display:flex;flex-direction:column;min-width:0}
+.rv-txt b{font-size:12px;line-height:1.25;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv-txt .reel-price{padding:0;font-size:16px;line-height:1.15}
+.rv-txt .reel-price s{font-size:11px}
+.reel.rv .go{margin-top:0}
 .section-note{display:flex;align-items:flex-start;gap:6px;font-size:12.5px;font-weight:600;color:var(--muted);margin:-4px 4px 12px;line-height:1.4}
 .section-note svg{width:15px;height:15px;flex:none;margin-top:1px}
 
@@ -573,7 +586,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
         <button type="button" data-reels="1" aria-label="Avançar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
-    <p class="ig-sub">Os achadinhos que apareceram nos nossos Reels, com o link certinho.</p>
+    <p class="ig-sub">Os vídeos mais vistos do perfil. Toque no produto para comprar.</p>
     <div class="reels-row" id="insta-shelf"></div>
   </section>
 
@@ -714,22 +727,23 @@ var GRUPO_FOTOS = [
 ];
 
 // ===== Você viu no Instagram =====
-// Links dos produtos que apareceram nos vídeos do Instagram, na ordem em que devem aparecer.
-var NO_INSTAGRAM = [
-  "https://s.shopee.com.br/6AmLsYP3ki",  // cama túnel de pelúcia
-  "https://s.shopee.com.br/6VPCHANn4o",  // bebedouro automático com filtro
-  "https://s.shopee.com.br/6L5m4rOQPn",  // caminha com aquecimento
-  "https://s.shopee.com.br/6q22fmMWOu",  // etiqueta localizadora
-  "https://s.shopee.com.br/9pfeFIfPwE",  // petisco Whiskas anti bola de pelo
-  "https://s.shopee.com.br/8fTgr9jrJ3",  // tenda dobrável
-  "https://s.shopee.com.br/1BiXEleLI",  // cama banana
-  "https://s.shopee.com.br/9APxS4hxIA",  // torre de porta
-  "https://s.shopee.com.br/BV8jXl10L",  // pente tira-pulgas
-  "https://s.shopee.com.br/LoYvqkNfO",  // kit de treinamento
-  "https://s.shopee.com.br/8pn73SjDy4",  // bolsa de transporte
-  "https://s.shopee.com.br/20wQaWk0JS",  // mochila bolsa-colete
-  "https://s.shopee.com.br/2BFpnPZ2SQ",  // pelúcia com batimento
-  "https://s.shopee.com.br/9APWIKfPJp"  // saco de dormir caverna
+// Reels com mais visualizações e o produto de cada um. O vídeo fica em videos/<código do Reel>.mp4 (sem som, 480 px)
+// e a capa em videos/<código>.jpg. Novo Reel: baixar, comprimir com o ffmpeg e pôr uma linha aqui.
+var REELS = [
+  { video:"Dc1MRUEu66T", link:"https://s.shopee.com.br/7pu2CAOo78" },  // lagarto robô escalador
+  { video:"DfUYDTMJpIF", link:"https://s.shopee.com.br/6VPCHANn4o" },  // bebedouro automático com filtro
+  { video:"DfSZXCPJSe7", link:"https://s.shopee.com.br/9pfeFIfPwE" },  // petisco Whiskas anti bola de pelo
+  { video:"DewvCIRJ0Kw", link:"https://s.shopee.com.br/20wQaWk0JS" },  // mochila bolsa-colete
+  { video:"DerMIdeJRWy", link:"https://s.shopee.com.br/9APWIKfPJp" },  // saco de dormir caverna
+  { video:"DeWvs1gJIf3", link:"https://s.shopee.com.br/70Kgth4jyY" },  // porta-retrato com patinha
+  { video:"DePspvoplOM", link:"https://s.shopee.com.br/1VzoJnW9la" },  // assento-ninho de carro
+  { video:"DejSY8nJvfm", link:"https://s.shopee.com.br/70KuDoSkyb" },  // óleo de peixe OmeCat3
+  { video:"De7hm5LJKgt", link:"https://s.shopee.com.br/LoYvqkNfO" },  // kit de treinamento para o vaso
+  { video:"DfcxoZuJHz_", link:"https://s.shopee.com.br/3qNtVt0mlN" },  // petisco Optimum anti bola de pelo
+  { video:"DfKeVc-Js76", link:"https://s.shopee.com.br/8fTgr9jrJ3" },  // tenda dobrável
+  { video:"DeaUJwTuAG4", link:"https://s.shopee.com.br/7faY4QJkAl" },  // difusor de feromônio
+  { video:"DebpxVFJaaI", link:"https://s.shopee.com.br/3qNqNbDqeh" },  // cama toca rosquinha
+  { video:"DeUojExJNxz", link:"https://s.shopee.com.br/AAHpjwGPr7" }  // cama de mesa giratória
 ];
 // Seguidores do @imperiofelino_miau (atualizar de vez em quando)
 var IG_SEGUIDORES = "210 mil";
@@ -933,12 +947,13 @@ var PRODUTOS = [
     if (p.parcelas && !p.esgotado) return h.replace(/<span class="ship[\s\S]*$/, '') + '<span class="parc">ou <b>' + p.parcelas.n + 'x</b> de ' + brl(p.parcelas.valor) + '</span>';
     return /class="ship/.test(h) ? h : h + '<span class="parc"></span>';
   }
-  function reel(p) {
-    return '<a class="reel' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="instagram" target="_blank" rel="noopener sponsored">' +
-      '<img src="' + esc(p.img) + '" alt="" loading="lazy">' + (p.esgotado ? badges(p) : (p.desc ? '<span class="off">-' + p.desc + '%</span>' : '')) +
-      '<span class="reel-info"><b>' + esc(p.nome) + '</b>' +
+  function reel(r, p) {
+    return '<a class="reel rv' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="instagram-video" target="_blank" rel="noopener sponsored">' +
+      '<video muted playsinline loop preload="none" poster="videos/' + r.video + '.jpg" data-src="videos/' + r.video + '.mp4" aria-hidden="true"></video>' +
+      (p.esgotado ? badges(p) : (p.desc ? '<span class="off">-' + p.desc + '%</span>' : '')) +
+      '<span class="rv-prod"><span class="rv-row"><img src="' + esc(p.img) + '" alt="" loading="lazy"><span class="rv-txt"><b>' + esc(p.nome) + '</b>' +
       (p.preco ? '<span class="reel-price">' + (p.aPartir ? '<small>a partir de</small>' : '') + brl(p.preco) + (p.de ? '<s>' + brl(p.de) + '</s>' : '') + '</span>' : '') +
-      buy(p) + '</span></a>';
+      '</span></span>' + buy(p) + '</span></a>';
   }
   function card(p) {
     return '<a class="card' + (p.esgotado ? ' out' : '') + '" href="' + esc(p.link) + '" data-loja="' + (p.loja || "shopee") + '" data-nome="' + esc(p.nome) + '" data-lugar="secao-' + p.cat + '" target="_blank" rel="noopener sponsored">' +
@@ -990,14 +1005,33 @@ var PRODUTOS = [
   }
 
   // Você viu no Instagram
-  var instaItens = NO_INSTAGRAM.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
+  var instaItens = REELS.map(function (r) { var p = PRODUTOS.filter(function (x) { return x.link === r.link; })[0]; return p ? { r: r, p: p } : null; }).filter(Boolean);
   var instaSec = document.getElementById("viu-no-instagram");
   var igSeg = document.getElementById("ig-seg"); if (igSeg) igSeg.textContent = IG_SEGUIDORES;
-  if (instaItens.length) document.getElementById("insta-shelf").innerHTML = instaItens.map(reel).join("") +
+  if (instaItens.length) document.getElementById("insta-shelf").innerHTML = instaItens.map(function (x) { return reel(x.r, x.p); }).join("") +
     '<a class="reel reel-more" href="https://instagram.com/imperiofelino_miau" target="_blank" rel="noopener">' +
       '<span class="rm-ring"><img src="img/avatar.jpg" alt=""></span><b>Achadinho novo todo dia nos Reels</b>' +
       '<span class="rm-btn">Ver no Instagram</span></a>';
   else if (instaSec) instaSec.hidden = true;
+  // Vídeos dos Reels: carregam quando chegam perto da tela e tocam (sem som) só enquanto aparecem
+  (function () {
+    var vids = document.querySelectorAll("#insta-shelf video");
+    if (!vids.length) return;
+    var calmo = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function carrega(v) { if (!v.src) { v.src = v.dataset.src; } }
+    if (!("IntersectionObserver" in window)) { vids.forEach(function (v) { carrega(v); if (!calmo) v.play().catch(function () {}); }); return; }
+    var perto = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { carrega(e.target); perto.unobserve(e.target); } });
+    }, { rootMargin: "200px 400px" });
+    var tela = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting && !calmo) { carrega(v); var pr = v.play(); if (pr) pr.catch(function () {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.6 });
+    vids.forEach(function (v) { perto.observe(v); tela.observe(v); });
+  })();
   (function () {
     var row = document.getElementById("insta-shelf"), bts = document.querySelectorAll("[data-reels]");
     function upd() {
