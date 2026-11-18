@@ -127,7 +127,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .offers h2 .l1 em::after{display:none}
 .offers h2 em{font-style:normal;color:#fff36b;position:relative;white-space:nowrap}
 .offers h2 em::after{content:"";position:absolute;left:-2px;right:-2px;bottom:-.12em;height:.22em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M2 7 C 20 2, 40 2, 55 5 S 85 9, 98 3' fill='none' stroke='%23fff36b' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%}
-.offers .lead{font-size:clamp(17px,2.4vw,20px);font-weight:600;line-height:1.4;max-width:28ch;color:#fff}
+.offers .lead{font-size:clamp(16px,2.2vw,19px);font-weight:600;line-height:1.4;max-width:30ch;color:#fff}
 .offers .lead b{color:#fff36b;font-weight:800}
 /* fundo do painel: patinhas e brilhos suaves */
 .offers::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
@@ -534,10 +534,12 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
   <section class="offers" id="grupo" aria-labelledby="grupo-titulo">
     <div class="offers-copy">
       <h2 id="grupo-titulo" class="g-title">Ofertas para gatos <em>no seu WhatsApp</em></h2>
+      <p class="lead">Ofertas e cupons da Shopee e do Mercado Livre chegam <b>primeiro no grupo</b>, inclusive os da Black Friday.</p>
       <div class="g-hoje" id="g-hoje" hidden></div>
       <div class="actions">
         <a class="btn btn-cta" id="btn-grupo" href="#grupo"><span class="cta-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg></span><span class="cta-txt"><b>Entrar no grupo</b><small>do WhatsApp · é grátis</small></span><span class="cta-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
+      <p class="cta-note">Grátis, sem spam e você sai quando quiser.</p>
     </div>
   </section>
   </div>
@@ -966,7 +968,7 @@ var PRODUTOS = [
   if (sache) fotos.splice(1, 0, sache);
   if (gh && fotos.length >= 3) {
     gh.innerHTML = '<span class="th" aria-hidden="true">' + fotos.map(function (p) { return '<span><img src="' + esc(p.img) + '" alt=""></span>'; }).join("") + '</span>' +
-      '<p>Ração e sachê<br>com até <b>-' + rs[0].desc + '%</b></p>';
+      '<p>Ração e sachê com até <b>-' + rs[0].desc + '%</b><br>e oferta nova todo dia</p>';
     gh.hidden = false;
   }
 
