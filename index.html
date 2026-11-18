@@ -482,6 +482,13 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;marg
 .cta-txt small{font-size:clamp(14px,4vw,16px);color:#064e2b}
 .cta-go{width:46px;height:46px;background:#052e16}
 @media (max-width:420px){.cta-ic{width:52px;height:52px}.cta-ic svg{width:32px;height:32px}.cta-go{width:42px;height:42px}.cta-txt small{font-size:14px}}
+/* botão do grupo (18/11): verde do WhatsApp com borda branca, brilho no topo e seta branca, para destacar do painel */
+.btn.btn-cta{min-height:80px;background:linear-gradient(180deg,#48f08b 0%,#25d366 52%,#1bb455 100%);border:3px solid #fff;box-shadow:0 18px 34px -14px rgba(0,0,0,.7),inset 0 2px 0 rgba(255,255,255,.5),inset 0 -3px 0 rgba(0,0,0,.08)}
+.btn.btn-cta:hover{filter:brightness(1.04)}
+.cta-ic{box-shadow:0 0 0 4px rgba(255,255,255,.35),0 6px 14px -6px rgba(0,0,0,.45)}
+.cta-txt b{color:#03301a}
+.cta-txt small{color:#05452a}
+.cta-go{background:#fff;color:#16a34a;box-shadow:0 6px 14px -8px rgba(0,0,0,.5)}
 .btn-wa{background:#25d366;color:#052e16;border:0;box-shadow:0 14px 28px -14px rgba(0,0,0,.55)}
 .btn-wa:hover{transform:translateY(-1px);box-shadow:0 18px 30px -14px rgba(0,0,0,.6)}
 /* Seções: "Ver todos" abre a prateleira em grade; no computador mostra 2 linhas antes de abrir */
@@ -959,11 +966,15 @@ var PRODUTOS = [
   var bfItens = BLACK_FRIDAY.map(function (l) { return PRODUTOS.filter(function (p) { return p.link === l; })[0]; }).filter(Boolean);
   document.getElementById("bf-grid").innerHTML = bfItens.map(function (p, i) { return mini(p, i + 1, "black-friday"); }).join("");
   var bfd = document.getElementById("bf-data"); if (bfd) bfd.textContent = PRECOS_EM;
-  // Painel do grupo: fotos das 3 maiores ofertas
+  // Painel do grupo: fotos de 3 rações e sachês do site com desconto (o maior desconto aparece no texto)
   var gh = document.getElementById("g-hoje");
-  if (gh && bfItens.length >= 3) {
-    gh.innerHTML = '<span class="th" aria-hidden="true">' + bfItens.slice(0, 3).map(function (p) { return '<span><img src="' + esc(p.img) + '" alt=""></span>'; }).join("") + '</span>' +
-      '<p>Hoje tem até <b>-' + Math.max.apply(null, bfItens.map(function (p) { return p.desc || 0; })) + '%</b><br>e oferta nova todo dia no grupo</p>';
+  var rs = PRODUTOS.filter(function (p) { return p.cat === "racao" && p.desc && !p.esgotado; }).sort(function (a, b) { return b.desc - a.desc; });
+  var sache = rs.filter(function (p) { return /sach/i.test(p.nome); })[0];
+  var fotos = rs.filter(function (p) { return /ração/i.test(p.nome); }).slice(0, sache ? 2 : 3);
+  if (sache) fotos.splice(1, 0, sache);
+  if (gh && fotos.length >= 3) {
+    gh.innerHTML = '<span class="th" aria-hidden="true">' + fotos.map(function (p) { return '<span><img src="' + esc(p.img) + '" alt=""></span>'; }).join("") + '</span>' +
+      '<p>Ração e sachê com até <b>-' + rs[0].desc + '%</b><br>e oferta nova todo dia no grupo</p>';
     gh.hidden = false;
   }
 
